@@ -28,7 +28,7 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -44,15 +44,26 @@
             text-decoration: underline;
         }
 
+        /* Stil för språkväljare (svenska och engelska flaggor) */
         .language-switcher {
-            margin-right: 20px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
         }
 
         .language-switcher img {
-            width: 30px;
-            height: 20px;
+            width: 40px;
+            height: auto;
             cursor: pointer;
-            margin-left: 10px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .language-switcher img:hover {
+            transform: scale(1.1);
         }
 
         .container {
@@ -89,6 +100,7 @@
             margin-bottom: 20px;
         }
 
+        /* Färg för olika nivåer */
         .green { background-color: #43a047; }
         .yellow { background-color: #ffeb3b; color: black; }
         .blue { background-color: #2196f3; }
@@ -143,20 +155,18 @@
 
     <!-- Navigering -->
     <nav>
-        <div>
-            <a href="#green" class="nav-link">Grön Nivå</a>
-            <a href="#yellow" class="nav-link">Gul Nivå</a>
-            <a href="#blue" class="nav-link">Blå Nivå</a>
-            <a href="#red" class="nav-link">Röd Nivå</a>
-            <a href="#black" class="nav-link">Svart Nivå</a>
-        </div>
-
-        <!-- Språkväljare -->
-        <div class="language-switcher">
-            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
-            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
-        </div>
+        <a href="#green" class="nav-link">Grön Nivå</a>
+        <a href="#yellow" class="nav-link">Gul Nivå</a>
+        <a href="#blue" class="nav-link">Blå Nivå</a>
+        <a href="#red" class="nav-link">Röd Nivå</a>
+        <a href="#black" class="nav-link">Svart Nivå</a>
     </nav>
+
+    <!-- Språkväljare -->
+    <div class="language-switcher">
+        <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
+        <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
+    </div>
 
     <!-- Startsida -->
     <div class="container">
@@ -183,9 +193,6 @@
         <ul>
             <li><a href="https://share.matchi.com/activities/1451" id="yellow-link-1">Tennispasset Gul</a></li>
             <li><a href="https://share.matchi.com/activities/93468" id="yellow-link-2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" id="yellow-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" id="yellow-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" id="yellow-link-5">Tennispasset Gul 90 minuter</a></li>
         </ul>
     </div>
 
@@ -196,35 +203,24 @@
         <ul>
             <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Tennispasset Blå</a></li>
             <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" id="blue-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" id="blue-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" id="blue-link-5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
         </ul>
     </div>
 
     <!-- Röd Nivå -->
     <div id="red" class="level red">
         <h2 id="red-title">Röd Nivå (4/5)</h2>
-        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan.</p>
+        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" id="red-link-3">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" id="red-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" id="red-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
         </ul>
     </div>
 
     <!-- Svart Nivå -->
     <div id="black" class="level black">
         <h2 id="black-title">Svart Nivå (5/5)</h2>
-        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer.</p>
+        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" id="black-link-3">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" id="black-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" id="black-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
         </ul>
     </div>
 
@@ -247,33 +243,26 @@
           document.getElementById('explore-button').innerHTML = 'Explore activities';
 
           document.getElementById('green-title').innerHTML = 'Green Level (1/5)';
-          document.getElementById('green-description').innerHTML = 'The green level is for beginners who want to learn the basics of tennis.';
+          document.getElementById('green-description').innerHTML = 'The green level is for beginners.';
           document.getElementById('green-link-1').innerHTML = 'Green Tennis Session';
           document.getElementById('green-link-2').innerHTML = 'Beginner Course';
 
           document.getElementById('yellow-title').innerHTML = 'Yellow Level (2/5)';
-          document.getElementById('yellow-description').innerHTML = 'At the yellow level, you are expected to have a basic understanding of tennis.';
+          document.getElementById('yellow-description').innerHTML = 'The yellow level requires a basic understanding of tennis.';
           document.getElementById('yellow-link-1').innerHTML = 'Yellow Tennis Session';
-          document.getElementById('yellow-link-2').innerHTML = 'Continuing Course';
 
           document.getElementById('blue-title').innerHTML = 'Blue Level (3/5)';
-          document.getElementById('blue-description').innerHTML = 'The blue level is for players who can master the game, control pace, and use different spins.';
+          document.getElementById('blue-description').innerHTML = 'The blue level is for those who have mastered the game and can control the ball precisely.';
           document.getElementById('blue-link-1').innerHTML = 'Blue Tennis Session';
-          document.getElementById('blue-link-2').innerHTML = 'Blue Tennis Session 90 Minutes';
-          document.getElementById('blue-link-3').innerHTML = 'Footwork Tennis Session Yellow/Blue';
-          document.getElementById('blue-link-4').innerHTML = 'Basic Stroke Technique Tennis Session, Yellow/Blue';
+          document.getElementById('blue-link-2').innerHTML = 'Blue Tennis Session 90 minutes';
 
           document.getElementById('red-title').innerHTML = 'Red Level (4/5)';
-          document.getElementById('red-description').innerHTML = 'The red level is for players who can play at a high pace, cover the court, and vary spin and tempo.';
+          document.getElementById('red-description').innerHTML = 'The red level is for players who play at high pace and can vary their techniques.';
           document.getElementById('red-link-1').innerHTML = 'Red Tennis Session';
-          document.getElementById('red-link-2').innerHTML = 'Footwork Tennis Session Red/Black';
-          document.getElementById('red-link-3').innerHTML = 'Red Tennis Session 90 Minutes';
-          document.getElementById('red-link-4').innerHTML = 'Basic Stroke Technique Tennis Session, Red/Black';
 
           document.getElementById('black-title').innerHTML = 'Black Level (5/5)';
-          document.getElementById('black-description').innerHTML = 'The black level is for advanced players, including former competitors with extensive experience.';
+          document.getElementById('black-description').innerHTML = 'The black level is for advanced players with long experience in tennis.';
           document.getElementById('black-link-1').innerHTML = 'Black Tennis Session';
-          document.getElementById('black-link-2').innerHTML = 'Black Tennis Session 90 Minutes';
 
           document.getElementById('swedish-flag').style.display = 'inline';
           document.getElementById('english-flag').style.display = 'none';
@@ -285,7 +274,7 @@
           document.getElementById('explore-button').innerHTML = 'Utforska aktiviteter';
 
           document.getElementById('green-title').innerHTML = 'Grön Nivå (1/5)';
-          document.getElementById('green-description').innerHTML = 'Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare.';
+          document.getElementById('green-description').innerHTML = 'Grön nivå passar dig som är nybörjare.';
           document.getElementById('green-link-1').innerHTML = 'Tennispasset Grön';
           document.getElementById('green-link-2').innerHTML = 'Nybörjarkurs';
 
