@@ -44,7 +44,7 @@
             text-decoration: underline;
         }
 
-        /* Stil för språkväljare (svenska och engelska flaggor) */
+        /* Stil för språkväljare (svenska, engelska och kinesiska flaggor) */
         .language-switcher {
             position: fixed;
             top: 20px;
@@ -166,6 +166,7 @@
     <div class="language-switcher">
         <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
         <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
+        <img src="chinese-flag.png" id="chinese-flag" alt="Chinese" onclick="switchToChinese()" style="display: none;">
     </div>
 
     <!-- Startsida -->
@@ -266,6 +267,7 @@
 
           document.getElementById('swedish-flag').style.display = 'inline';
           document.getElementById('english-flag').style.display = 'none';
+          document.getElementById('chinese-flag').style.display = 'none';
       }
 
       function switchToSwedish() {
@@ -284,6 +286,39 @@
 
           document.getElementById('english-flag').style.display = 'inline';
           document.getElementById('swedish-flag').style.display = 'none';
+          document.getElementById('chinese-flag').style.display = 'none';
+      }
+
+      function switchToChinese() {
+          document.getElementById('main-heading').innerHTML = '乌列维网球俱乐部活动菜单';
+          document.getElementById('intro-text').innerHTML = '“五个级别，无限可能 - 适合所有级别的球员，位于市中心。”';
+          document.getElementById('explore-button').innerHTML = '探索活动';
+
+          document.getElementById('green-title').innerHTML = '绿色级别 (1/5)';
+          document.getElementById('green-description').innerHTML = '绿色级别适合初学者或曾经打过非常少的网球的人。';
+          document.getElementById('green-link-1').innerHTML = '绿色网球课程';
+          document.getElementById('green-link-2').innerHTML = '初学者课程';
+
+          document.getElementById('yellow-title').innerHTML = '黄色级别 (2/5)';
+          document.getElementById('yellow-description').innerHTML = '黄色级别要求具备基本的网球理解。';
+          document.getElementById('yellow-link-1').innerHTML = '黄色网球课程';
+
+          document.getElementById('blue-title').innerHTML = '蓝色级别 (3/5)';
+          document.getElementById('blue-description').innerHTML = '蓝色级别适合已经掌握网球技巧，能够控制球的玩家。';
+          document.getElementById('blue-link-1').innerHTML = '蓝色网球课程';
+          document.getElementById('blue-link-2').innerHTML = '蓝色网球课程 90 分钟';
+
+          document.getElementById('red-title').innerHTML = '红色级别 (4/5)';
+          document.getElementById('red-description').innerHTML = '红色级别适合能够以高节奏比赛的球员。';
+          document.getElementById('red-link-1').innerHTML = '红色网球课程';
+
+          document.getElementById('black-title').innerHTML = '黑色级别 (5/5)';
+          document.getElementById('black-description').innerHTML = '黑色级别适合最为先进的球员。';
+          document.getElementById('black-link-1').innerHTML = '黑色网球课程';
+
+          document.getElementById('swedish-flag').style.display = 'none';
+          document.getElementById('english-flag').style.display = 'none';
+          document.getElementById('chinese-flag').style.display = 'inline';
       }
     </script>
 
