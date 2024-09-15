@@ -44,6 +44,19 @@
             text-decoration: underline;
         }
 
+        /* Språkväljare (flaggknapp) */
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .language-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
         .container {
             padding: 50px 20px;
             text-align: center;
@@ -143,96 +156,87 @@
 
     <!-- Navigering -->
     <nav>
-        <a href="#green">Grön Nivå</a>
-        <a href="#yellow">Gul Nivå</a>
-        <a href="#blue">Blå Nivå</a>
-        <a href="#red">Röd Nivå</a>
-        <a href="#black">Svart Nivå</a>
+        <a href="#green" class="nav-link">Grön Nivå</a>
+        <a href="#yellow" class="nav-link">Gul Nivå</a>
+        <a href="#blue" class="nav-link">Blå Nivå</a>
+        <a href="#red" class="nav-link">Röd Nivå</a>
+        <a href="#black" class="nav-link">Svart Nivå</a>
+
+        <!-- Språkväljare -->
+        <div class="language-switcher">
+            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
+            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
+        </div>
     </nav>
 
     <!-- Startsida -->
     <div class="container">
         <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1>Ullevi Tennisklubb Aktivitetsmeny</h1>
-        <p>“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
-        <a href="#green" class="btn">Utforska aktiviteter</a>
+        <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
+        <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
+        <a href="#green" class="btn" id="explore-button">Utforska aktiviteter</a>
     </div>
 
     <!-- Grön Nivå -->
     <div id="green" class="level green">
-        <h2>Grön Nivå (1/5)</h2>
-        <p>Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.</p>
+        <h2 id="green-title">Grön Nivå (1/5)</h2>
+        <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1397" target="_blank">Tennispasset Grön</a></li>
-            <li><a href="https://share.matchi.com/occasions/1440456" target="_blank">Nybörjarkurs</a></li>
-            <li><a href="#" target="_blank">Privatlektion</a></li>
+            <li><a href="https://share.matchi.com/activities/1397" id="green-link-1">Tennispasset Grön</a></li>
+            <li><a href="https://share.matchi.com/occasions/1440456" id="green-link-2">Nybörjarkurs</a></li>
+            <li><a href="#" id="green-link-3">Privatlektion</a></li>
         </ul>
     </div>
 
     <!-- Gul Nivå -->
     <div id="yellow" class="level yellow">
-        <h2>Gul Nivå (2/5)</h2>
-        <p>På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.</p>
+        <h2 id="yellow-title">Gul Nivå (2/5)</h2>
+        <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1451" target="_blank">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" target="_blank">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" target="_blank">Tennispasset Gul 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/1451" id="yellow-link-1">Tennispasset Gul</a></li>
+            <li><a href="https://share.matchi.com/activities/93468" id="yellow-link-2">Fortsättningskurs</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" id="yellow-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" id="yellow-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91433" id="yellow-link-5">Tennispasset Gul 90 minuter</a></li>
         </ul>
     </div>
 
     <!-- Blå Nivå -->
     <div id="blue" class="level blue">
-        <h2>Blå Nivå (3/5)</h2>
-        <p>Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
+        <h2 id="blue-title">Blå Nivå (3/5)</h2>
+        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1447" target="_blank">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" target="_blank">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Tennispasset Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Tennispasset Blå 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" id="blue-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" id="blue-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/115001" id="blue-link-5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
         </ul>
     </div>
 
     <!-- Röd Nivå -->
     <div id="red" class="level red">
-        <h2>Röd Nivå (4/5)</h2>
-        <p>På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
+        <h2 id="red-title">Röd Nivå (4/5)</h2>
+        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1448" target="_blank">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" target="_blank">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116993" target="_blank">Tennispasset Röd (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Tennispasset Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Tennispasset Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89918" id="red-link-3">Tennispasset Röd 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" id="red-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" id="red-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
         </ul>
     </div>
 
     <!-- Svart Nivå -->
     <div id="black" class="level black">
-        <h2>Svart Nivå (5/5)</h2>
-        <p>Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.</p>
+        <h2 id="black-title">Svart Nivå (5/5)</h2>
+        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1450" target="_blank">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" target="_blank">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Tennispasset Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Tennispasset Svart 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" id="black-link-3">Tennispasset Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" id="black-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" id="black-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
         </ul>
     </div>
 
@@ -247,7 +251,26 @@
           console.log('Service Worker registrering misslyckades:', error);
         });
       }
-    </script>
 
-</body>
-</html>
+      /* Funktioner för att växla språk */
+      function switchToEnglish() {
+          document.getElementById('main-heading').innerHTML = 'Ullevi Tennis Club Activity Menu';
+          document.getElementById('intro-text').innerHTML = '“Five levels, endless possibilities – for players of all levels right in the center.”';
+          document.getElementById('explore-button').innerHTML = 'Explore activities';
+
+          document.getElementById('green-title').innerHTML = 'Green Level (1/5)';
+          document.getElementById('green-description').innerHTML = 'The green level is for beginners or those who have played very little. Focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control. The goal is for you to be able to play with another player. For beginners, there is the option to borrow a tennis racket for free during the first sessions.';
+          document.getElementById('green-link-1').innerHTML = 'Green Tennis Session';
+          document.getElementById('green-link-2').innerHTML = 'Beginner Course';
+          document.getElementById('green-link-3').innerHTML = 'Private Lesson';
+
+          document.getElementById('yellow-title').innerHTML = 'Yellow Level (2/5)';
+          document.getElementById('yellow-description').innerHTML = 'At the yellow level, you are expected to have a basic understanding of tennis. You can maintain play, participate in simple matches, and have basic knowledge of tactics and movement patterns on the court.';
+          document.getElementById('yellow-link-1').innerHTML = 'Yellow Tennis Session';
+          document.getElementById('yellow-link-2').innerHTML = 'Continuing Course';
+          document.getElementById('yellow-link-3').innerHTML = 'Footwork Tennis Session Yellow/Blue';
+          document.getElementById('yellow-link-4').innerHTML = 'Basic Stroke Technique Tennis Session, Yellow/Blue';
+          document.getElementById('yellow-link-5').innerHTML = 'Yellow Tennis Session 90 Minutes';
+
+          document.getElementById('blue-title').innerHTML = 'Blue Level (3/5)';
+          document.getElementById('blue-description').innerHTML = 'The blue level is for you who master the game and can move effectively across the entire court. You can control the pace, place the ball with precision, and use various types of
