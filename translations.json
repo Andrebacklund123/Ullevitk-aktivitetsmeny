@@ -1,0 +1,48 @@
+{{
+    "sv": {
+      "main-heading": "Ullevi Tennisklubb Aktivitetsmeny",
+      "intro-text": "“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”",
+      "explore-button": "Utforska aktiviteter",
+      "green-title": "Grön Nivå (1/5)",
+      "green-description": "Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll.",
+      "yellow-title": "Gul Nivå (2/5)",
+      "yellow-description": "På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.",
+      "blue-title": "Blå Nivå (3/5)",
+      "blue-description": "Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.",
+      "red-title": "Röd Nivå (4/5)",
+      "red-description": "På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd.",
+      "black-title": "Svart Nivå (5/5)",
+      "black-description": "Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis."
+    },
+    "en": {
+      "main-heading": "Ullevi Tennis Club Activity Menu",
+      "intro-text": "“Five levels, endless possibilities – for players of all levels right in the center.”",
+      "explore-button": "Explore activities",
+      "green-title": "Green Level (1/5)",
+      "green-description": "The green level is for beginners or those who have played very little. Focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control.",
+      "yellow-title": "Yellow Level (2/5)",
+      "yellow-description": "At the yellow level, you are expected to have a basic understanding of tennis. You can maintain play, participate in simple matches, and have basic knowledge of tactics and movement patterns on the court.",
+      "blue-title": "Blue Level (3/5)",
+      "blue-description": "The blue level is for you who master the game and can move effectively across the entire court. You can control the pace, place the ball with precision, and use various types of spin.",
+      "red-title": "Red Level (4/5)",
+      "red-description": "At the red level, you play at a high pace with few mistakes and can handle matches against various types of opponents.",
+      "black-title": "Black Level (5/5)",
+      "black-description": "The black level is for the most advanced players, often former competitive players or those with long experience in tennis."
+    },
+    "zh": {
+      "main-heading": "乌尔维网球俱乐部活动菜单",
+      "intro-text": "“五个级别，无限可能——适合所有级别的球员。”",
+      "explore-button": "探索活动",
+      "green-title": "绿色级别（1/5）",
+      "green-description": "绿色级别适合初学者或很少打过球的人。重点是学习网球的基本知识，例如握拍、挥拍、步法和控球。",
+      "yellow-title": "黄色级别（2/5）",
+      "yellow-description": "在黄色级别，您应具备网球的基本理解。您可以保持比赛，参与简单的比赛，并对场地上的战术和运动模式有基本的了解。",
+      "blue-title": "蓝色级别（3/5）",
+      "blue-description": "蓝色级别适合掌握了比赛并能够有效移动整个球场的玩家。您可以控制节奏，精准放置球，并使用各种旋转技术。",
+      "red-title": "红色级别（4/5）",
+      "red-description": "在红色级别，您以高速度比赛，犯错很少，并且能够应对各种类型的对手。",
+      "black-title": "黑色级别（5/5）",
+      "black-description": "黑色级别适合最先进的玩家，通常是前竞争对手或拥有丰富网球经验的人。"
+    }
+  }
+  
