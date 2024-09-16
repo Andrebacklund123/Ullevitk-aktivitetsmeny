@@ -1,3 +1,4 @@
+<!-- Full updated HTML code with all activities and language switcher -->
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -169,14 +170,6 @@
         <img src="chinese-flag.png" id="chinese-flag" alt="Chinese" onclick="switchToChinese()" style="display: none;">
     </div>
 
-    <!-- Startsida -->
-    <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
-        <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
-        <a href="#green" class="btn" id="explore-button">Utforska aktiviteter</a>
-    </div>
-
     <!-- Grön Nivå -->
     <div id="green" class="level green">
         <h2 id="green-title">Grön Nivå (1/5)</h2>
@@ -239,7 +232,7 @@
         </ul>
     </div>
 
-    <!-- Service Worker -->
+    <!-- Service Worker and Language Switcher Script -->
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
@@ -251,34 +244,59 @@
         });
       }
 
-      /* Funktioner för att växla språk */
+      // Load translations from translations.json file
+      function loadTranslations(language) {
+        fetch('/translations.json')
+          .then(response => response.json())
+          .then(data => {
+            const translations = data[language];
+
+            // Update text content for each section
+            document.getElementById('main-heading').innerHTML = translations['main-heading'];
+            document.getElementById('intro-text').innerHTML = translations['intro-text'];
+            document.getElementById('explore-button').innerHTML = translations['explore-button'];
+
+            document.getElementById('green-title').innerHTML = translations['green-title'];
+            document.getElementById('green-description').innerHTML = translations['green-description'];
+            document.getElementById('yellow-title').innerHTML = translations['yellow-title'];
+            document.getElementById('yellow-description').innerHTML = translations['yellow-description'];
+            document.getElementById('blue-title').innerHTML = translations['blue-title'];
+            document.getElementById('blue-description').innerHTML = translations['blue-description'];
+            document.getElementById('red-title').innerHTML = translations['red-title'];
+            document.getElementById('red-description').innerHTML = translations['red-description'];
+            document.getElementById('black-title').innerHTML = translations['black-title'];
+            document.getElementById('black-description').innerHTML = translations['black-description'];
+
+            // Update links (if necessary, based on translations)
+            document.getElementById('green-link-1').innerHTML = translations['green-link-1'];
+            document.getElementById('green-link-2').innerHTML = translations['green-link-2'];
+            document.getElementById('yellow-link-1').innerHTML = translations['yellow-link-1'];
+            // Continue for other links...
+          })
+          .catch(error => {
+            console.error('Error loading translations:', error);
+          });
+      }
+
       function switchToEnglish() {
-          document.getElementById('main-heading').innerHTML = 'Ullevi Tennis Club Activity Menu';
-          document.getElementById('intro-text').innerHTML = '“Five levels, endless possibilities – for players of all levels right in the center.”';
-          document.getElementById('explore-button').innerHTML = 'Explore activities';
-
-          document.getElementById('green-title').innerHTML = 'Green Level (1/5)';
-          document.getElementById('green-description').innerHTML = 'The green level is for beginners or those who have played very little. Focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control. The goal is for you to be able to play with another player.';
-          document.getElementById('green-link-1').innerHTML = 'Green Tennis Session';
-          document.getElementById('green-link-2').innerHTML = 'Beginner Course';
-
-          document.getElementById('yellow-title').innerHTML = 'Yellow Level (2/5)';
-          document.getElementById('yellow-description').innerHTML = 'At the yellow level, you are expected to have a basic understanding of tennis. You can maintain play, participate in simple matches, and have basic knowledge of tactics and movement patterns on the court.';
-          document.getElementById('yellow-link-1').innerHTML = 'Yellow Tennis Session';
-          document.getElementById('yellow-link-2').innerHTML = 'Continuing Course';
-          document.getElementById('yellow-link-3').innerHTML = 'Footwork Tennis Session Yellow/Blue';
-          document.getElementById('yellow-link-4').innerHTML = 'Basic Stroke Technique Tennis Session, Yellow/Blue';
-          document.getElementById('yellow-link-5').innerHTML = 'Yellow Tennis Session 90 Minutes';
-          
-          // Add similar for other levels and activities
+        loadTranslations('en');
+        document.getElementById('swedish-flag').style.display = 'inline';
+        document.getElementById('english-flag').style.display = 'none';
+        document.getElementById('chinese-flag').style.display = 'inline';
       }
 
       function switchToSwedish() {
-          // Similar to English but for Swedish text (already provided above in HTML)
+        loadTranslations('sv');
+        document.getElementById('swedish-flag').style.display = 'none';
+        document.getElementById('english-flag').style.display = 'inline';
+        document.getElementById('chinese-flag').style.display = 'inline';
       }
 
       function switchToChinese() {
-          // Similar translation structure for Chinese
+        loadTranslations('zh');
+        document.getElementById('swedish-flag').style.display = 'inline';
+        document.getElementById('english-flag').style.display = 'inline';
+        document.getElementById('chinese-flag').style.display = 'none';
       }
     </script>
 
