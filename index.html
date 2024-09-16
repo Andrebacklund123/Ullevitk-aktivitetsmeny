@@ -1,4 +1,3 @@
-<!-- Full updated HTML code with all activities and language switcher -->
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -18,12 +17,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a237e;
-            color: #ffffff;
+            background-color: #1a237e; /* Navyblå bakgrund */
+            color: #ffffff; /* Vit text för bättre kontrast */
         }
 
         nav {
-            background-color: #0d47a1;
+            background-color: #0d47a1; /* Mörkare navy för navigation */
             padding: 15px;
             position: sticky;
             top: 0;
@@ -37,7 +36,7 @@
             color: white;
             margin: 0 15px;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.3rem; /* Större text för bättre läsbarhet */
             font-weight: bold;
         }
 
@@ -45,26 +44,17 @@
             text-decoration: underline;
         }
 
+        /* Språkväljare (flaggknapp) */
         .language-switcher {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 2000;
         }
 
         .language-switcher img {
-            width: 40px;
-            height: auto;
+            width: 30px;
+            height: 20px;
             cursor: pointer;
-            border: 2px solid #ffffff;
-            border-radius: 5px;
-            transition: transform 0.2s ease;
-        }
-
-        .language-switcher img:hover {
-            transform: scale(1.1);
         }
 
         .container {
@@ -73,26 +63,26 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3rem; /* Större rubrik för startsidan */
             color: #ffffff;
             margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Större brödtext för bättre läsbarhet */
             margin-bottom: 40px;
-            color: #e0e0e0;
+            color: #e0e0e0; /* Ljusare grå för bättre kontrast */
         }
 
         .level {
             margin: 20px auto;
             padding: 40px;
             border-radius: 10px;
-            background-color: #3949ab;
+            background-color: #3949ab; /* Ljusare navyblå för nivåboxar */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             max-width: 800px;
-            color: #ffffff;
-            border: 3px solid #e0e0e0;
+            color: #ffffff; /* Vit text i nivåboxarna */
+            border: 3px solid #e0e0e0; /* Snygga ramar runt varje nivå */
         }
 
         .level h2 {
@@ -101,9 +91,19 @@
             margin-bottom: 20px;
         }
 
-        /* Färger för nivåer */
+        /* Grön Nivå */
         .green { background-color: #43a047; }
-        .yellow { background-color: #ffeb3b; color: black; }
+
+        /* Gul Nivå - Text och länkar i svart */
+        .yellow {
+            background-color: #ffeb3b;
+            color: black; /* Svart text för gul nivå */
+        }
+
+        .yellow h2, .yellow p, .yellow ul li a {
+            color: black; /* Svart text och länkar */
+        }
+
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -118,20 +118,19 @@
         }
 
         ul li a {
-            color: #bbdefb;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffeb3b; /* Gul färg för knappar */
+            color: black;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         ul li a:hover {
-            text-decoration: underline;
-        }
-
-        img {
-            width: 250px;
-            height: auto;
-            margin-top: 30px;
+            background-color: #ffcc00;
         }
 
         .btn {
@@ -148,8 +147,9 @@
         }
 
         .btn:hover {
-            background-color: #002171;
+            background-color: #002171; /* Ändra knappfärg vid hover */
         }
+
     </style>
 </head>
 <body>
@@ -161,13 +161,21 @@
         <a href="#blue" class="nav-link">Blå Nivå</a>
         <a href="#red" class="nav-link">Röd Nivå</a>
         <a href="#black" class="nav-link">Svart Nivå</a>
+
+        <!-- Språkväljare -->
+        <div class="language-switcher">
+            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
+            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
+            <img src="chinese-flag.png" id="chinese-flag" alt="Chinese" onclick="switchToChinese()" style="display: none;">
+        </div>
     </nav>
 
-    <!-- Språkväljare -->
-    <div class="language-switcher">
-        <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
-        <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
-        <img src="chinese-flag.png" id="chinese-flag" alt="Chinese" onclick="switchToChinese()" style="display: none;">
+    <!-- Startsida -->
+    <div class="container">
+        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
+        <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
+        <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
+        <a href="#green" class="btn" id="explore-button">Utforska aktiviteter</a>
     </div>
 
     <!-- Grön Nivå -->
@@ -175,8 +183,8 @@
         <h2 id="green-title">Grön Nivå (1/5)</h2>
         <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1397" id="green-link-1">Tennispasset Grön</a></li>
-            <li><a href="https://share.matchi.com/occasions/1440456" id="green-link-2">Nybörjarkurs</a></li>
+            <li><a href="https://share.matchi.com/activities/1397" id="green-link-1">Klicka för att boka Tennispasset Grön</a></li>
+            <li><a href="https://share.matchi.com/occasions/1440456" id="green-link-2">Klicka för att boka Nybörjarkurs</a></li>
         </ul>
     </div>
 
@@ -185,54 +193,48 @@
         <h2 id="yellow-title">Gul Nivå (2/5)</h2>
         <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1451" id="yellow-link-1">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" id="yellow-link-2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" id="yellow-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" id="yellow-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" id="yellow-link-5">Tennispasset Gul 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/1451" id="yellow-link-1">Klicka för att boka Tennispasset Gul</a></li>
+            <li><a href="https://share.matchi.com/activities/93468" id="yellow-link-2">Klicka för att boka Fortsättningskurs</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" id="yellow-link-3">Klicka för att boka Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" id="yellow-link-4">Klicka för att boka Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91433" id="yellow-link-5">Klicka för att boka Gul 90 minuter</a></li>
         </ul>
     </div>
 
     <!-- Blå Nivå -->
     <div id="blue" class="level blue">
         <h2 id="blue-title">Blå Nivå (3/5)</h2>
-        <p id="blue-description">Blå nivå är för dig som behärskar hela spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
+        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" id="blue-link-3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" id="blue-link-4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" id="blue-link-5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Klicka för att boka Tennispasset Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Klicka för att boka Blå 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" id="blue-link-3">Klicka för att boka Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" id="blue-link-4">Klicka för att boka Teknik Grundslag, Gul/Blå</a></li>
         </ul>
     </div>
 
     <!-- Röd Nivå -->
     <div id="red" class="level red">
         <h2 id="red-title">Röd Nivå (4/5)</h2>
-        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher med olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
+        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" id="red-link-3">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" id="red-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" id="red-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Klicka för att boka Tennispasset Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Klicka för att boka Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89918" id="red-link-3">Klicka för att boka Röd 90 minuter</a></li>
         </ul>
     </div>
 
     <!-- Svart Nivå -->
     <div id="black" class="level black">
         <h2 id="black-title">Svart Nivå (5/5)</h2>
-        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer.</p>
+        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.</p>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" id="black-link-3">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" id="black-link-4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" id="black-link-5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Klicka för att boka Tennispasset Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Klicka för att boka Svart 90 minuter</a></li>
         </ul>
     </div>
 
-    <!-- Service Worker and Language Switcher Script -->
+    <!-- Service Worker -->
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
@@ -244,59 +246,65 @@
         });
       }
 
-      // Load translations from translations.json file
-      function loadTranslations(language) {
-        fetch('/translations.json')
-          .then(response => response.json())
-          .then(data => {
-            const translations = data[language];
-
-            // Update text content for each section
-            document.getElementById('main-heading').innerHTML = translations['main-heading'];
-            document.getElementById('intro-text').innerHTML = translations['intro-text'];
-            document.getElementById('explore-button').innerHTML = translations['explore-button'];
-
-            document.getElementById('green-title').innerHTML = translations['green-title'];
-            document.getElementById('green-description').innerHTML = translations['green-description'];
-            document.getElementById('yellow-title').innerHTML = translations['yellow-title'];
-            document.getElementById('yellow-description').innerHTML = translations['yellow-description'];
-            document.getElementById('blue-title').innerHTML = translations['blue-title'];
-            document.getElementById('blue-description').innerHTML = translations['blue-description'];
-            document.getElementById('red-title').innerHTML = translations['red-title'];
-            document.getElementById('red-description').innerHTML = translations['red-description'];
-            document.getElementById('black-title').innerHTML = translations['black-title'];
-            document.getElementById('black-description').innerHTML = translations['black-description'];
-
-            // Update links (if necessary, based on translations)
-            document.getElementById('green-link-1').innerHTML = translations['green-link-1'];
-            document.getElementById('green-link-2').innerHTML = translations['green-link-2'];
-            document.getElementById('yellow-link-1').innerHTML = translations['yellow-link-1'];
-            // Continue for other links...
-          })
-          .catch(error => {
-            console.error('Error loading translations:', error);
-          });
-      }
-
+      /* Funktioner för att växla språk */
       function switchToEnglish() {
-        loadTranslations('en');
-        document.getElementById('swedish-flag').style.display = 'inline';
-        document.getElementById('english-flag').style.display = 'none';
-        document.getElementById('chinese-flag').style.display = 'inline';
+          loadTranslations('en');
+          document.getElementById('swedish-flag').style.display = 'inline';
+          document.getElementById('english-flag').style.display = 'none';
+          document.getElementById('chinese-flag').style.display = 'inline';
       }
 
       function switchToSwedish() {
-        loadTranslations('sv');
-        document.getElementById('swedish-flag').style.display = 'none';
-        document.getElementById('english-flag').style.display = 'inline';
-        document.getElementById('chinese-flag').style.display = 'inline';
+          loadTranslations('sv');
+          document.getElementById('swedish-flag').style.display = 'none';
+          document.getElementById('english-flag').style.display = 'inline';
+          document.getElementById('chinese-flag').style.display = 'inline';
       }
 
       function switchToChinese() {
-        loadTranslations('zh');
-        document.getElementById('swedish-flag').style.display = 'inline';
-        document.getElementById('english-flag').style.display = 'inline';
-        document.getElementById('chinese-flag').style.display = 'none';
+          loadTranslations('zh');
+          document.getElementById('swedish-flag').style.display = 'inline';
+          document.getElementById('english-flag').style.display = 'inline';
+          document.getElementById('chinese-flag').style.display = 'none';
+      }
+
+      function loadTranslations(lang) {
+          fetch('translations.json')
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('main-heading').innerHTML = data[lang].mainHeading;
+              document.getElementById('intro-text').innerHTML = data[lang].introText;
+              document.getElementById('explore-button').innerHTML = data[lang].exploreButton;
+
+              document.getElementById('green-title').innerHTML = data[lang].greenTitle;
+              document.getElementById('green-description').innerHTML = data[lang].greenDescription;
+              document.getElementById('green-link-1').innerHTML = data[lang].greenLink1;
+              document.getElementById('green-link-2').innerHTML = data[lang].greenLink2;
+
+              document.getElementById('yellow-title').innerHTML = data[lang].yellowTitle;
+              document.getElementById('yellow-description').innerHTML = data[lang].yellowDescription;
+              document.getElementById('yellow-link-1').innerHTML = data[lang].yellowLink1;
+              document.getElementById('yellow-link-2').innerHTML = data[lang].yellowLink2;
+              document.getElementById('yellow-link-3').innerHTML = data[lang].yellowLink3;
+              document.getElementById('yellow-link-4').innerHTML = data[lang].yellowLink4;
+              document.getElementById('yellow-link-5').innerHTML = data[lang].yellowLink5;
+
+              document.getElementById('blue-title').innerHTML = data[lang].blueTitle;
+              document.getElementById('blue-description').innerHTML = data[lang].blueDescription;
+              document.getElementById('blue-link-1').innerHTML = data[lang].blueLink1;
+              document.getElementById('blue-link-2').innerHTML = data[lang].blueLink2;
+              document.getElementById('blue-link-3').innerHTML = data[lang].blueLink3;
+
+              document.getElementById('red-title').innerHTML = data[lang].redTitle;
+              document.getElementById('red-description').innerHTML = data[lang].redDescription;
+              document.getElementById('red-link-1').innerHTML = data[lang].redLink1;
+              document.getElementById('red-link-2').innerHTML = data[lang].redLink2;
+
+              document.getElementById('black-title').innerHTML = data[lang].blackTitle;
+              document.getElementById('black-description').innerHTML = data[lang].blackDescription;
+              document.getElementById('black-link-1').innerHTML = data[lang].blackLink1;
+          })
+          .catch(error => console.error('Error loading translations:', error));
       }
     </script>
 
