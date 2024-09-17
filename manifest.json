@@ -1,10 +1,10 @@
 {
-  "name": "Ullevi Tennisklubb Aktivitetsmeny",
+  "name": "Ullevi Tennisklubb",
   "short_name": "Ullevi TK",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#00796b",
+  "background_color": "#1a237e",
+  "theme_color": "#1a237e",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
@@ -12,8 +12,8 @@
       "type": "image/png"
     },
     {
-      "src": "ullevitk_logo.png",
-      "sizes": "512x512",
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ]
