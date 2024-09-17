@@ -10,7 +10,13 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#1a237e">
 
+    <!-- SEO Optimering -->
+    <meta name="description" content="Ullevi Tennisklubb Aktivitetsmeny med fem nivåer för alla spelare. Utforska tenniskurser, träningar och bokningar." />
+    <meta name="keywords" content="Ullevi Tennisklubb, tennis, tenniskurser, träning, nivåer" />
+    <meta name="author" content="Ullevi Tennisklubb" />
+
     <style>
+        /* Grundläggande styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -28,6 +34,7 @@
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
         }
 
         nav a {
@@ -36,10 +43,46 @@
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Optimization */
+        @media only screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 5px 0;
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .level {
+                padding: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
         }
 
         /* Language Switcher */
@@ -83,15 +126,17 @@
             max-width: 800px;
             color: #ffffff;
             border: 3px solid #e0e0e0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .level h2 {
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin-bottom: 20px;
+        .level.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Colors for different levels */
+        /* Different levels colors */
         .green { background-color: #388e3c; }
         .yellow { background-color: #fdd835; color: black; }
         .blue { background-color: #42a5f5; }
@@ -108,19 +153,19 @@
         }
 
         ul li a {
-            display: inline-block;
-            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
             background-color: #0d47a1;
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         ul li a:hover {
-            background-color: #005a47;
+            background-color: #002171;
+            transform: scale(1.05);
         }
 
         .btn {
@@ -140,9 +185,44 @@
             background-color: #002171;
         }
 
+        /* Hamburger Menu for Mobile */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            background-color: white;
+            height: 3px;
+            margin: 5px;
+            width: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -162,134 +242,129 @@
 
     <!-- Startsida -->
     <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
+        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" class="lazy-load">
         <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
         <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
         <a href="#green" class="btn" id="explore-button">Utforska aktiviteter</a>
     </div>
 
-    <!-- Grön Nivå -->
+    <!-- Nivåer -->
     <div id="green" class="level green">
         <h2 id="green-title">Grön Nivå (1/5)</h2>
-        <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll.</p>
+        <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1397" id="green-link-1">Tennispasset Grön</a></li>
             <li><a href="https://share.matchi.com/occasions/1440456" id="green-link-2">Nybörjarkurs</a></li>
         </ul>
     </div>
 
-    <!-- Gul Nivå -->
     <div id="yellow" class="level yellow">
         <h2 id="yellow-title">Gul Nivå (2/5)</h2>
-        <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.</p>
+        <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1451" id="yellow-link-1">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" id="yellow-link-2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" id="yellow-link-3">Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" id="yellow-link-4">Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" id="yellow-link-5">Gul 90 minuter</a></li>
         </ul>
     </div>
 
-    <!-- Blå Nivå -->
     <div id="blue" class="level blue">
         <h2 id="blue-title">Blå Nivå (3/5)</h2>
-        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
+        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Blå 90 minuter</a></li>
         </ul>
     </div>
 
-    <!-- Röd Nivå -->
     <div id="red" class="level red">
         <h2 id="red-title">Röd Nivå (4/5)</h2>
-        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
+        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Fotarbete Röd/Svart</a></li>
         </ul>
     </div>
 
-    <!-- Svart Nivå -->
     <div id="black" class="level black">
         <h2 id="black-title">Svart Nivå (5/5)</h2>
-        <p id="black-description">Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis.</p>
+        <p id="black-description">Svart nivå är för de mest avancerade spelarna.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Svart 90 minuter</a></li>
         </ul>
     </div>
 
-    <!-- Service Worker -->
+    <!-- JavaScript -->
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker registrerad med scope:', registration.scope);
-        })
-        .catch(function(error) {
-          console.log('Service Worker registrering misslyckades:', error);
+        // Lazy Load
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.remove('lazy-load');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
         });
-      }
 
-      /* Language Switcher */
-      function switchToEnglish() {
-          loadTranslations('en');
-          document.getElementById('swedish-flag').style.display = 'inline';
-          document.getElementById('english-flag').style.display = 'none';
-          document.getElementById('chinese-flag').style.display = 'inline';
-      }
+        // Hamburger Menu
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
 
-      function switchToSwedish() {
-          loadTranslations('sv');
-          document.getElementById('swedish-flag').style.display = 'none';
-          document.getElementById('english-flag').style.display = 'inline';
-          document.getElementById('chinese-flag').style.display = 'inline';
-      }
+        // Language Switcher
+        function switchToEnglish() {
+            loadTranslations('en');
+            document.getElementById('swedish-flag').style.display = 'inline';
+            document.getElementById('english-flag').style.display = 'none';
+            document.getElementById('chinese-flag').style.display = 'inline';
+        }
 
-      function switchToChinese() {
-          loadTranslations('zh');
-          document.getElementById('swedish-flag').style.display = 'inline';
-          document.getElementById('english-flag').style.display = 'inline';
-          document.getElementById('chinese-flag').style.display = 'none';
-      }
+        function switchToSwedish() {
+            loadTranslations('sv');
+            document.getElementById('swedish-flag').style.display = 'none';
+            document.getElementById('english-flag').style.display = 'inline';
+            document.getElementById('chinese-flag').style.display = 'inline';
+        }
 
-      function loadTranslations(lang) {
-          fetch('translations.json')
-          .then(response => response.json())
-          .then(data => {
-              document.getElementById('main-heading').innerHTML = data[lang]['main-heading'];
-              document.getElementById('intro-text').innerHTML = data[lang]['intro-text'];
-              document.getElementById('explore-button').innerHTML = data[lang]['explore-button'];
+        function switchToChinese() {
+            loadTranslations('zh');
+            document.getElementById('swedish-flag').style.display = 'inline';
+            document.getElementById('english-flag').style.display = 'inline';
+            document.getElementById('chinese-flag').style.display = 'none';
+        }
 
-              document.getElementById('green-title').innerHTML = data[lang]['green-title'];
-              document.getElementById('green-description').innerHTML = data[lang]['green-description'];
-              document.getElementById('green-link-1').innerHTML = data[lang]['green-link-1'];
-              document.getElementById('green-link-2').innerHTML = data[lang]['green-link-2'];
+        function loadTranslations(lang) {
+            fetch('translations.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('main-heading').innerHTML = data[lang]['main-heading'];
+                document.getElementById('intro-text').innerHTML = data[lang]['intro-text'];
+                document.getElementById('explore-button').innerHTML = data[lang]['explore-button'];
+                document.getElementById('green-title').innerHTML = data[lang]['green-title'];
+                document.getElementById('yellow-title').innerHTML = data[lang]['yellow-title'];
+                document.getElementById('blue-title').innerHTML = data[lang]['blue-title'];
+                document.getElementById('red-title').innerHTML = data[lang]['red-title'];
+                document.getElementById('black-title').innerHTML = data[lang]['black-title'];
+            })
+            .catch(error => {
+                console.error('Error loading translations:', error);
+            });
+        }
 
-              document.getElementById('yellow-title').innerHTML = data[lang]['yellow-title'];
-              document.getElementById('yellow-description').innerHTML = data[lang]['yellow-description'];
-              document.getElementById('yellow-link-1').innerHTML = data[lang]['yellow-link-1'];
-              document.getElementById('yellow-link-2').innerHTML = data[lang]['yellow-link-2'];
-
-              document.getElementById('blue-title').innerHTML = data[lang]['blue-title'];
-              document.getElementById('blue-description').innerHTML = data[lang]['blue-description'];
-              document.getElementById('blue-link-1').innerHTML = data[lang]['blue-link-1'];
-
-              document.getElementById('red-title').innerHTML = data[lang]['red-title'];
-              document.getElementById('red-description').innerHTML = data[lang]['red-description'];
-              document.getElementById('red-link-1').innerHTML = data[lang]['red-link-1'];
-
-              document.getElementById('black-title').innerHTML = data[lang]['black-title'];
-              document.getElementById('black-description').innerHTML = data[lang]['black-description'];
-              document.getElementById('black-link-1').innerHTML = data[lang]['black-link-1'];
-          })
-          .catch(error => {
-              console.error('Error loading translations:', error);
-          });
-      }
+        // Reveal levels when scrolled into view
+        document.addEventListener("scroll", function() {
+            document.querySelectorAll(".level").forEach(function(level) {
+                const rect = level.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    level.classList.add("visible");
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
