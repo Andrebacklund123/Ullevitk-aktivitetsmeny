@@ -15,6 +15,14 @@
     <meta name="keywords" content="Ullevi Tennisklubb, tennis, tenniskurser, träning, nivåer" />
     <meta name="author" content="Ullevi Tennisklubb" />
 
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Ullevi Tennisklubb Aktivitetsmeny">
+    <meta property="og:description" content="Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.">
+    <meta property="og:image" content="https://dindomän.com/ullevitk_logo.png"> <!-- Uppdatera denna URL till korrekt bildlänk -->
+    <meta property="og:url" content="https://dindomän.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sv_SE">
+
     <style>
         /* Grundläggande styling */
         body {
@@ -32,7 +40,8 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -50,12 +59,36 @@
             transform: scale(1.1);
         }
 
+        /* Ta reda på min nivå ikon */
+        .find-level {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1b5e20;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .find-level:hover {
+            background-color: #388e3c;
+        }
+
         /* Anpassning av loggan */
         .logo {
             max-width: 300px;
             height: auto;
             margin-bottom: 20px;
         }
+
+        /* Dovare färgpalett för nivåer */
+        .green { background-color: #6da06d; } /* Dov grön */
+        .yellow { background-color: #fdd835; color: black; } /* Dov gul */
+        .blue { background-color: #80c2ff; } /* Dov blå */
+        .red { background-color: #ef9a9a; } /* Dov röd */
+        .black { background-color: #616161; } /* Dov svart */
 
         /* Mobile Optimization */
         @media only screen and (max-width: 600px) {
@@ -67,6 +100,10 @@
             nav a {
                 font-size: 1rem;
                 margin: 5px 0;
+            }
+
+            .find-level {
+                margin-top: 10px;
             }
 
             .container {
@@ -139,13 +176,6 @@
             border: 3px solid #e0e0e0;
         }
 
-        /* Levels colors */
-        .green { background-color: #388e3c; }
-        .yellow { background-color: #fdd835; color: black; }
-        .blue { background-color: #42a5f5; }
-        .red { background-color: #ef5350; }
-        .black { background-color: #212121; }
-
         ul {
             list-style-type: none;
             padding: 0;
@@ -196,11 +226,15 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#green">Grön Nivå</a>
-        <a href="#yellow">Gul Nivå</a>
-        <a href="#blue">Blå Nivå</a>
-        <a href="#red">Röd Nivå</a>
-        <a href="#black">Svart Nivå</a>
+        <div>
+            <a href="#green">Grön</a>
+            <a href="#yellow">Gul</a>
+            <a href="#blue">Blå</a>
+            <a href="#red">Röd</a>
+            <a href="#black">Svart</a>
+        </div>
+        <!-- Ta reda på min nivå -->
+        <a href="#find-level" class="find-level">Ta reda på min nivå</a>
     </nav>
 
     <!-- Language Switcher -->
@@ -248,6 +282,14 @@
         <ul>
             <li><a href="https://share.matchi.com/activities/1447" id="blue-link-1">Tennispasset Blå</a></li>
             <li><a href="https://share.matchi.com/activities/91431" id="blue-link-2">Blå 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" id="blue-link-3">Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" id="blue-link-4">Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/115001" id="blue-link-5">Teknik Slice och Stoppboll, Blå/Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/116992" id="blue-link-6">Blå (Fokus Dubbelspel)</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" id="blue-link-7">Frukosttennis</a></li>
+            <li><a href="https://share.matchi.com/activities/115394" id="blue-link-8">Tisdagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1454" id="blue-link-9">Lördagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1453" id="blue-link-10">Söndagsgänget</a></li>
         </ul>
     </div>
 
@@ -258,6 +300,15 @@
         <ul>
             <li><a href="https://share.matchi.com/activities/1448" id="red-link-1">Tennispasset Röd</a></li>
             <li><a href="https://share.matchi.com/activities/89172" id="red-link-2">Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89918" id="red-link-3">Röd 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" id="red-link-4">Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" id="red-link-5">Teknik Volley och Attack, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/115001" id="red-link-6">Teknik Slice och Stoppboll, Blå/Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/116993" id="red-link-7">Röd (Fokus Dubbelspel)</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" id="red-link-8">Frukosttennis</a></li>
+            <li><a href="https://share.matchi.com/activities/115394" id="red-link-9">Tisdagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1454" id="red-link-10">Lördagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1453" id="red-link-11">Söndagsgänget</a></li>
         </ul>
     </div>
 
@@ -268,6 +319,13 @@
         <ul>
             <li><a href="https://share.matchi.com/activities/1450" id="black-link-1">Tennispasset Svart</a></li>
             <li><a href="https://share.matchi.com/activities/89916" id="black-link-2">Svart 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" id="black-link-3">Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" id="black-link-4">Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" id="black-link-5">Teknik Volley och Attack, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" id="black-link-6">Frukosttennis</a></li>
+            <li><a href="https://share.matchi.com/activities/115394" id="black-link-7">Tisdagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1454" id="black-link-8">Lördagsgänget</a></li>
+            <li><a href="https://share.matchi.com/activities/1453" id="black-link-9">Söndagsgänget</a></li>
         </ul>
     </div>
 
