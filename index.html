@@ -50,6 +50,13 @@
             transform: scale(1.1);
         }
 
+        /* Anpassning av loggan */
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
         /* Mobile Optimization */
         @media only screen and (max-width: 600px) {
             nav {
@@ -81,6 +88,11 @@
             .btn {
                 padding: 10px 20px;
                 font-size: 1rem;
+            }
+
+            /* Anpassning av loggan för mobil */
+            .logo {
+                max-width: 150px; /* Mindre logga på mobil */
             }
         }
 
@@ -200,7 +212,7 @@
 
     <!-- Startsida -->
     <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" class="lazy-load">
+        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" class="logo">
         <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
         <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
         <a href="#green" class="btn" id="explore-button">Utforska aktiviteter</a>
