@@ -130,6 +130,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            z-index: 2000;
         }
 
         .overlay-content {
@@ -138,6 +139,7 @@
             border-radius: 10px;
             width: 80%;
             max-width: 500px;
+            text-align: center;
         }
 
         .close-overlay {
@@ -162,9 +164,9 @@
         <a href="#black">Svart Nivå</a>
 
         <!-- Språkväljare -->
-        <div class="language-switcher">
-            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
-            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
+        <div class="language-switcher" style="margin-left: auto;">
+            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()" style="cursor: pointer;">
+            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="cursor: pointer; display: none;">
         </div>
     </nav>
 
