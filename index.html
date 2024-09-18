@@ -205,29 +205,83 @@
         <h2 id="green-title">Grön Nivå (1/5)</h2>
         <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare.</p>
         <ul>
-            <li><button onclick="openModal('Tennispasset Grön')">Tennispasset Grön</button></li>
-            <li><button onclick="openModal('Nybörjarkurs')">Nybörjarkurs</button></li>
+            <li><button onclick="openModal('Tennispasset Grön', 'https://share.matchi.com/activities/1397')">Tennispasset Grön</button></li>
+            <li><button onclick="openModal('Nybörjarkurs', 'https://share.matchi.com/occasions/1440456')">Nybörjarkurs</button></li>
         </ul>
     </div>
 
-    <!-- Modal for Grön Nivå -->
+    <!-- Gul Nivå -->
+    <div id="yellow" class="level yellow">
+        <h2 id="yellow-title">Gul Nivå (2/5)</h2>
+        <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis.</p>
+        <ul>
+            <li><button onclick="openModal('Tennispasset Gul', 'https://share.matchi.com/activities/1451')">Tennispasset Gul</button></li>
+            <li><button onclick="openModal('Fortsättningskurs', 'https://share.matchi.com/activities/93468')">Fortsättningskurs</button></li>
+            <li><button onclick="openModal('Fotarbete Gul/Blå', 'https://share.matchi.com/activities/89922')">Fotarbete Gul/Blå</button></li>
+            <li><button onclick="openModal('Teknik Grundslag Gul/Blå', 'https://share.matchi.com/activities/90207')">Teknik Grundslag Gul/Blå</button></li>
+            <li><button onclick="openModal('Tennispasset Gul 90 minuter', 'https://share.matchi.com/activities/91433')">Tennispasset Gul 90 minuter</button></li>
+        </ul>
+    </div>
+
+    <!-- Blå Nivå -->
+    <div id="blue" class="level blue">
+        <h2 id="blue-title">Blå Nivå (3/5)</h2>
+        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan.</p>
+        <ul>
+            <li><button onclick="openModal('Tennispasset Blå', 'https://share.matchi.com/activities/1447')">Tennispasset Blå</button></li>
+            <li><button onclick="openModal('Blå 90 minuter', 'https://share.matchi.com/activities/91431')">Blå 90 minuter</button></li>
+            <li><button onclick="openModal('Fotarbete Gul/Blå', 'https://share.matchi.com/activities/89922')">Fotarbete Gul/Blå</button></li>
+            <li><button onclick="openModal('Teknik Grundslag Gul/Blå', 'https://share.matchi.com/activities/90207')">Teknik Grundslag Gul/Blå</button></li>
+            <li><button onclick="openModal('Slice och Stoppboll Blå/Röd', 'https://share.matchi.com/activities/115001')">Slice och Stoppboll Blå/Röd</button></li>
+        </ul>
+    </div>
+
+    <!-- Röd Nivå -->
+    <div id="red" class="level red">
+        <h2 id="red-title">Röd Nivå (4/5)</h2>
+        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag.</p>
+        <ul>
+            <li><button onclick="openModal('Tennispasset Röd', 'https://share.matchi.com/activities/1448')">Tennispasset Röd</button></li>
+            <li><button onclick="openModal('Fotarbete Röd/Svart', 'https://share.matchi.com/activities/89172')">Fotarbete Röd/Svart</button></li>
+            <li><button onclick="openModal('Röd 90 minuter', 'https://share.matchi.com/activities/89918')">Röd 90 minuter</button></li>
+            <li><button onclick="openModal('Teknik Grundslag Röd/Svart', 'https://share.matchi.com/activities/90208')">Teknik Grundslag Röd/Svart</button></li>
+            <li><button onclick="openModal('Volley och Attack Röd/Svart', 'https://share.matchi.com/activities/114995')">Volley och Attack Röd/Svart</button></li>
+        </ul>
+    </div>
+
+    <!-- Svart Nivå -->
+    <div id="black" class="level black">
+        <h2 id="black-title">Svart Nivå (5/5)</h2>
+        <p id="black-description">Svart nivå är för de mest avancerade spelarna.</p>
+        <ul>
+            <li><button onclick="openModal('Tennispasset Svart', 'https://share.matchi.com/activities/1450')">Tennispasset Svart</button></li>
+            <li><button onclick="openModal('Svart 90 minuter', 'https://share.matchi.com/activities/89916')">Svart 90 minuter</button></li>
+            <li><button onclick="openModal('Fotarbete Röd/Svart', 'https://share.matchi.com/activities/89172')">Fotarbete Röd/Svart</button></li>
+            <li><button onclick="openModal('Teknik Grundslag Röd/Svart', 'https://share.matchi.com/activities/90208')">Teknik Grundslag Röd/Svart</button></li>
+        </ul>
+    </div>
+
+    <!-- Modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <h3 id="modal-heading"></h3>
             <p id="modal-description"></p>
+            <a id="modal-link" href="" target="_blank">Boka aktivitet</a>
             <button class="close" onclick="closeModal()">Stäng</button>
         </div>
     </div>
 
-    <!-- JavaScript to handle modals and translation -->
+    <!-- JavaScript for modals and translation -->
     <script>
-        function openModal(activity) {
+        function openModal(activity, link) {
             var modal = document.getElementById('modal');
             var heading = document.getElementById('modal-heading');
             var description = document.getElementById('modal-description');
+            var modalLink = document.getElementById('modal-link');
 
             heading.innerText = activity;
-            description.innerText = 'Beskrivning för ' + activity + '...';
+            description.innerText = 'Beskrivning för ' + activity + '...';  // Customizable description
+            modalLink.href = link;
 
             modal.style.display = 'flex';
         }
@@ -258,13 +312,14 @@
 
                 document.getElementById('green-title').innerHTML = data[lang]['green-title'];
                 document.getElementById('green-description').innerHTML = data[lang]['green-description'];
-                document.getElementById('green-link-1').innerHTML = data[lang]['green-link-1'];
-                document.getElementById('green-link-2').innerHTML = data[lang]['green-link-2'];
-
                 document.getElementById('yellow-title').innerHTML = data[lang]['yellow-title'];
                 document.getElementById('yellow-description').innerHTML = data[lang]['yellow-description'];
-                document.getElementById('yellow-link-1').innerHTML = data[lang]['yellow-link-1'];
-                document.getElementById('yellow-link-2').innerHTML = data[lang]['yellow-link-2'];
+                document.getElementById('blue-title').innerHTML = data[lang]['blue-title'];
+                document.getElementById('blue-description').innerHTML = data[lang]['blue-description'];
+                document.getElementById('red-title').innerHTML = data[lang]['red-title'];
+                document.getElementById('red-description').innerHTML = data[lang]['red-description'];
+                document.getElementById('black-title').innerHTML = data[lang]['black-title'];
+                document.getElementById('black-description').innerHTML = data[lang]['black-description'];
             })
             .catch(error => {
                 console.error('Error loading translations:', error);
