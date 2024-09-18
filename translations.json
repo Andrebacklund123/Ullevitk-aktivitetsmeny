@@ -1,30 +1,30 @@
 {
   "sv": {
     "main-heading": "Ullevi Tennisklubb Aktivitetsmeny",
-    "intro-text": "Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.",
-    "explore-button": "Utforska aktiviteter",
+    "intro-text": "“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”",
     "green-title": "Grön Nivå (1/5)",
-    "green-description": "Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, såsom grepp, svingar, fotarbete och bollkontroll.",
+    "green-description": "Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare.",
     "yellow-title": "Gul Nivå (2/5)",
-    "yellow-description": "På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.",
+    "yellow-description": "På gul nivå förväntas du ha en grundläggande förståelse för tennis.",
     "blue-title": "Blå Nivå (3/5)",
-    "blue-description": "Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn.",
+    "blue-description": "Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan.",
     "red-title": "Röd Nivå (4/5)",
-    "red-description": "På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd.",
+    "red-description": "På röd nivå spelar du på ett högt tempo med få misstag.",
     "black-title": "Svart Nivå (5/5)",
-    "black-description": "Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis."
+    "black-description": "Svart nivå är för de mest avancerade spelarna."
   },
   "en": {
     "main-heading": "Ullevi Tennis Club Activity Menu",
-    "intro-text": "Five levels, endless possibilities – for players of all levels in the heart of the city.",
-    "explore-button": "Explore activities",
+    "intro-text": "“Five levels, endless possibilities – for players of all levels right in the center.”",
     "green-title": "Green Level (1/5)",
-    "green-description": "The green level is ideal for beginners or those with little experience. The focus is on learning tennis basics such as grip, swings, footwork, and ball control.",
+    "green-description": "Green level is for beginners or those who have played very little before.",
     "yellow-title": "Yellow Level (2/5)",
-    "yellow-description": "At the yellow level, you are expected to have a basic understanding of tennis. You can maintain rallies, participate in simple matches, and have foundational knowledge of tactics and movement patterns on the court.",
+    "yellow-description": "At yellow level, you are expected to have a basic understanding of tennis.",
     "blue-title": "Blue Level (3/5)",
-    "blue-description": "The blue level is for players who can masterfully control the game and move efficiently across the court. You can manage pace, place shots accurately, and use various spins in your strokes.",
+    "blue-description": "Blue level is for you who master the game and can move effectively across the entire court.",
     "red-title": "Red Level (4/5)",
-    "red-description": "At the red level, you play at a high pace with minimal mistakes and can handle matches against various opponents with ease.",
+    "red-description": "At red level, you play at a high pace with few mistakes.",
     "black-title": "Black Level (5/5)",
-    "black-description": "The black level is for the most advanced players, often former competitive players or those with extensive tennis exper
+    "black-description": "Black level is for the most advanced players."
+  }
+}
