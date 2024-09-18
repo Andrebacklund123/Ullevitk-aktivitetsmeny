@@ -3,123 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ullevi Tennisklubb Aktivitetsmeny</title>
-
-    <!-- Länka manifestfilen -->
-    <link rel="manifest" href="manifest.json">
-
-    <!-- Ikoner för Apple-enheter -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
-
+    <title>Ullevi Tennisklubb Aktiviteter</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
         }
 
         nav {
-            background-color: #0d47a1;
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 30px; /* Mer mellanrum mellan nivåerna */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
-            font-size: 1.5rem; /* Större text för bättre läsbarhet */
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
+            font-size: 20px;
         }
 
         .container {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #1a237e;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: #555;
+            padding: 20px;
         }
 
         .level {
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 10px;
+            margin-bottom: 30px;
             background-color: #fff;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .level h2 {
-            font-size: 2rem;
+            margin-top: 0;
             color: #333;
-            margin-bottom: 15px;
         }
 
-        .green { background-color: #e8f5e9; }
-        .yellow { background-color: #fffde7; color: black; }
-        .blue { background-color: #e3f2fd; }
-        .red { background-color: #ffebee; }
-        .black { background-color: #eeeeee; }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
+        .activity {
             margin: 10px 0;
         }
 
-        ul li a {
-            color: #0d47a1;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #0d47a1;
+        .activity button {
+            background-color: #007BFF;
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
             border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #002171;
-        }
-
-        /* Overlay-rutor */
+        /* Overlay (popup) */
         .overlay {
             display: none;
             position: fixed;
@@ -127,23 +64,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
             justify-content: center;
             align-items: center;
-            z-index: 2000;
         }
 
         .overlay-content {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
+            max-width: 600px;
+            width: 100%;
             text-align: center;
         }
 
-        .close-overlay {
-            background-color: red;
+        .overlay-content h2 {
+            margin-top: 0;
+        }
+
+        .overlay-content button {
+            background-color: #007BFF;
             color: white;
             border: none;
             padding: 10px;
@@ -151,139 +92,92 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+
+        .close-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Navigering -->
-    <nav>
-        <a href="#green">Grön Nivå</a>
-        <a href="#yellow">Gul Nivå</a>
-        <a href="#blue">Blå Nivå</a>
-        <a href="#red">Röd Nivå</a>
-        <a href="#black">Svart Nivå</a>
+<nav>
+    <a href="#green">Grön Nivå</a>
+    <a href="#yellow">Gul Nivå</a>
+    <a href="#blue">Blå Nivå</a>
+    <a href="#red">Röd Nivå</a>
+    <a href="#black">Svart Nivå</a>
+</nav>
 
-        <!-- Språkväljare -->
-        <div class="language-switcher" style="margin-left: auto;">
-            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()" style="cursor: pointer;">
-            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="cursor: pointer; display: none;">
-        </div>
-    </nav>
-
-    <!-- Startsida -->
-    <div class="container">
-        <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
-        <p id="intro-text">Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.</p>
-    </div>
-
+<div class="container">
     <!-- Grön Nivå -->
-    <div id="green" class="level green">
-        <h2>Tennispasset Grön</h2>
-        <button class="btn" onclick="showOverlay('green-overlay')">Läs mer</button>
+    <div class="level" id="green">
+        <h2>Tennispasset Grön (⅕)</h2>
+        <div class="activity">
+            <button onclick="openOverlay('Grön', 'Tennispasset grön (nivå 1/5)', 'Om du har spelat lite eller aldrig är detta korrekt nivå för dig...','https://share.matchi.com/activities/1397')">Boka nu</button>
+        </div>
     </div>
 
     <!-- Gul Nivå -->
-    <div id="yellow" class="level yellow">
-        <h2>Tennispasset Gul</h2>
-        <button class="btn" onclick="showOverlay('yellow-overlay')">Läs mer</button>
+    <div class="level" id="yellow">
+        <h2>Tennispasset Gul (⅖)</h2>
+        <div class="activity">
+            <button onclick="openOverlay('Gul', 'Tennispasset gul (nivå 2/5)', 'Här ser vi att du kan grunderna i forehand, backhand...','https://share.matchi.com/activities/1451')">Boka nu</button>
+        </div>
     </div>
 
     <!-- Blå Nivå -->
-    <div id="blue" class="level blue">
-        <h2>Tennispasset Blå</h2>
-        <button class="btn" onclick="showOverlay('blue-overlay')">Läs mer</button>
+    <div class="level" id="blue">
+        <h2>Tennispasset Blå (⅗)</h2>
+        <div class="activity">
+            <button onclick="openOverlay('Blå', 'Tennispasset blå (nivå 3/5)', 'Den blå nivån är för dig som kan spela hela spelet...','https://share.matchi.com/activities/1447')">Boka nu</button>
+        </div>
     </div>
 
     <!-- Röd Nivå -->
-    <div id="red" class="level red">
-        <h2>Tennispasset Röd</h2>
-        <button class="btn" onclick="showOverlay('red-overlay')">Läs mer</button>
+    <div class="level" id="red">
+        <h2>Tennispasset Röd (⅘)</h2>
+        <div class="activity">
+            <button onclick="openOverlay('Röd', 'Tennispasset röd (nivå 4/5)', 'Här ser vi att du kan spela hela spelet i ett högt tempo...','https://share.matchi.com/activities/1448')">Boka nu</button>
+        </div>
     </div>
 
     <!-- Svart Nivå -->
-    <div id="black" class="level black">
-        <h2>Tennispasset Svart</h2>
-        <button class="btn" onclick="showOverlay('black-overlay')">Läs mer</button>
-    </div>
-
-    <!-- Overlay för varje nivå -->
-    <div id="green-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2>Tennispasset Grön (1/5)</h2>
-            <p>Tennispasset är en av våra mest populära träningsaktiviteter...</p>
-            <a href="https://share.matchi.com/activities/1397" class="btn">Boka nu</a>
-            <button class="close-overlay" onclick="hideOverlay('green-overlay')">Stäng</button>
+    <div class="level" id="black">
+        <h2>Tennispasset Svart (5/5)</h2>
+        <div class="activity">
+            <button onclick="openOverlay('Svart', 'Tennispasset svart (nivå 5/5)', 'På den högsta nivån finns spelare som ofta är fd. tävlingsspelare...','https://share.matchi.com/activities/1450')">Boka nu</button>
         </div>
     </div>
+</div>
 
-    <div id="yellow-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2>Tennispasset Gul (2/5)</h2>
-            <p>Tennispasset gul (nivå 2/5)– Här ser vi att du kan grunderna...</p>
-            <a href="https://share.matchi.com/activities/1451" class="btn">Boka nu</a>
-            <button class="close-overlay" onclick="hideOverlay('yellow-overlay')">Stäng</button>
-        </div>
+<!-- Overlay (Popup) -->
+<div id="overlay" class="overlay" onclick="closeOverlay()">
+    <div class="overlay-content">
+        <h2 id="activity-title">Tennispass</h2>
+        <p id="activity-description">Här beskrivs aktiviteten...</p>
+        <a id="booking-link" href="#" target="_blank"><button>Boka nu</button></a>
+        <br><br>
+        <button class="close-btn" onclick="closeOverlay()">Stäng</button>
     </div>
+</div>
 
-    <div id="blue-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2>Tennispasset Blå (3/5)</h2>
-            <p>Tennispasset blå (nivå 3/5)– Den blå nivån är för dig som kan spela hela spelet...</p>
-            <a href="https://share.matchi.com/activities/1447" class="btn">Boka nu</a>
-            <button class="close-overlay" onclick="hideOverlay('blue-overlay')">Stäng</button>
-        </div>
-    </div>
+<script>
+    function openOverlay(level, title, description, link) {
+        document.getElementById('activity-title').innerText = title;
+        document.getElementById('activity-description').innerText = description;
+        document.getElementById('booking-link').href = link;
+        document.getElementById('overlay').style.display = 'flex';
+    }
 
-    <div id="red-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2>Tennispasset Röd (4/5)</h2>
-            <p>Tennispasset röd (nivå 4/5) – Här ser vi att du kan spela hela spelet i ett högt tempo...</p>
-            <a href="https://share.matchi.com/activities/1448" class="btn">Boka nu</a>
-            <button class="close-overlay" onclick="hideOverlay('red-overlay')">Stäng</button>
-        </div>
-    </div>
-
-    <div id="black-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2>Tennispasset Svart (5/5)</h2>
-            <p>Tennispasset svart (nivå 5/5) – På den högsta nivån finns spelare...</p>
-            <a href="https://share.matchi.com/activities/1450" class="btn">Boka nu</a>
-            <button class="close-overlay" onclick="hideOverlay('black-overlay')">Stäng</button>
-        </div>
-    </div>
-
-    <!-- Service Worker -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker registrerad med scope:', registration.scope);
-        })
-        .catch(function(error) {
-          console.log('Service Worker registrering misslyckades:', error);
-        });
-      }
-
-      /* Funktioner för att växla språk */
-      function switchToEnglish() {
-          document.getElementById('main-heading').innerHTML = 'Ullevi Tennis Club Activity Menu';
-          document.getElementById('intro-text').innerHTML = '“Five levels, endless possibilities – for players of all levels right in the center.”';
-      }
-
-      function switchToSwedish() {
-          document.getElementById('main-heading').innerHTML = 'Ullevi Tennisklubb Aktivitetsmeny';
-          document.getElementById('intro-text').innerHTML = '“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”';
-      }
-
-      /* Overlay funktioner */
-      function showOverlay(overlayId) {
-          document.getElementById(overlayId).style.display = 'flex';
-      }
-
-      function hideOverlay(overlayId) {
-          document.getElementById(overlayId).style.display = 'none';
-      }
-    </script>
+    function closeOverlay() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
