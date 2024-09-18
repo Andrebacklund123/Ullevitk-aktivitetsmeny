@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ullevi Tennisklubb Aktivitetsmeny</title>
 
+    <!-- Länka manifestfilen -->
     <link rel="manifest" href="manifest.json">
+
+    <!-- Ikoner för Apple-enheter -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#1a237e">
 
@@ -14,8 +17,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a237e;
-            color: #ffffff;
+            background-color: #f0f0f0;
         }
 
         nav {
@@ -25,8 +27,8 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
+            gap: 30px; /* Mer mellanrum mellan nivåerna */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -34,20 +36,12 @@
             color: white;
             margin: 0 15px;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.5rem; /* Större text för bättre läsbarhet */
             font-weight: bold;
-            transition: color 0.3s ease-in-out, transform 0.3s ease;
         }
 
         nav a:hover {
-            color: #ffeb3b;
-            transform: scale(1.1);
-        }
-
-        .logo {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 20px;
+            text-decoration: underline;
         }
 
         .container {
@@ -57,26 +51,37 @@
 
         h1 {
             font-size: 3rem;
-            color: #ffffff;
+            color: #1a237e;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 1.5rem;
-            margin-bottom: 40px;
-            color: #e0e0e0;
+            margin-bottom: 30px;
+            color: #555;
         }
 
         .level {
             margin: 20px auto;
             padding: 30px;
             border-radius: 10px;
-            background-color: #3949ab;
+            background-color: #fff;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             max-width: 800px;
-            color: #ffffff;
-            border: 3px solid #e0e0e0;
+            border: 2px solid #ccc;
         }
+
+        .level h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .green { background-color: #e8f5e9; }
+        .yellow { background-color: #fffde7; color: black; }
+        .blue { background-color: #e3f2fd; }
+        .red { background-color: #ffebee; }
+        .black { background-color: #eeeeee; }
 
         ul {
             list-style-type: none;
@@ -87,37 +92,26 @@
             margin: 10px 0;
         }
 
-        ul li button {
-            display: inline-block;
-            padding: 15px 20px;
-            background-color: #0d47a1;
-            color: white;
+        ul li a {
+            color: #0d47a1;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            border: none;
-            text-align: center;
         }
 
-        ul li button:hover {
-            background-color: #002171;
-            transform: scale(1.05);
+        ul li a:hover {
+            text-decoration: underline;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
-            margin-top: 40px;
+            padding: 10px 20px;
+            margin-top: 20px;
             background-color: #0d47a1;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: background-color 0.3s ease;
         }
 
@@ -125,206 +119,168 @@
             background-color: #002171;
         }
 
-        .modal {
+        /* Overlay-rutor */
+        .overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
         }
 
-        .modal-content {
+        .overlay-content {
             background-color: white;
-            color: black;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
+            width: 80%;
             max-width: 500px;
-            width: 90%;
-            text-align: center;
         }
 
-        .close {
-            background-color: #e53935;
+        .close-overlay {
+            background-color: red;
             color: white;
-            padding: 10px;
             border: none;
+            padding: 10px;
             cursor: pointer;
             border-radius: 5px;
             margin-top: 20px;
-        }
-
-        /* Language Switcher */
-        .language-switcher {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        .language-switcher img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            margin: 5px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigering -->
     <nav>
-        <div>
-            <a href="#green">Grön</a>
-            <a href="#yellow">Gul</a>
-            <a href="#blue">Blå</a>
-            <a href="#red">Röd</a>
-            <a href="#black">Svart</a>
+        <a href="#green">Grön Nivå</a>
+        <a href="#yellow">Gul Nivå</a>
+        <a href="#blue">Blå Nivå</a>
+        <a href="#red">Röd Nivå</a>
+        <a href="#black">Svart Nivå</a>
+
+        <!-- Språkväljare -->
+        <div class="language-switcher">
+            <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
+            <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
         </div>
     </nav>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <img src="svenska-flag.png" id="swedish-flag" alt="Swedish" onclick="switchToSwedish()">
-        <img src="english-flag.png" id="english-flag" alt="English" onclick="switchToEnglish()" style="display: none;">
-    </div>
-
-    <!-- Container -->
+    <!-- Startsida -->
     <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" class="logo">
         <h1 id="main-heading">Ullevi Tennisklubb Aktivitetsmeny</h1>
-        <p id="intro-text">“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
+        <p id="intro-text">Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.</p>
     </div>
 
     <!-- Grön Nivå -->
     <div id="green" class="level green">
-        <h2 id="green-title">Grön Nivå (1/5)</h2>
-        <p id="green-description">Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare.</p>
-        <ul>
-            <li><button onclick="openModal('Tennispasset Grön', 'https://share.matchi.com/activities/1397')">Tennispasset Grön</button></li>
-            <li><button onclick="openModal('Nybörjarkurs', 'https://share.matchi.com/occasions/1440456')">Nybörjarkurs</button></li>
-        </ul>
+        <h2>Tennispasset Grön</h2>
+        <button class="btn" onclick="showOverlay('green-overlay')">Läs mer</button>
     </div>
 
     <!-- Gul Nivå -->
     <div id="yellow" class="level yellow">
-        <h2 id="yellow-title">Gul Nivå (2/5)</h2>
-        <p id="yellow-description">På gul nivå förväntas du ha en grundläggande förståelse för tennis.</p>
-        <ul>
-            <li><button onclick="openModal('Tennispasset Gul', 'https://share.matchi.com/activities/1451')">Tennispasset Gul</button></li>
-            <li><button onclick="openModal('Fortsättningskurs', 'https://share.matchi.com/activities/93468')">Fortsättningskurs</button></li>
-            <li><button onclick="openModal('Fotarbete Gul/Blå', 'https://share.matchi.com/activities/89922')">Fotarbete Gul/Blå</button></li>
-            <li><button onclick="openModal('Teknik Grundslag Gul/Blå', 'https://share.matchi.com/activities/90207')">Teknik Grundslag Gul/Blå</button></li>
-            <li><button onclick="openModal('Tennispasset Gul 90 minuter', 'https://share.matchi.com/activities/91433')">Tennispasset Gul 90 minuter</button></li>
-        </ul>
+        <h2>Tennispasset Gul</h2>
+        <button class="btn" onclick="showOverlay('yellow-overlay')">Läs mer</button>
     </div>
 
     <!-- Blå Nivå -->
     <div id="blue" class="level blue">
-        <h2 id="blue-title">Blå Nivå (3/5)</h2>
-        <p id="blue-description">Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan.</p>
-        <ul>
-            <li><button onclick="openModal('Tennispasset Blå', 'https://share.matchi.com/activities/1447')">Tennispasset Blå</button></li>
-            <li><button onclick="openModal('Blå 90 minuter', 'https://share.matchi.com/activities/91431')">Blå 90 minuter</button></li>
-            <li><button onclick="openModal('Fotarbete Gul/Blå', 'https://share.matchi.com/activities/89922')">Fotarbete Gul/Blå</button></li>
-            <li><button onclick="openModal('Teknik Grundslag Gul/Blå', 'https://share.matchi.com/activities/90207')">Teknik Grundslag Gul/Blå</button></li>
-            <li><button onclick="openModal('Slice och Stoppboll Blå/Röd', 'https://share.matchi.com/activities/115001')">Slice och Stoppboll Blå/Röd</button></li>
-        </ul>
+        <h2>Tennispasset Blå</h2>
+        <button class="btn" onclick="showOverlay('blue-overlay')">Läs mer</button>
     </div>
 
     <!-- Röd Nivå -->
     <div id="red" class="level red">
-        <h2 id="red-title">Röd Nivå (4/5)</h2>
-        <p id="red-description">På röd nivå spelar du på ett högt tempo med få misstag.</p>
-        <ul>
-            <li><button onclick="openModal('Tennispasset Röd', 'https://share.matchi.com/activities/1448')">Tennispasset Röd</button></li>
-            <li><button onclick="openModal('Fotarbete Röd/Svart', 'https://share.matchi.com/activities/89172')">Fotarbete Röd/Svart</button></li>
-            <li><button onclick="openModal('Röd 90 minuter', 'https://share.matchi.com/activities/89918')">Röd 90 minuter</button></li>
-            <li><button onclick="openModal('Teknik Grundslag Röd/Svart', 'https://share.matchi.com/activities/90208')">Teknik Grundslag Röd/Svart</button></li>
-            <li><button onclick="openModal('Volley och Attack Röd/Svart', 'https://share.matchi.com/activities/114995')">Volley och Attack Röd/Svart</button></li>
-        </ul>
+        <h2>Tennispasset Röd</h2>
+        <button class="btn" onclick="showOverlay('red-overlay')">Läs mer</button>
     </div>
 
     <!-- Svart Nivå -->
     <div id="black" class="level black">
-        <h2 id="black-title">Svart Nivå (5/5)</h2>
-        <p id="black-description">Svart nivå är för de mest avancerade spelarna.</p>
-        <ul>
-            <li><button onclick="openModal('Tennispasset Svart', 'https://share.matchi.com/activities/1450')">Tennispasset Svart</button></li>
-            <li><button onclick="openModal('Svart 90 minuter', 'https://share.matchi.com/activities/89916')">Svart 90 minuter</button></li>
-            <li><button onclick="openModal('Fotarbete Röd/Svart', 'https://share.matchi.com/activities/89172')">Fotarbete Röd/Svart</button></li>
-            <li><button onclick="openModal('Teknik Grundslag Röd/Svart', 'https://share.matchi.com/activities/90208')">Teknik Grundslag Röd/Svart</button></li>
-        </ul>
+        <h2>Tennispasset Svart</h2>
+        <button class="btn" onclick="showOverlay('black-overlay')">Läs mer</button>
     </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h3 id="modal-heading"></h3>
-            <p id="modal-description"></p>
-            <a id="modal-link" href="" target="_blank">Boka aktivitet</a>
-            <button class="close" onclick="closeModal()">Stäng</button>
+    <!-- Overlay för varje nivå -->
+    <div id="green-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Tennispasset Grön (1/5)</h2>
+            <p>Tennispasset är en av våra mest populära träningsaktiviteter...</p>
+            <a href="https://share.matchi.com/activities/1397" class="btn">Boka nu</a>
+            <button class="close-overlay" onclick="hideOverlay('green-overlay')">Stäng</button>
         </div>
     </div>
 
-    <!-- JavaScript for modals and translation -->
+    <div id="yellow-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Tennispasset Gul (2/5)</h2>
+            <p>Tennispasset gul (nivå 2/5)– Här ser vi att du kan grunderna...</p>
+            <a href="https://share.matchi.com/activities/1451" class="btn">Boka nu</a>
+            <button class="close-overlay" onclick="hideOverlay('yellow-overlay')">Stäng</button>
+        </div>
+    </div>
+
+    <div id="blue-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Tennispasset Blå (3/5)</h2>
+            <p>Tennispasset blå (nivå 3/5)– Den blå nivån är för dig som kan spela hela spelet...</p>
+            <a href="https://share.matchi.com/activities/1447" class="btn">Boka nu</a>
+            <button class="close-overlay" onclick="hideOverlay('blue-overlay')">Stäng</button>
+        </div>
+    </div>
+
+    <div id="red-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Tennispasset Röd (4/5)</h2>
+            <p>Tennispasset röd (nivå 4/5) – Här ser vi att du kan spela hela spelet i ett högt tempo...</p>
+            <a href="https://share.matchi.com/activities/1448" class="btn">Boka nu</a>
+            <button class="close-overlay" onclick="hideOverlay('red-overlay')">Stäng</button>
+        </div>
+    </div>
+
+    <div id="black-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Tennispasset Svart (5/5)</h2>
+            <p>Tennispasset svart (nivå 5/5) – På den högsta nivån finns spelare...</p>
+            <a href="https://share.matchi.com/activities/1450" class="btn">Boka nu</a>
+            <button class="close-overlay" onclick="hideOverlay('black-overlay')">Stäng</button>
+        </div>
+    </div>
+
+    <!-- Service Worker -->
     <script>
-        function openModal(activity, link) {
-            var modal = document.getElementById('modal');
-            var heading = document.getElementById('modal-heading');
-            var description = document.getElementById('modal-description');
-            var modalLink = document.getElementById('modal-link');
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker registrerad med scope:', registration.scope);
+        })
+        .catch(function(error) {
+          console.log('Service Worker registrering misslyckades:', error);
+        });
+      }
 
-            heading.innerText = activity;
-            description.innerText = 'Beskrivning för ' + activity + '...';  // Customizable description
-            modalLink.href = link;
+      /* Funktioner för att växla språk */
+      function switchToEnglish() {
+          document.getElementById('main-heading').innerHTML = 'Ullevi Tennis Club Activity Menu';
+          document.getElementById('intro-text').innerHTML = '“Five levels, endless possibilities – for players of all levels right in the center.”';
+      }
 
-            modal.style.display = 'flex';
-        }
+      function switchToSwedish() {
+          document.getElementById('main-heading').innerHTML = 'Ullevi Tennisklubb Aktivitetsmeny';
+          document.getElementById('intro-text').innerHTML = '“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”';
+      }
 
-        function closeModal() {
-            var modal = document.getElementById('modal');
-            modal.style.display = 'none';
-        }
+      /* Overlay funktioner */
+      function showOverlay(overlayId) {
+          document.getElementById(overlayId).style.display = 'flex';
+      }
 
-        function switchToEnglish() {
-            loadTranslations('en');
-            document.getElementById('swedish-flag').style.display = 'inline';
-            document.getElementById('english-flag').style.display = 'none';
-        }
-
-        function switchToSwedish() {
-            loadTranslations('sv');
-            document.getElementById('swedish-flag').style.display = 'none';
-            document.getElementById('english-flag').style.display = 'inline';
-        }
-
-        function loadTranslations(lang) {
-            fetch('translations.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('main-heading').innerHTML = data[lang]['main-heading'];
-                document.getElementById('intro-text').innerHTML = data[lang]['intro-text'];
-
-                document.getElementById('green-title').innerHTML = data[lang]['green-title'];
-                document.getElementById('green-description').innerHTML = data[lang]['green-description'];
-                document.getElementById('yellow-title').innerHTML = data[lang]['yellow-title'];
-                document.getElementById('yellow-description').innerHTML = data[lang]['yellow-description'];
-                document.getElementById('blue-title').innerHTML = data[lang]['blue-title'];
-                document.getElementById('blue-description').innerHTML = data[lang]['blue-description'];
-                document.getElementById('red-title').innerHTML = data[lang]['red-title'];
-                document.getElementById('red-description').innerHTML = data[lang]['red-description'];
-                document.getElementById('black-title').innerHTML = data[lang]['black-title'];
-                document.getElementById('black-description').innerHTML = data[lang]['black-description'];
-            })
-            .catch(error => {
-                console.error('Error loading translations:', error);
-            });
-        }
+      function hideOverlay(overlayId) {
+          document.getElementById(overlayId).style.display = 'none';
+      }
     </script>
 
 </body>
