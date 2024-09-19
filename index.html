@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ullevi Tennisklubb Aktivitetsmeny</title>
+    <title>Aktivitetsmeny</title>
+
+    <!-- Meta description för SEO -->
+    <meta name="description" content="Ullevi Tennisklubbs aktivitetsmeny för alla nivåer – Grön, Gul, Blå, Röd, Svart. Utforska aktiviteter, boka pass och hitta rätt nivå för ditt spel.">
 
     <!-- Länka manifestfilen -->
     <link rel="manifest" href="manifest.json">
 
     <!-- Ikoner för Apple-enheter -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
+    <meta name="theme-color" content="#607d8b">
 
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a237e; /* Navyblå bakgrund */
-            color: #ffffff; /* Vit text för bättre kontrast */
+            background-color: #f5f5f5; /* Modern grå bakgrundsfärg */
+            color: #333; /* Mörkare textfärg för bättre kontrast */
         }
 
         nav {
-            background-color: #0d47a1; /* Mörkare navy för navigation */
+            background-color: #455a64; /* Mörkare grå färg för navigation */
             padding: 15px;
             position: sticky;
             top: 0;
@@ -50,47 +53,36 @@
         }
 
         h1 {
-            font-size: 3rem; /* Större rubrik för startsidan */
-            color: #ffffff;
+            font-size: 2.5rem; /* Mindre rubrik */
+            color: #333;
             margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.5rem; /* Större brödtext för bättre läsbarhet */
+            font-size: 1.3rem; /* Mindre brödtext */
             margin-bottom: 40px;
-            color: #e0e0e0; /* Ljusare grå för bättre kontrast */
+            color: #666;
         }
 
         .level {
             margin: 20px auto;
             padding: 40px;
             border-radius: 10px;
-            background-color: #3949ab; /* Ljusare navyblå för nivåboxar */
+            background-color: #cfd8dc; /* Ljusgrå för nivåboxar */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             max-width: 800px;
-            color: #ffffff; /* Vit text i nivåboxarna */
-            border: 3px solid #e0e0e0; /* Snygga ramar runt varje nivå */
+            color: #333;
+            border: 3px solid #e0e0e0;
         }
 
         .level h2 {
-            font-size: 2.2rem;
-            color: #ffffff;
+            font-size: 2rem;
+            color: #333;
             margin-bottom: 20px;
         }
 
-        /* Grön Nivå */
         .green { background-color: #43a047; }
-
-        /* Gul Nivå - Text och länkar i svart */
-        .yellow {
-            background-color: #ffeb3b;
-            color: black; /* Svart text för gul nivå */
-        }
-
-        .yellow h2, .yellow p, .yellow ul li a {
-            color: black; /* Svart text och länkar */
-        }
-
+        .yellow { background-color: #ffeb3b; color: black; }
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -105,7 +97,7 @@
         }
 
         ul li a {
-            color: #bbdefb; /* Ljusblå länkar för bättre kontrast */
+            color: #1565c0; /* Mörkblå länkar */
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
@@ -116,63 +108,91 @@
         }
 
         img {
-            width: 250px;
+            width: 150px; /* Minskat logotypen */
             height: auto;
             margin-top: 30px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 20px;
             margin-top: 40px;
-            background-color: #0d47a1;
+            background-color: #455a64;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            font-size: 1.3rem; /* Större knappar */
+            font-size: 1.3rem;
             transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #002171; /* Ändra knappfärg vid hover */
+            background-color: #37474f;
+        }
+
+        /* Språkväxlare */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-switcher button {
+            background-color: #455a64;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .language-switcher button:hover {
+            background-color: #37474f;
         }
     </style>
 </head>
 <body>
 
+    <!-- Språkväxlare -->
+    <div class="language-switcher">
+        <button onclick="switchLanguage('sv')">Svenska</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
+
     <!-- Navigering -->
     <nav>
-        <a href="#green">Grön Nivå</a>
-        <a href="#yellow">Gul Nivå</a>
-        <a href="#blue">Blå Nivå</a>
-        <a href="#red">Röd Nivå</a>
-        <a href="#black">Svart Nivå</a>
+        <a href="#green">Grön</a>
+        <a href="#yellow">Gul</a>
+        <a href="#blue">Blå</a>
+        <a href="#red">Röd</a>
+        <a href="#black">Svart</a>
+        <a href="#find-level">Vilken nivå är jag?</a>
     </nav>
 
     <!-- Startsida -->
     <div class="container">
         <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1>Ullevi Tennisklubb Aktivitetsmeny</h1>
+        <h1>Aktivitetsmeny</h1>
         <p>“Fem nivåer, oändliga möjligheter – för spelare på alla nivåer mitt i centrum.”</p>
         <a href="#green" class="btn">Utforska aktiviteter</a>
     </div>
 
     <!-- Grön Nivå -->
     <div id="green" class="level green">
-        <h2>Grön Nivå (1/5)</h2>
-        <p>Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.</p>
+        <h2>Grön (1/5)</h2>
+        <p>Grön nivå passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära sig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1397" target="_blank">Tennispasset Grön</a></li>
             <li><a href="https://share.matchi.com/occasions/1440456" target="_blank">Nybörjarkurs</a></li>
-            <li><a href="#" target="_blank">Privatlektion</a></li>
         </ul>
     </div>
 
     <!-- Gul Nivå -->
     <div id="yellow" class="level yellow">
-        <h2>Gul Nivå (2/5)</h2>
-        <p>På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster på banan.</p>
+        <h2>Gul (2/5)</h2>
+        <p>På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång spelet själv, delta i enklare matcher och har grundläggande kunskap om taktik och rörelsemönster.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1451" target="_blank">Tennispasset Gul</a></li>
             <li><a href="https://share.matchi.com/activities/93468" target="_blank">Fortsättningskurs</a></li>
@@ -184,70 +204,47 @@
 
     <!-- Blå Nivå -->
     <div id="blue" class="level blue">
-        <h2>Blå Nivå (3/5)</h2>
-        <p>Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn i dina slag.</p>
+        <h2>Blå (3/5)</h2>
+        <p>Blå nivå är för dig som behärskar spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen med precision och använda olika typer av spinn.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1447" target="_blank">Tennispasset Blå</a></li>
             <li><a href="https://share.matchi.com/activities/91431" target="_blank">Tennispasset Blå 90 minuter</a></li>
             <li><a href="https://share.matchi.com/activities/89922" target="_blank">Tennispasset Fotarbete Gul/Blå</a></li>
             <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
         </ul>
     </div>
 
     <!-- Röd Nivå -->
     <div id="red" class="level red">
-        <h2>Röd Nivå (4/5)</h2>
-        <p>På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
+        <h2>Röd (4/5)</h2>
+        <p>På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher mot olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1448" target="_blank">Tennispasset Röd</a></li>
             <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
             <li><a href="https://share.matchi.com/activities/89918" target="_blank">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116993" target="_blank">Tennispasset Röd (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
         </ul>
     </div>
 
     <!-- Svart Nivå -->
     <div id="black" class="level black">
-        <h2>Svart Nivå (5/5)</h2>
-        <p>Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.</p>
+        <h2>Svart (5/5)</h2>
+        <p>Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder.</p>
         <ul>
             <li><a href="https://share.matchi.com/activities/1450" target="_blank">Tennispasset Svart</a></li>
             <li><a href="https://share.matchi.com/activities/89916" target="_blank">Tennispasset Svart 90 minuter</a></li>
             <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
         </ul>
     </div>
 
-    <!-- Service Worker -->
+    <!-- JavaScript för språkväxlare -->
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker registrerad med scope:', registration.scope);
-        })
-        .catch(function(error) {
-          console.log('Service Worker registrering misslyckades:', error);
-        });
-      }
+        function switchLanguage(lang) {
+            if (lang === 'sv') {
+                document.documentElement.lang = 'sv';
+            } else if (lang === 'en') {
+                document.documentElement.lang = 'en';
+            }
+        }
     </script>
-
 </body>
 </html>
