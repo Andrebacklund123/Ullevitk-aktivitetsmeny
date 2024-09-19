@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aktivitetsmeny</title>
-
-    <!-- Länka manifestfilen -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- Ikoner för Apple-enheter -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#1a237e">
-
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5; /* Modern grå bakgrund */
-            color: #ffffff; /* Vit text för bättre kontrast */
+            background-color: #1a237e;
+            color: #ffffff;
         }
 
         nav {
-            background-color: #0d47a1; /* Mörkare navy för navigation */
+            background-color: #0d47a1;
             padding: 15px;
             position: sticky;
             top: 0;
@@ -50,15 +45,17 @@
         }
 
         h1 {
-            font-size: 3rem;
-            color: #000000; /* Svart text */
+            font-size: 2.5rem;
+            color: #ffffff;
             margin-bottom: 20px;
+            line-height: 1.2;
+            word-wrap: break-word;
         }
 
         p {
             font-size: 1.5rem;
             margin-bottom: 40px;
-            color: #000000; /* Svart text */
+            color: #e0e0e0;
         }
 
         .level {
@@ -78,14 +75,9 @@
             margin-bottom: 20px;
         }
 
-        /* Grön Nivå */
         .green { background-color: #43a047; }
-
-        /* Gul Nivå */
         .yellow { background-color: #ffeb3b; color: black; }
-
         .yellow h2, .yellow p, .yellow ul li a { color: black; }
-
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -100,23 +92,23 @@
         }
 
         ul li a {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #0d47a1;
-            color: white;
+            color: #bbdefb;
             text-decoration: none;
-            border-radius: 5px;
             font-weight: bold;
             font-size: 1.2rem;
+            background-color: #0d47a1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
             transition: background-color 0.3s ease;
         }
 
         ul li a:hover {
-            background-color: #002171; /* Mörkare vid hovring */
+            background-color: #002171;
         }
 
-        .logo img {
-            width: 150px; /* Mindre storlek */
+        img {
+            width: 150px;
             height: auto;
             margin-top: 30px;
         }
@@ -135,7 +127,7 @@
         }
 
         .btn:hover {
-            background-color: #002171; /* Mörkare vid hovring */
+            background-color: #002171;
         }
 
         .language-switch {
@@ -148,7 +140,7 @@
 
         .language-switch img {
             width: 40px;
-            height: auto;
+            height: 40px;
             cursor: pointer;
         }
     </style>
@@ -166,12 +158,10 @@
 
     <!-- Startsida -->
     <div class="container">
-        <div class="logo">
-            <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        </div>
+        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
         <h1>Aktivitetsmeny</h1>
         <p>Upptäck fem nivåer av spelglädje – mitt i centrum, för alla som älskar tennis.</p>
-        <a href="#find-level" class="btn">Vilken nivå är jag?</a>
+        <a href="#green" class="btn">Vilken nivå är jag?</a>
         <a href="#green" class="btn">Utforska aktiviteter</a>
     </div>
 
@@ -206,7 +196,7 @@
             <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
             <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
             <li><a href="https://share.matchi.com/activities/116992" target="_blank">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukost tennis</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
             <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
             <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
             <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
@@ -224,7 +214,7 @@
             <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
             <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
             <li><a href="https://share.matchi.com/activities/116993" target="_blank">Tennispasset Röd (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukost tennis</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
             <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
         </ul>
     </div>
@@ -238,27 +228,16 @@
             <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
             <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
             <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukost tennis</a></li>
+            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
             <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
         </ul>
     </div>
 
     <!-- Språkväxlare -->
     <div class="language-switch">
-        <img src="svenska-flagga.png" alt="Svenska" onclick="changeLanguage('sv')">
-        <img src="engelska-flagga.png" alt="English" onclick="changeLanguage('en')">
+        <img src="svenska-flag.png" alt="Svenska">
+        <img src="english-flag.png" alt="English">
     </div>
-
-    <!-- JavaScript för språkbyte -->
-    <script>
-        function changeLanguage(lang) {
-            if (lang === 'sv') {
-                window.location.href = '/svenska-version.html';
-            } else {
-                window.location.href = '/english-version.html';
-            }
-        }
-    </script>
 
 </body>
 </html>
