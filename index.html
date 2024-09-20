@@ -12,8 +12,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a237e;
-            color: #ffffff;
+            background-color: #ffffff; /* Vit bakgrund */
+            color: #ffffff; /* Sidans enhetliga färg */
         }
 
         nav {
@@ -45,8 +45,8 @@
         }
 
         h1 {
-            font-size: 2rem;
-            color: #ffffff;
+            font-size: 2.5rem;
+            color: #0d47a1; /* Mörkblå titeltext */
             margin-bottom: 20px;
             line-height: 1.2;
             word-wrap: break-word;
@@ -81,8 +81,8 @@
         }
 
         .green { background-color: #43a047; }
-        .yellow { background-color: #ffeb3b; color: black; }
-        .yellow h2, .yellow p, .yellow ul li a { color: black; }
+        .yellow { background-color: #ffeb3b; color: #0d47a1; } /* Enhetlig mörkblå färg */
+        .yellow h2, .yellow p, .yellow ul li a { color: #0d47a1; } /* Samma färg */
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -147,16 +147,6 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
-        }
-
-        @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            nav a {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
@@ -254,8 +244,8 @@
 
     <!-- Språkväxlare -->
     <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
+        <img src="svenska-flag.png" alt="Svenska">
+        <img src="english-flag.png" alt="English">
     </div>
 
     <script>
@@ -276,14 +266,6 @@ Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få
 
 Svart nivå (5/5)
 På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer snarare än grunderna, och den påminner om den som ges till klubbens tävlingsjuniorer. Spelarna på denna nivå har en hög fysisk förmåga och kan hela spelet. Rekommendation från en tränare krävs för att delta på denna nivå.`);
-        }
-
-        function switchLanguage(lang) {
-            if (lang === 'sv') {
-                window.location.href = '/index.html'; // Laddar svenska sidan
-            } else if (lang === 'en') {
-                window.location.href = '/index-en.html'; // Laddar engelska sidan
-            }
         }
     </script>
 
