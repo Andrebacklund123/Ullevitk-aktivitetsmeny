@@ -81,8 +81,7 @@
         }
 
         .green { background-color: #43a047; }
-        .yellow { background-color: #ffeb3b; color: #0d47a1; } /* Enhetlig mörkblå färg */
-        .yellow h2, .yellow ul li a { color: #ffffff; } /* Ändring till samma färg som andra ställen */
+        .yellow { background-color: #ffeb3b; color: #0d47a1; }
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -97,7 +96,7 @@
         }
 
         ul li a {
-            color: #bbdefb; /* Ljusblå textfärg för enhetlighet */
+            color: #bbdefb;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
@@ -249,64 +248,56 @@
     </div>
 
     <script>
+        let currentLanguage = 'sv';
+
         const translations = {
             "sv": {
-                "levelDescription": `På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär. 
+                "levelDescriptions": `På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär.
 Här är en översikt över de olika nivåerna, som hjälper dig att hitta rätt utmaning och utveckling:
 
 Grön nivå (1/5)
-Grön nivå är för dig som är ny inom tennisen eller har spelat lite tidigare. Fokus ligger på att lära sig tennisens grunder, inklusive grepp, svingar, fotarbete och förmågan att kontrollera bollen. Målet är att du ska kunna spela med en annan spelare och få igång ett eget spel. Vi erbjuder låneracketar för nya spelare som deltar på denna nivå.
+Grön nivå är för dig som är ny inom tennisen eller har spelat lite tidigare. Fokus ligger på att lära sig tennisens grunder, inklusive grepp, svingar, fotarbete och förmågan att kontrollera bollen.
 
 Gul nivå (2/5)
-Den gula nivån passar dig som har grundläggande kunskaper i forehand, backhand och volley. Du kan hålla igång ett spel och spela enklare matcher, både med och utan serve. Här lär du dig också använda enklare taktik och förbättrar din förmåga att röra dig effektivt på banan.
+Den gula nivån passar dig som har grundläggande kunskaper i forehand, backhand och volley. Du kan hålla igång ett spel och spela enklare matcher.
 
 Blå nivå (3/5)
-På blå nivå kan du spela hela spelet och täcka hela tennisbanan utan problem. Du har god kontroll över spelets tempo och kan sikta bollen till olika delar av banan. Du börjar också använda olika typer av spinn i dina slag och kan följa tränarens mål under spelet.
+På blå nivå kan du spela hela spelet och täcka hela tennisbanan utan problem. Du har god kontroll över spelets tempo och kan sikta bollen till olika delar av banan.
 
 Röd nivå (4/5)
-Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få misstag. Du kan anpassa ditt spel efter motståndare, variera tempo, spinn och sikte. Övningarna har högre svårighetsgrad och din fysiska kapacitet är god nog för att täcka hela banan. För att spela på denna nivå krävs rekommendation från en av klubbens tränare.
+Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få misstag. Du kan anpassa ditt spel efter motståndare.
 
 Svart nivå (5/5)
-På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer snarare än grunderna, och den påminner om den som ges till klubbens tävlingsjuniorer. Spelarna på denna nivå har en hög fysisk förmåga och kan hela spelet. Rekommendation från en tränare krävs för att delta på denna nivå.
-
-Dessa nivåer hjälper dig att utvecklas stegvis och ger dig rätt förutsättningar för att utmana dig själv och förbättra ditt spel, oavsett vilken nivå du befinner dig på.`,
-                "pageTitle": "Aktivitetsmeny"
+På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer.`,
             },
             "en": {
-                "levelDescription": `At Ullevi Tennisklubb, we offer five different playing levels to suit players at different stages of their tennis career. 
-Here is an overview of the different levels, which will help you find the right challenge and development:
+                "levelDescriptions": `At Ullevi Tennis Club, we offer five different levels of play to suit players at various stages of their tennis career.
+Here is an overview of the different levels, which help you find the right challenge and development:
 
 Green Level (1/5)
-Green level is for you who are new to tennis or have played a little before. The focus is on learning the basics of tennis, including grip, swings, footwork, and the ability to control the ball. The goal is for you to be able to play with another player and get a rally going. We offer loan rackets for new players participating at this level.
+The Green level is for those who are new to tennis or have played a little before. The focus is on learning the basics of tennis, including grip, swings, footwork, and ball control.
 
 Yellow Level (2/5)
-The yellow level is for those who have basic knowledge of forehand, backhand, and volley. You can sustain a rally and play simple matches, both with and without serves. Here you will also learn to use simple tactics and improve your ability to move effectively on the court.
+The Yellow level is suitable for those with basic knowledge of forehand, backhand, and volley. You can keep a rally going and play simpler matches.
 
 Blue Level (3/5)
-At the blue level, you can play the full game and cover the entire tennis court without any issues. You have good control of the game’s tempo and can aim the ball to different parts of the court. You also begin to use different types of spins in your strokes and can follow the coach’s targets during play.
+At the Blue level, you can play the entire game and cover the whole court without difficulty. You have good control over the game's pace and can aim the ball to different parts of the court.
 
 Red Level (4/5)
-Red level is for players who master the entire game at a fast pace with few mistakes. You can adapt your game to opponents, vary tempo, spin, and aim. The exercises are more challenging, and your physical capacity is good enough to cover the entire court. A recommendation from one of the club’s coaches is required to play at this level.
+The Red level is for players who master the whole game at a high tempo with few mistakes. You can adjust your game according to your opponent.
 
 Black Level (5/5)
-At the highest level, black, we often find former competitive players or those who have played actively for a large part of their life. The training focuses on details rather than fundamentals, and it resembles the training given to the club’s competitive juniors. Players at this level have high physical ability and can play the full game. A recommendation from a coach is required to participate at this level.
-
-These levels help you develop gradually and give you the right conditions to challenge yourself and improve your game, no matter what level you are at.`,
-                "pageTitle": "Activity Menu"
+At the highest level, Black, we often find former competitive players or those who have played actively for a large part of their life. Training focuses on details.`,
             }
         };
 
-        let currentLanguage = 'sv'; // Default language
-
         function switchLanguage(lang) {
             currentLanguage = lang;
-            const t = translations[lang];
-            document.title = t.pageTitle;
+            document.documentElement.lang = lang;
         }
 
         function showLevelDescriptions() {
-            const t = translations[currentLanguage];
-            alert(t.levelDescription);
+            alert(translations[currentLanguage].levelDescriptions);
         }
     </script>
 
