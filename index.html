@@ -97,7 +97,7 @@
         }
 
         ul li a {
-            color: #bbdefb;
+            color: #bbdefb; /* Ljusblå textfärg för enhetlighet */
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
@@ -244,28 +244,23 @@
 
     <!-- Språkväxlare -->
     <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska">
-        <img src="english-flag.png" alt="English">
+        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
+        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
     </div>
 
     <script>
         function showLevelDescriptions() {
-            alert(`På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär. Här är en översikt över de olika nivåerna, som hjälper dig att hitta rätt utmaning och utveckling:
+            alert("På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär...");
+        }
 
-Grön nivå (1/5)
-Grön nivå är för dig som är ny inom tennisen eller har spelat lite tidigare. Fokus ligger på att lära sig tennisens grunder, inklusive grepp, svingar, fotarbete och förmågan att kontrollera bollen. Målet är att du ska kunna spela med en annan spelare och få igång ett eget spel. Vi erbjuder låneracketar för nya spelare som deltar på denna nivå.
-
-Gul nivå (2/5)
-Den gula nivån passar dig som har grundläggande kunskaper i forehand, backhand och volley. Du kan hålla igång ett spel och spela enklare matcher, både med och utan serve. Här lär du dig också använda enklare taktik och förbättrar din förmåga att röra dig effektivt på banan.
-
-Blå nivå (3/5)
-På blå nivå kan du spela hela spelet och täcka hela tennisbanan utan problem. Du har god kontroll över spelets tempo och kan sikta bollen till olika delar av banan. Du börjar också använda olika typer av spinn i dina slag och kan följa tränarens mål under spelet.
-
-Röd nivå (4/5)
-Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få misstag. Du kan anpassa ditt spel efter motståndare, variera tempo, spinn och sikte. Övningarna har högre svårighetsgrad och din fysiska kapacitet är god nog för att täcka hela banan. För att spela på denna nivå krävs rekommendation från en av klubbens tränare.
-
-Svart nivå (5/5)
-På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer snarare än grunderna, och den påminner om den som ges till klubbens tävlingsjuniorer. Spelarna på denna nivå har en hög fysisk förmåga och kan hela spelet. Rekommendation från en tränare krävs för att delta på denna nivå.`);
+        function switchLanguage(lang) {
+            if (lang === 'sv') {
+                document.documentElement.lang = 'sv';
+                alert('Sidan är nu på svenska.');
+            } else if (lang === 'en') {
+                document.documentElement.lang = 'en';
+                alert('The page is now in English.');
+            }
         }
     </script>
 
