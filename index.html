@@ -45,7 +45,7 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #ffffff;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -148,6 +148,16 @@
             height: 40px;
             cursor: pointer;
         }
+
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -244,8 +254,8 @@
 
     <!-- Språkväxlare -->
     <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska">
-        <img src="english-flag.png" alt="English">
+        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
+        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
     </div>
 
     <script>
@@ -266,6 +276,14 @@ Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få
 
 Svart nivå (5/5)
 På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer snarare än grunderna, och den påminner om den som ges till klubbens tävlingsjuniorer. Spelarna på denna nivå har en hög fysisk förmåga och kan hela spelet. Rekommendation från en tränare krävs för att delta på denna nivå.`);
+        }
+
+        function switchLanguage(lang) {
+            if (lang === 'sv') {
+                window.location.href = '/index.html'; // Laddar svenska sidan
+            } else if (lang === 'en') {
+                window.location.href = '/index-en.html'; // Laddar engelska sidan
+            }
         }
     </script>
 
