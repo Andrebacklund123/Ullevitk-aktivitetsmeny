@@ -81,7 +81,7 @@
         }
 
         .green { background-color: #43a047; }
-        .yellow { background-color: #ffeb3b; color: #000000; } /* Ändring: svart text för "Gul (2/5)" */
+        .yellow { background-color: #ffeb3b; color: #000000; } /* Svart text för "Gul (2/5)" */
         .blue { background-color: #2196f3; }
         .red { background-color: #e53935; }
         .black { background-color: #212121; }
@@ -147,6 +147,19 @@
             height: 40px;
             cursor: pointer;
         }
+
+        /* Text för att visa nivåbeskrivningar */
+        .level-descriptions {
+            display: none;
+            background-color: #eeeeee;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            color: #000;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
@@ -172,6 +185,9 @@
         <a href="#green" class="btn" onclick="showLevelDescriptions()">Vilken nivå är jag?</a>
         <a href="#green" class="btn">Utforska aktiviteter</a>
     </div>
+
+    <!-- Nivåbeskrivningar -->
+    <div id="level-description" class="level-descriptions"></div>
 
     <!-- Grön Nivå -->
     <div id="green" class="level green">
@@ -250,46 +266,13 @@
     <script>
         let currentLanguage = 'sv';
 
-        const translations = {
-            "sv": {
-                "levelDescriptions": `På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär.
-Här är en översikt över de olika nivåerna, som hjälper dig att hitta rätt utmaning och utveckling:
-
-Grön nivå (1/5)
-Grön nivå är för dig som är ny inom tennisen eller har spelat lite tidigare. Fokus ligger på att lära sig tennisens grunder, inklusive grepp, svingar, fotarbete och förmågan att kontrollera bollen.
-
-Gul nivå (2/5)
-Den gula nivån passar dig som har grundläggande kunskaper i forehand, backhand och volley. Du kan hålla igång ett spel och spela enklare matcher.
-
-Blå nivå (3/5)
-På blå nivå kan du spela hela spelet och täcka hela tennisbanan utan problem. Du har god kontroll över spelets tempo och kan sikta bollen till olika delar av banan.
-
-Röd nivå (4/5)
-Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få misstag. Du kan anpassa ditt spel efter motståndare.
-
-Svart nivå (5/5)
-På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer.`,
-            },
-            "en": {
-                "levelDescriptions": `At Ullevi Tennis Club, we offer five different levels of play to suit players at various stages of their tennis career.
-Here is an overview of the different levels, which help you find the right challenge and development:
-
-Green Level (1/5)
-The Green level is for those who are new to tennis or have played a little before. The focus is on learning the basics of tennis, including grip, swings, footwork, and ball control.
-
-Yellow Level (2/5)
-The Yellow level is suitable for those with basic knowledge of forehand, backhand, and volley. You can keep a rally going and play simpler matches.
-
-Blue Level (3/5)
-At the Blue level, you can play the entire game and cover the whole court without difficulty. You have good control over the game's pace and can aim the ball to different parts of the court.
-
-Red Level (4/5)
-The Red level is for players who master the whole game at a high tempo with few mistakes. You can adjust your game according to your opponent.
-
-Black Level (5/5)
-At the highest level, Black, we often find former competitive players or those who have played actively for a large part of their life. Training focuses on details.`,
-            }
-        };
+        // Hämta översättningarna från JSON-fil
+        fetch('translations.json')
+          .then(response => response.json())
+          .then(data => {
+            translations = data;
+          })
+          .catch(error => console.error('Error loading translations:', error));
 
         function switchLanguage(lang) {
             currentLanguage = lang;
@@ -297,7 +280,9 @@ At the highest level, Black, we often find former competitive players or those w
         }
 
         function showLevelDescriptions() {
-            alert(translations[currentLanguage].levelDescriptions);
+            const levelDescriptionDiv = document.getElementById('level-description');
+            levelDescriptionDiv.textContent = translations[currentLanguage].levelDescriptions;
+            levelDescriptionDiv.style.display = 'block';  // Visa beskrivningarna i stället för alert
         }
     </script>
 
