@@ -298,6 +298,52 @@
         <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
     </div>
 
+    <!-- Ladda ner appen-prompt -->
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Förhindra att prompten visas direkt
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Visa en anpassad knapp för att installera appen
+            const installButton = document.createElement('button');
+            installButton.innerText = 'Ladda ner appen';
+            installButton.style.position = 'fixed';
+            installButton.style.bottom = '20px';
+            installButton.style.right = '20px';
+            installButton.style.padding = '10px 20px';
+            installButton.style.backgroundColor = '#0d47a1';
+            installButton.style.color = 'white';
+            installButton.style.borderRadius = '5px';
+            installButton.style.fontSize = '16px';
+            document.body.appendChild(installButton);
+
+            installButton.addEventListener('click', () => {
+                // Visa installationsprompten
+                deferredPrompt.prompt();
+
+                // Vänta på att användaren reagerar på prompten
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Användaren accepterade installationen');
+                    } else {
+                        console.log('Användaren avvisade installationen');
+                    }
+                    deferredPrompt = null;  // Återställ prompten
+                    installButton.style.display = 'none';  // Dölj knappen efter att prompten visats
+                });
+            });
+        });
+
+        // Om appen redan är installerad, döljer vi installationsknappen
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('Appen har installerats.');
+        });
+    </script>
+
+    <!-- Övriga scripts -->
     <script>
         let currentLanguage = 'sv';
         let translations = {};
