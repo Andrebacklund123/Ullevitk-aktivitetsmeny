@@ -148,18 +148,47 @@
             cursor: pointer;
         }
 
-        /* Text för att visa nivåbeskrivningar */
-        .level-descriptions {
+        /* Överlag för texten "Vilken nivå är jag?" */
+        .overlay {
             display: none;
-            background-color: #eeeeee;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-            color: #000;
-            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
         }
 
+        .overlay-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            max-width: 600px;
+            text-align: left;
+            border-radius: 10px;
+            color: #000;
+        }
+
+        .overlay-content h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #0d47a1;
+        }
+
+        .overlay-close {
+            background-color: #0d47a1;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -186,8 +215,37 @@
         <a href="#green" class="btn">Utforska aktiviteter</a>
     </div>
 
-    <!-- Nivåbeskrivningar -->
-    <div id="level-description" class="level-descriptions"></div>
+    <!-- Överlagstexten -->
+    <div id="level-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Nivåbeskrivning</h2>
+            <p>
+                På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär. 
+                Här är en översikt över de olika nivåerna, som hjälper dig att hitta rätt utmaning och utveckling:
+                <br><br>
+                <strong>Grön nivå (1/5)</strong><br>
+                Grön nivå är för dig som är ny inom tennisen eller har spelat lite tidigare. Fokus ligger på att lära sig tennisens grunder, 
+                inklusive grepp, svingar, fotarbete och förmågan att kontrollera bollen. Målet är att du ska kunna spela med en annan spelare och få igång ett eget spel.
+                <br><br>
+                <strong>Gul nivå (2/5)</strong><br>
+                Den gula nivån passar dig som har grundläggande kunskaper i forehand, backhand och volley. Du kan hålla igång ett spel och spela enklare matcher, 
+                både med och utan serve. Här lär du dig också använda enklare taktik och förbättrar din förmåga att röra dig effektivt på banan.
+                <br><br>
+                <strong>Blå nivå (3/5)</strong><br>
+                På blå nivå kan du spela hela spelet och täcka hela tennisbanan utan problem. Du har god kontroll över spelets tempo och kan sikta bollen till olika delar av banan.
+                <br><br>
+                <strong>Röd nivå (4/5)</strong><br>
+                Röd nivå är för spelare som behärskar hela spelet i ett högt tempo med få misstag. Du kan anpassa ditt spel efter motståndare, variera tempo, spinn och sikte.
+                <br><br>
+                <strong>Svart nivå (5/5)</strong><br>
+                På den högsta nivån, svart, hittar vi ofta före detta tävlingsspelare eller de som spelat aktivt under en större del av sitt liv. Träningen fokuserar på detaljer 
+                snarare än grunderna, och den påminner om den som ges till klubbens tävlingsjuniorer. Spelarna på denna nivå har en hög fysisk förmåga och kan hela spelet.
+                <br><br>
+                Dessa nivåer hjälper dig att utvecklas stegvis och ger dig rätt förutsättningar för att utmana dig själv och förbättra ditt spel, oavsett vilken nivå du befinner dig på.
+            </p>
+            <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
+        </div>
+    </div>
 
     <!-- Grön Nivå -->
     <div id="green" class="level green">
@@ -207,53 +265,6 @@
             <li><a href="https://share.matchi.com/activities/89922" target="_blank">Tennispasset Fotarbete Gul/Blå</a></li>
             <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
             <li><a href="https://share.matchi.com/activities/91433" target="_blank">Tennispasset Gul 90 minuter</a></li>
-        </ul>
-    </div>
-
-    <!-- Blå Nivå -->
-    <div id="blue" class="level blue">
-        <h2>Blå (3/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1447" target="_blank">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" target="_blank">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1454" target="_blank">Lördagsgänget</a></li>
-            <li><a href="https://share.matchi.com/activities/1453" target="_blank">Söndagsgänget</a></li>
-        </ul>
-    </div>
-
-    <!-- Röd Nivå -->
-    <div id="red" class="level red">
-        <h2>Röd (4/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1448" target="_blank">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" target="_blank">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116993" target="_blank">Tennispasset Röd (Fokus Dubbelspel)</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
-        </ul>
-    </div>
-
-    <!-- Svart Nivå -->
-    <div id="black" class="level black">
-        <h2>Svart (5/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1450" target="_blank">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" target="_blank">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/1449" target="_blank">Frukosttennis</a></li>
-            <li><a href="https://share.matchi.com/activities/115394" target="_blank">Tisdagsgänget</a></li>
         </ul>
     </div>
 
@@ -279,10 +290,14 @@
             document.documentElement.lang = lang;
         }
 
+        // Funktion för att visa överlag med nivåbeskrivningar
         function showLevelDescriptions() {
-            const levelDescriptionDiv = document.getElementById('level-description');
-            levelDescriptionDiv.textContent = translations[currentLanguage].levelDescriptions;
-            levelDescriptionDiv.style.display = 'block';  // Visa beskrivningarna i stället för alert
+            document.getElementById('level-overlay').style.display = 'block';
+        }
+
+        // Funktion för att dölja överlag
+        function hideOverlay() {
+            document.getElementById('level-overlay').style.display = 'none';
         }
     </script>
 
