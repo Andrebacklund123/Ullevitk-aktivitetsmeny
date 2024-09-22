@@ -25,6 +25,7 @@
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Gör att menyn bryts på mindre skärmar */
         }
 
         nav a {
@@ -52,8 +53,13 @@
             word-wrap: break-word;
         }
 
-        /* Media query för att justera textstorlek på mindre skärmar */
+        /* Media query för att justera menyn och textstorlek på mindre skärmar */
         @media screen and (max-width: 600px) {
+            nav a {
+                font-size: 1rem; /* Minska textstorleken i menyn */
+                margin: 0 10px;
+            }
+
             h1 {
                 font-size: 1.8rem;
             }
@@ -369,6 +375,9 @@
             document.getElementById('nav-blue').textContent = translations[currentLanguage].blueLevel;
             document.getElementById('nav-red').textContent = translations[currentLanguage].redLevel;
             document.getElementById('nav-black').textContent = translations[currentLanguage].blackLevel;
+
+            // Översätt rubriken
+            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
 
             // Översätt aktivitetslänkar
             document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
