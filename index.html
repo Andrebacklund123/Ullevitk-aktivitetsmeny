@@ -187,6 +187,11 @@
             color: #0d47a1;
         }
 
+        .overlay-content p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
         .overlay-close {
             background-color: #0d47a1;
             color: white;
@@ -203,11 +208,11 @@
 
     <!-- Navigering -->
     <nav>
-        <a href="#green">Grön</a>
-        <a href="#yellow">Gul</a>
-        <a href="#blue">Blå</a>
-        <a href="#red">Röd</a>
-        <a href="#black">Svart</a>
+        <a href="#green" id="nav-green">Grön</a>
+        <a href="#yellow" id="nav-yellow">Gul</a>
+        <a href="#blue" id="nav-blue">Blå</a>
+        <a href="#red" id="nav-red">Röd</a>
+        <a href="#black" id="nav-black">Svart</a>
     </nav>
 
     <!-- Nyhetsbanner -->
@@ -227,9 +232,7 @@
     <div id="level-overlay" class="overlay">
         <div class="overlay-content">
             <h2 id="level-description-title">Nivåbeskrivning</h2>
-            <p id="level-descriptions">
-                På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär.
-            </p>
+            <p id="level-descriptions"></p>
             <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
         </div>
     </div>
@@ -298,16 +301,13 @@
         <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
     </div>
 
-    <!-- Ladda ner appen-prompt -->
     <script>
         let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Förhindra att prompten visas direkt
             e.preventDefault();
             deferredPrompt = e;
 
-            // Visa en anpassad knapp för att installera appen
             const installButton = document.createElement('button');
             installButton.innerText = 'Ladda ner appen';
             installButton.style.position = 'fixed';
@@ -321,34 +321,26 @@
             document.body.appendChild(installButton);
 
             installButton.addEventListener('click', () => {
-                // Visa installationsprompten
                 deferredPrompt.prompt();
-
-                // Vänta på att användaren reagerar på prompten
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('Användaren accepterade installationen');
                     } else {
                         console.log('Användaren avvisade installationen');
                     }
-                    deferredPrompt = null;  // Återställ prompten
-                    installButton.style.display = 'none';  // Dölj knappen efter att prompten visats
+                    deferredPrompt = null;
+                    installButton.style.display = 'none';
                 });
             });
         });
 
-        // Om appen redan är installerad, döljer vi installationsknappen
-        window.addEventListener('appinstalled', (evt) => {
+        window.addEventListener('appinstalled', () => {
             console.log('Appen har installerats.');
         });
-    </script>
 
-    <!-- Övriga scripts -->
-    <script>
         let currentLanguage = 'sv';
         let translations = {};
 
-        // Hämta översättningarna från JSON-fil
         fetch('translations.json')
           .then(response => response.json())
           .then(data => {
@@ -369,13 +361,19 @@
             document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
             document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
             document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
-            document.getElementById('level-descriptions').textContent = translations[currentLanguage].levelDescriptions;
+            document.getElementById('level-descriptions').innerHTML = translations[currentLanguage].levelDescriptions.replace(/\n/g, '<br>');
 
             document.getElementById('green-level').textContent = translations[currentLanguage].greenLevel;
             document.getElementById('yellow-level').textContent = translations[currentLanguage].yellowLevel;
             document.getElementById('blue-level').textContent = translations[currentLanguage].blueLevel;
             document.getElementById('red-level').textContent = translations[currentLanguage].redLevel;
             document.getElementById('black-level').textContent = translations[currentLanguage].blackLevel;
+
+            document.getElementById('nav-green').textContent = translations[currentLanguage].greenLevel;
+            document.getElementById('nav-yellow').textContent = translations[currentLanguage].yellowLevel;
+            document.getElementById('nav-blue').textContent = translations[currentLanguage].blueLevel;
+            document.getElementById('nav-red').textContent = translations[currentLanguage].redLevel;
+            document.getElementById('nav-black').textContent = translations[currentLanguage].blackLevel;
 
             document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
             document.getElementById('greenActivity2').textContent = translations[currentLanguage].greenActivity2;
