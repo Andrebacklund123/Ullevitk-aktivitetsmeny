@@ -8,424 +8,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#1a237e">
     <style>
-        /* Your existing CSS remains here */
-    </style>
-</head>
-<body>
-
-    <!-- Navigering -->
-    <nav>
-        <a href="#green" id="nav-green">Grön</a>
-        <a href="#yellow" id="nav-yellow">Gul</a>
-        <a href="#blue" id="nav-blue">Blå</a>
-        <a href="#red" id="nav-red">Röd</a>
-        <a href="#black" id="nav-black">Svart</a>
-    </nav>
-
-    <!-- Nyhetsbanner -->
-    <div class="news-banner" id="news-banner">
-        Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
-    </div>
-
-    <!-- Startsida -->
-    <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1 id="page-title">Aktivitetsmeny</h1>
-        <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken nivå är jag?</a>
-        <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
-    </div>
-
-    <!-- Överlagstexten -->
-    <div id="level-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2 id="level-description-title">Nivåbeskrivning</h2>
-            <p id="level-descriptions"></p>
-            <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
-        </div>
-    </div>
-
-    <!-- Grön Nivå -->
-    <div id="green" class="level green">
-        <h2 id="green-level">Grön (1/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1397" target="_blank" id="greenActivity1">Tennispasset Grön</a></li>
-            <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" id="greenActivity2">Nybörjarkurs</a></li>
-        </ul>
-    </div>
-
-    <!-- Gul Nivå -->
-    <div id="yellow" class="level yellow">
-        <h2 id="yellow-level">Gul (2/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
-        </ul>
-    </div>
-
-    <!-- Blå Nivå -->
-    <div id="blue" class="level blue">
-        <h2 id="blue-level">Blå (3/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1447" target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-        </ul>
-    </div>
-
-    <!-- Röd Nivå -->
-    <div id="red" class="level red">
-        <h2 id="red-level">Röd (4/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1448" target="_blank" id="redActivity1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Svart Nivå -->
-    <div id="black" class="level black">
-        <h2 id="black-level">Svart (5/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1450" target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Språkväxlare -->
-    <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
-    </div>
-
-    <script>
-        let currentLanguage = 'sv';
-        let translations = {};
-
-        fetch('translations.json')
-          .then(response => response.json())
-          .then(data => {
-            translations = data;
-            updateTextContent();
-          })
-          .catch(error => console.error('Error loading translations:', error));
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
-        }
-
-        function updateTextContent() {
-            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
-            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
-            document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
-            document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
-            document.getElementById('level-description-title').textContent = translations[currentHere is the complete code with the integration of activities and correct translation functionality. It includes the `updateTextContent` function and ensures that all levels and activities are dynamically translated when switching between languages.
-
-```html
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Aktivitetsmeny</title> <!-- Dynamisk titel -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
-    <style>
-        /* Your existing CSS remains here */
-    </style>
-</head>
-<body>
-
-    <!-- Navigering -->
-    <nav>
-        <a href="#green" id="nav-green">Grön</a>
-        <a href="#yellow" id="nav-yellow">Gul</a>
-        <a href="#blue" id="nav-blue">Blå</a>
-        <a href="#red" id="nav-red">Röd</a>
-        <a href="#black" id="nav-black">Svart</a>
-    </nav>
-
-    <!-- Nyhetsbanner -->
-    <div class="news-banner" id="news-banner">
-        Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
-    </div>
-
-    <!-- Startsida -->
-    <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1 id="page-title">Aktivitetsmeny</h1>
-        <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken nivå är jag?</a>
-        <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
-    </div>
-
-    <!-- Överlagstexten -->
-    <div id="level-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2 id="level-description-title">Nivåbeskrivning</h2>
-            <p id="level-descriptions"></p>
-            <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
-        </div>
-    </div>
-
-    <!-- Grön Nivå -->
-    <div id="green" class="level green">
-        <h2 id="green-level">Grön (1/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1397" target="_blank" id="greenActivity1">Tennispasset Grön</a></li>
-            <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" id="greenActivity2">Nybörjarkurs</a></li>
-        </ul>
-    </div>
-
-    <!-- Gul Nivå -->
-    <div id="yellow" class="level yellow">
-        <h2 id="yellow-level">Gul (2/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
-        </ul>
-    </div>
-
-    <!-- Blå Nivå -->
-    <div id="blue" class="level blue">
-        <h2 id="blue-level">Blå (3/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1447" target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-        </ul>
-    </div>
-
-    <!-- Röd Nivå -->
-    <div id="red" class="level red">
-        <h2 id="red-level">Röd (4/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1448" target="_blank" id="redActivity1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Svart Nivå -->
-    <div id="black" class="level black">
-        <h2 id="black-level">Svart (5/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1450" target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Språkväxlare -->
-    <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
-    </div>
-
-    <script>
-        let currentLanguage = 'sv';
-        let translations = {};
-
-        fetch('translations.json')
-          .then(response => response.json())
-          .then(data => {
-            translations = data;
-            updateTextContent();
-          })
-          .catch(error => console.error('Error loading translations:', error));
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
-        }
-
-        function updateTextContent() {
-            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
-            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
-            document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
-            document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
-            document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
-            document.getElementById('levelHere is the complete updated code for integrating the translation functionality for all activities and levels into your app:
-
-```html
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Aktivitetsmeny</title> <!-- Dynamisk titel -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
-    <style>
-        /* Existing CSS here */
-    </style>
-</head>
-<body>
-
-    <!-- Navigering -->
-    <nav>
-        <a href="#green" id="nav-green">Grön</a>
-        <a href="#yellow" id="nav-yellow">Gul</a>
-        <a href="#blue" id="nav-blue">Blå</a>
-        <a href="#red" id="nav-red">Röd</a>
-        <a href="#black" id="nav-black">Svart</a>
-    </nav>
-
-    <!-- Nyhetsbanner -->
-    <div class="news-banner" id="news-banner">
-        Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
-    </div>
-
-    <!-- Startsida -->
-    <div class="container">
-        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp">
-        <h1 id="page-title">Aktivitetsmeny</h1>
-        <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken nivå är jag?</a>
-        <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
-    </div>
-
-    <!-- Överlagstexten -->
-    <div id="level-overlay" class="overlay">
-        <div class="overlay-content">
-            <h2 id="level-description-title">Nivåbeskrivning</h2>
-            <p id="level-descriptions"></p>
-            <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
-        </div>
-    </div>
-
-    <!-- Grön Nivå -->
-    <div id="green" class="level green">
-        <h2 id="green-level">Grön (1/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1397" target="_blank" id="greenActivity1">Tennispasset Grön</a></li>
-            <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" id="greenActivity2">Nybörjarkurs</a></li>
-        </ul>
-    </div>
-
-    <!-- Gul Nivå -->
-    <div id="yellow" class="level yellow">
-        <h2 id="yellow-level">Gul (2/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
-            <li><a href="https://share.matchi.com/activities/93468" target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
-        </ul>
-    </div>
-
-    <!-- Blå Nivå -->
-    <div id="blue" class="level blue">
-        <h2 id="blue-level">Blå (3/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1447" target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/91431" target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-            <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-        </ul>
-    </div>
-
-    <!-- Röd Nivå -->
-    <div id="red" class="level red">
-        <h2 id="red-level">Röd (4/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1448" target="_blank" id="redActivity1">Tennispasset Röd</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Svart Nivå -->
-    <div id="black" class="level black">
-        <h2 id="black-level">Svart (5/5)</h2>
-        <ul>
-            <li><a href="https://share.matchi.com/activities/1450" target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/89916" target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
-            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-        </ul>
-    </div>
-
-    <!-- Språkväxlare -->
-    <div class="language-switch">
-        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
-    </div>
-
-    <script>
-        let currentLanguage = 'sv';
-        let translations = {};
-
-        fetch('translations.json')
-          .then(response => response.json())
-          .then(data => {
-            translations = data;
-            updateTextContent();
-          })
-          .catch(error => console.error('Error loading translations:', error));
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
-        }
-
-        function updateTextContent() {
-            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
-            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
-            document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
-            document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
-            document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
-            document.getElementById('level-descriptions').innerHTML = translations[currentLanguage].levelDescriptions.replace(/\n/g, '<br>');
-
-To ensure the whole page translates correctly and integrates all activities, here's the full `index.html` code with the JavaScript `updateTextContent()` function properly hooking into the language switch mechanism. Each level and activity will translate between Swedish and English upon clicking the respective language flag. 
-
-**Key Steps in the JavaScript Integration:**
-- Ensure the translation keys in `translations.json` match the corresponding `id` attributes in the HTML for both levels and activities.
-- The `updateTextContent()` function updates the entire page's text dynamically based on the selected language.
-
-Here's the complete `index.html` integrated with all translations:
-
-```html
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Aktivitetsmeny</title> <!-- Dynamisk titel -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
-    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -443,7 +25,6 @@ Here's the complete `index.html` integrated with all translations:
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap; /* Gör att menyn bryts på mindre skärmar */
         }
 
         nav a {
@@ -471,13 +52,8 @@ Here's the complete `index.html` integrated with all translations:
             word-wrap: break-word;
         }
 
-        /* Media query för att justera menyn och textstorlek på mindre skärmar */
+        /* Media query för att justera textstorlek på mindre skärmar */
         @media screen and (max-width: 600px) {
-            nav a {
-                font-size: 1rem; /* Minska textstorleken i menyn */
-                margin: 0 10px;
-            }
-
             h1 {
                 font-size: 1.8rem;
             }
@@ -611,11 +187,6 @@ Here's the complete `index.html` integrated with all translations:
             color: #0d47a1;
         }
 
-        .overlay-content p {
-            margin: 10px 0;
-            line-height: 1.6;
-        }
-
         .overlay-close {
             background-color: #0d47a1;
             color: white;
@@ -632,11 +203,11 @@ Here's the complete `index.html` integrated with all translations:
 
     <!-- Navigering -->
     <nav>
-        <a href="#green" id="nav-green">Grön</a>
-        <a href="#yellow" id="nav-yellow">Gul</a>
-        <a href="#blue" id="nav-blue">Blå</a>
-        <a href="#red" id="nav-red">Röd</a>
-        <a href="#black" id="nav-black">Svart</a>
+        <a href="#green">Grön</a>
+        <a href="#yellow">Gul</a>
+        <a href="#blue">Blå</a>
+        <a href="#red">Röd</a>
+        <a href="#black">Svart</a>
     </nav>
 
     <!-- Nyhetsbanner -->
@@ -656,7 +227,9 @@ Here's the complete `index.html` integrated with all translations:
     <div id="level-overlay" class="overlay">
         <div class="overlay-content">
             <h2 id="level-description-title">Nivåbeskrivning</h2>
-            <p id="level-descriptions"></p>
+            <p id="level-descriptions">
+                På Ullevi Tennisklubb erbjuder vi fem olika spelnivåer för att passa spelare på olika stadier av sin tenniskarriär.
+            </p>
             <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
         </div>
     </div>
@@ -674,12 +247,126 @@ Here's the complete `index.html` integrated with all translations:
     <div id="yellow" class="level yellow">
         <h2 id="yellow-level">Gul (2/5)</h2>
         <ul>
-            <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivityTo ensure the language switching functionality works and translates all parts of your webpage, I recommend making sure the following elements are well integrated:
+            <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
+            <li><a href="https://share.matchi.com/activities/93468" target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
+        </ul>
+    </div>
 
-1. **Translation Keys in `translations.json`:** Verify that all activity names, level descriptions, and other strings are covered in both the Swedish (`sv`) and English (`en`) translations.
-   
-2. **JavaScript Hooking:** The `updateTextContent()` function needs to correctly identify all elements (like `id` attributes) and ensure the corresponding translations from `translations.json` are loaded.
+    <!-- Blå Nivå -->
+    <div id="blue" class="level blue">
+        <h2 id="blue-level">Blå (3/5)</h2>
+        <ul>
+            <li><a href="https://share.matchi.com/activities/1447" target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/91431" target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+            <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
+        </ul>
+    </div>
 
-3. **Ensure Consistent Element IDs:** All elements in the HTML should have unique IDs that match the keys in the translation file.
+    <!-- Röd Nivå -->
+    <div id="red" class="level red">
+        <h2 id="red-level">Röd (4/5)</h2>
+        <ul>
+            <li><a href="https://share.matchi.com/activities/1448" target="_blank" id="redActivity1">Tennispasset Röd</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+        </ul>
+    </div>
 
-If you'd like help with specific adjustments, feel free to share more about the issues you're encountering.
+    <!-- Svart Nivå -->
+    <div id="black" class="level black">
+        <h2 id="black-level">Svart (5/5)</h2>
+        <ul>
+            <li><a href="https://share.matchi.com/activities/1450" target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/89916" target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
+            <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+            <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+        </ul>
+    </div>
+
+    <!-- Språkväxlare -->
+    <div class="language-switch">
+        <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
+        <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
+    </div>
+
+    <script>
+        let currentLanguage = 'sv';
+        let translations = {};
+
+        // Hämta översättningarna från JSON-fil
+        fetch('translations.json')
+          .then(response => response.json())
+          .then(data => {
+            translations = data;
+            updateTextContent();
+          })
+          .catch(error => console.error('Error loading translations:', error));
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            updateTextContent();
+        }
+
+        function updateTextContent() {
+            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
+            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
+            document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
+            document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
+            document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
+            document.getElementById('level-descriptions').textContent = translations[currentLanguage].levelDescriptions;
+
+            document.getElementById('green-level').textContent = translations[currentLanguage].greenLevel;
+            document.getElementById('yellow-level').textContent = translations[currentLanguage].yellowLevel;
+            document.getElementById('blue-level').textContent = translations[currentLanguage].blueLevel;
+            document.getElementById('red-level').textContent = translations[currentLanguage].redLevel;
+            document.getElementById('black-level').textContent = translations[currentLanguage].blackLevel;
+
+            document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
+            document.getElementById('greenActivity2').textContent = translations[currentLanguage].greenActivity2;
+            document.getElementById('yellowActivity1').textContent = translations[currentLanguage].yellowActivity1;
+            document.getElementById('yellowActivity2').textContent = translations[currentLanguage].yellowActivity2;
+            document.getElementById('yellowActivity3').textContent = translations[currentLanguage].yellowActivity3;
+            document.getElementById('yellowActivity4').textContent = translations[currentLanguage].yellowActivity4;
+            document.getElementById('yellowActivity5').textContent = translations[currentLanguage].yellowActivity5;
+
+            document.getElementById('blueActivity1').textContent = translations[currentLanguage].blueActivity1;
+            document.getElementById('blueActivity2').textContent = translations[currentLanguage].blueActivity2;
+            document.getElementById('blueActivity3').textContent = translations[currentLanguage].blueActivity3;
+            document.getElementById('blueActivity4').textContent = translations[currentLanguage].blueActivity4;
+            document.getElementById('blueActivity5').textContent = translations[currentLanguage].blueActivity5;
+            document.getElementById('blueActivity6').textContent = translations[currentLanguage].blueActivity6;
+
+            document.getElementById('redActivity1').textContent = translations[currentLanguage].redActivity1;
+            document.getElementById('redActivity2').textContent = translations[currentLanguage].redActivity2;
+            document.getElementById('redActivity3').textContent = translations[currentLanguage].redActivity3;
+            document.getElementById('redActivity4').textContent = translations[currentLanguage].redActivity4;
+            document.getElementById('redActivity5').textContent = translations[currentLanguage].redActivity5;
+
+            document.getElementById('blackActivity1').textContent = translations[currentLanguage].blackActivity1;
+            document.getElementById('blackActivity2').textContent = translations[currentLanguage].blackActivity2;
+            document.getElementById('blackActivity3').textContent = translations[currentLanguage].blackActivity3;
+            document.getElementById('blackActivity4').textContent = translations[currentLanguage].blackActivity4;
+            document.getElementById('blackActivity5').textContent = translations[currentLanguage].blackActivity5;
+        }
+
+        function showLevelDescriptions() {
+            document.getElementById('level-overlay').style.display = 'block';
+        }
+
+        function hideOverlay() {
+            document.getElementById('level-overlay').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
