@@ -361,12 +361,56 @@
           .catch(error => {
             console.error('Error loading translations:', error);
             alert('Kunde inte ladda översättningarna. Försök igen senare.');
-          });
+          });updateTextContent
+          function updateTextContent() {
+    document.title = translations[currentLanguage].pageTitle;
+    document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
+    document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
+    document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
+    document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
+    document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
+    document.getElementById('level-descriptions').textContent = translations[currentLanguage].levelDescriptions;
 
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
+    document.getElementById('green-level').textContent = translations[currentLanguage].greenLevel;
+    document.getElementById('yellow-level').textContent = translations[currentLanguage].yellowLevel;
+    document.getElementById('blue-level').textContent = translations[currentLanguage].blueLevel;
+    document.getElementById('red-level').textContent = translations[currentLanguage].redLevel;
+    document.getElementById('black-level').textContent = translations[currentLanguage].blackLevel;
+
+    document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
+    document.getElementById('greenActivity2').textContent = translations[currentLanguage].greenActivity2;
+    document.getElementById('yellowActivity1').textContent = translations[currentLanguage].yellowActivity1;
+    document.getElementById('yellowActivity2').textContent = translations[currentLanguage].yellowActivity2;
+    document.getElementById('yellowActivity3').textContent = translations[currentLanguage].yellowActivity3;
+    document.getElementById('yellowActivity4').textContent = translations[currentLanguage].yellowActivity4;
+    document.getElementById('yellowActivity5').textContent = translations[currentLanguage].yellowActivity5;
+
+    document.getElementById('blueActivity1').textContent = translations[currentLanguage].blueActivity1;
+    document.getElementById('blueActivity2').textContent = translations[currentLanguage].blueActivity2;
+    document.getElementById('blueActivity3').textContent = translations[currentLanguage].blueActivity3;
+    document.getElementById('blueActivity4').textContent = translations[currentLanguage].blueActivity4;
+    document.getElementById('blueActivity5').textContent = translations[currentLanguage].blueActivity5;
+    document.getElementById('blueActivity6').textContent = translations[currentLanguage].blueActivity6;
+
+    document.getElementById('redActivity1').textContent = translations[currentLanguage].redActivity1;
+    document.getElementById('redActivity2').textContent = translations[currentLanguage].redActivity2;
+    document.getElementById('redActivity3').textContent = translations[currentLanguage].redActivity3;
+    document.getElementById('redActivity4').textContent = translations[currentLanguage].redActivity4;
+    document.getElementById('redActivity5').textContent = translations[currentLanguage].redActivity5;
+
+    document.getElementById('blackActivity1').textContent = translations[currentLanguage].blackActivity1;
+    document.getElementById('blackActivity2').textContent = translations[currentLanguage].blackActivity2;
+    document.getElementById('blackActivity3').textContent = translations[currentLanguage].blackActivity3;
+    document.getElementById('blackActivity4').textContent = translations[currentLanguage].blackActivity4;
+    document.getElementById('blackActivity5').textContent = translations[currentLanguage].blackActivity5;
+
+    // Uppdatera huvudmeny färgnamn
+    document.getElementById('menu-green').textContent = translations[currentLanguage].menuGreen;
+    document.getElementById('menu-yellow').textContent = translations[currentLanguage].menuYellow;
+    document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
+    document.getElementById('menu-red').textContent = translations[currentLanguage].menuRed;
+    document.getElementById('menu-black').textContent = translations[currentLanguage].menuBlack;
+}
         }
 
         function updateTextContent() {
