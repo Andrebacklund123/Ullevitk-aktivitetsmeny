@@ -5,91 +5,7 @@
     "whichLevel": "Vilken spelnivå är jag?",
     "exploreActivities": "Utforska aktiviteter",
     "levelDescriptionsTitle": "Nivåbeskrivningar för Ullevi Tennisklubb",
-    "levelDescriptions": "Grön nivå (1/5) ...",  // Lägg till he{
-      "sv": {
-        "pageTitle": "Aktivitetsmeny",
-        "newsBanner": "Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!",
-        "whichLevel": "Vilken spelnivå är jag?",
-        "exploreActivities": "Utforska aktiviteter",
-        "levelDescriptionsTitle": "Nivåbeskrivningar för Ullevi Tennisklubb",
-        "levelDescriptions": "Grön nivå (1/5) ...",  // Lägg till hela texten här
-        "greenLevel": "Grön (1/5)",
-        "yellowLevel": "Gul (2/5)",
-        "blueLevel": "Blå (3/5)",
-        "redLevel": "Röd (4/5)",
-        "blackLevel": "Svart (5/5)",
-        "greenActivity1": "Tennispasset Grön",
-        "greenActivity2": "Nybörjarkurs",
-        "yellowActivity1": "Tennispasset Gul",
-        "yellowActivity2": "Fortsättningskurs",
-        "yellowActivity3": "Tennispasset Fotarbete Gul/Blå",
-        "yellowActivity4": "Tennispasset Teknik Grundslag, Gul/Blå",
-        "yellowActivity5": "Tennispasset Gul 90 minuter",
-        "blueActivity1": "Tennispasset Blå",
-        "blueActivity2": "Tennispasset Blå 90 minuter",
-        "blueActivity3": "Tennispasset Fotarbete Gul/Blå",
-        "blueActivity4": "Tennispasset Teknik Grundslag, Gul/Blå",
-        "blueActivity5": "Tennispasset Teknik Slice och Stoppboll, Blå/Röd",
-        "blueActivity6": "Tennispasset Blå (Fokus Dubbelspel)",
-        "redActivity1": "Tennispasset Röd",
-        "redActivity2": "Tennispasset Fotarbete Röd/Svart",
-        "redActivity3": "Tennispasset Röd 90 minuter",
-        "redActivity4": "Tennispasset Teknik Grundslag, Röd/Svart",
-        "redActivity5": "Tennispasset Teknik Volley och Attack, Röd/Svart",
-        "blackActivity1": "Tennispasset Svart",
-        "blackActivity2": "Tennispasset Svart 90 minuter",
-        "blackActivity3": "Tennispasset Fotarbete Röd/Svart",
-        "blackActivity4": "Tennispasset Teknik Grundslag, Röd/Svart",
-        "blackActivity5": "Tennispasset Teknik Volley och Attack, Röd/Svart",
-        "menuGreen": "Grön",
-        "menuYellow": "Gul",
-        "menuBlue": "Blå",
-        "menuRed": "Röd",
-        "menuBlack": "Svart"
-      },
-      "en": {
-        "pageTitle": "Activity Menu",
-        "newsBanner": "News: Slice and Drop Shot Tennis Session, Blue/Red - Sign up now!",
-        "whichLevel": "What playing level am I?",
-        "exploreActivities": "Explore activities",
-        "levelDescriptionsTitle": "Level Descriptions for Ullevi Tennis Club",
-        "levelDescriptions": "Green Level (1/5) ...",  // Lägg till hela texten här
-        "greenLevel": "Green (1/5)",
-        "yellowLevel": "Yellow (2/5)",
-        "blueLevel": "Blue (3/5)",
-        "redLevel": "Red (4/5)",
-        "blackLevel": "Black (5/5)",
-        "greenActivity1": "Green Tennis Session",
-        "greenActivity2": "Beginner Course",
-        "yellowActivity1": "Yellow Tennis Session",
-        "yellowActivity2": "Intermediate Course",
-        "yellowActivity3": "Footwork Session Yellow/Blue",
-        "yellowActivity4": "Basic Stroke Techniques Yellow/Blue",
-        "yellowActivity5": "Yellow Tennis Session 90 minutes",
-        "blueActivity1": "Blue Tennis Session",
-        "blueActivity2": "Blue Tennis Session 90 minutes",
-        "blueActivity3": "Footwork Session Yellow/Blue",
-        "blueActivity4": "Basic Stroke Techniques Yellow/Blue",
-        "blueActivity5": "Slice and Drop Shot Technique Blue/Red",
-        "blueActivity6": "Blue Tennis Session (Doubles Focus)",
-        "redActivity1": "Red Tennis Session",
-        "redActivity2": "Footwork Session Red/Black",
-        "redActivity3": "Red Tennis Session 90 minutes",
-        "redActivity4": "Basic Stroke Techniques Red/Black",
-        "redActivity5": "Volley and Attack Techniques Red/Black",
-        "blackActivity1": "Black Tennis Session",
-        "blackActivity2": "Black Tennis Session 90 minutes",
-        "blackActivity3": "Footwork Session Red/Black",
-        "blackActivity4": "Basic Stroke Techniques Red/Black",
-        "blackActivity5": "Volley and Attack Techniques Red/Black",
-        "menuGreen": "Green",
-        "menuYellow": "Yellow",
-        "menuBlue": "Blue",
-        "menuRed": "Red",
-        "menuBlack": "Black"
-      }
-    }
-    la texten här
+    "levelDescriptions": "Grön nivå (1/5): Den gröna nivån passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära dig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.\n\nGul nivå (2/5): På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång ett eget spel, delta i enklare matcher, och har grundläggande kunskap om taktik och rörelser på banan.\n\nBlå nivå (3/5): Den blå nivån är för dig som behärskar hela spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen på olika ställen och använda olika typer av spinn i dina slag.\n\nRöd nivå (4/5): På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher med olika typer av motstånd. Du varierar både tempo och spinn, och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.\n\nSvart nivå (5/5): Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder, och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.\n\nDessa nivåer säkerställer att alla spelare tränar med andra på liknande nivå för bästa utveckling och spelupplevelse. Varmt välkommen till Ullevi Tennisklubb!",
     "greenLevel": "Grön (1/5)",
     "yellowLevel": "Gul (2/5)",
     "blueLevel": "Blå (3/5)",
@@ -130,25 +46,7 @@
     "whichLevel": "What playing level am I?",
     "exploreActivities": "Explore activities",
     "levelDescriptionsTitle": "Level Descriptions for Ullevi Tennis Club",
-    "levelDescriptions": "Green Level (1/5) ...",  // Lägg tLevel Descriptions for Ullevi Tennisklubb
-    Green Level (1/5)
-    The green level is suitable for beginners or those who have played very little before. The focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control. The goal is to enable you to play with another player. For beginners, we offer free tennis racket rentals during the first sessions.
-    
-    Yellow Level (2/5)
-    At the yellow level, you are expected to have a basic understanding of tennis. You can keep the game going, participate in simple matches, and have a fundamental knowledge of tactics and movement on the court.
-    
-    Blue Level (3/5)
-    The blue level is for those who master the full game and can move efficiently across the entire court. You can control the pace, place the ball in different areas, and use different types of spin in your shots.
-    
-    Red Level (4/5)
-    At the red level, you play at a high pace with few mistakes and can handle matches against various types of opponents. You vary both the pace and spin, and you have the physical ability to cover the whole court. To play at the red level, you need a recommendation from a coach.
-    
-    Black Level (5/5)
-    The black level is for the most advanced players, often former competitive players or those with long experience in tennis. Training focuses on details rather than basics, following a similar structure to the club’s competitive juniors. A coach’s recommendation is required to participate at this level.
-    
-    These levels ensure that all players train with others of similar skill levels for optimal development and playing experience. A warm welcome to Ullevi Tennisklubb!
-    
-    ill hela texten här
+    "levelDescriptions": "Green Level (1/5): The green level is suitable for beginners or those who have played very little before. The focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control. The goal is to enable you to play with another player. For beginners, we offer free tennis racket rentals during the first sessions.\n\nYellow Level (2/5): At the yellow level, you are expected to have a basic understanding of tennis. You can keep the game going, participate in simple matches, and have a fundamental knowledge of tactics and movement on the court.\n\nBlue Level (3/5): The blue level is for those who master the full game and can move efficiently across the entire court. You can control the pace, place the ball in different areas, and use different types of spin in your shots.\n\nRed Level (4/5): At the red level, you play at a high pace with few mistakes and can handle matches against various types of opponents. You vary both the pace and spin, and you have the physical ability to cover the whole court. To play at the red level, you need a recommendation from a coach.\n\nBlack Level (5/5): The black level is for the most advanced players, often former competitive players or those with long experience in tennis. Training focuses on details rather than basics, following a similar structure to the club’s competitive juniors. A coach’s recommendation is required to participate at this level.\n\nThese levels ensure that all players train with others of similar skill levels for optimal development and playing experience. A warm welcome to Ullevi Tennis Club!",
     "greenLevel": "Green (1/5)",
     "yellowLevel": "Yellow (2/5)",
     "blueLevel": "Blue (3/5)",
