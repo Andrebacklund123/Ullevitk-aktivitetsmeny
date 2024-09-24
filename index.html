@@ -58,7 +58,6 @@
             word-wrap: break-word;
         }
 
-        /* Media query för att justera textstorlek på mindre skärmar */
         @media screen and (max-width: 600px) {
             h1 {
                 font-size: 1.8rem;
@@ -81,7 +80,6 @@
             }
         }
 
-        /* Nyhetsbanner */
         .news-banner {
             background-color: #ffeb3b;
             color: black;
@@ -107,12 +105,11 @@
             margin-bottom: 20px;
         }
 
-        /* Nya färger enligt önskemål */
-        .green { background-color: #4CAF50; } /* Grön */
-        .yellow { background-color: #FFCA28; color: #000000; } /* Gul */
-        .blue { background-color: #42A5F5; } /* Blå */
-        .red { background-color: #EF5350; } /* Röd */
-        .black { background-color: #212121; } /* Svart */
+        .green { background-color: #4CAF50; }
+        .yellow { background-color: #FFCA28; color: #000000; }
+        .blue { background-color: #42A5F5; }
+        .red { background-color: #EF5350; }
+        .black { background-color: #212121; }
 
         ul {
             list-style-type: none;
@@ -124,7 +121,7 @@
         }
 
         ul li a {
-            color: #ffffff; /* Gör länkar mer synliga */
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
@@ -176,7 +173,6 @@
             cursor: pointer;
         }
 
-        /* Overlay för nivåbeskrivningar */
         .overlay {
             display: none;
             position: fixed;
@@ -195,13 +191,13 @@
             transform: translate(-50%, -50%);
             background-color: #ffffff;
             padding: 20px;
-            width: 80%;  /* Justerad bredd */
+            width: 80%;
             text-align: left;
             border-radius: 10px;
             color: #000;
             max-height: 80%;
             overflow-y: auto;
-            line-height: 1.6; /* Förbättrad läsbarhet */
+            line-height: 1.6;
         }
 
         .overlay-content h2 {
@@ -211,7 +207,7 @@
         }
 
         .overlay-content p {
-            margin-bottom: 15px; /* Ökad marginal mellan stycken */
+            margin-bottom: 15px;
         }
 
         .overlay-close {
@@ -229,7 +225,6 @@
 <body>
 
     <header>
-        <!-- Navigering -->
         <nav role="navigation" aria-label="Primär navigation">
             <a href="#green" id="menu-green">Grön</a>
             <a href="#yellow" id="menu-yellow">Gul</a>
@@ -240,38 +235,40 @@
     </header>
 
     <main>
-        <!-- Nyhetsbanner -->
         <div class="news-banner" id="news-banner">
             Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
         </div>
 
-        <!-- Startsida -->
         <div class="container">
             <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy">
             <h1 id="page-title">Aktivitetsmeny</h1>
-            <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken spelnivå är jag?</a> <!-- Namnändrad knapp -->
+            <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken spelnivå är jag?</a>
             <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
         </div>
 
-        <!-- Överlagstexten -->
         <div id="level-overlay" class="overlay">
             <div class="overlay-content">
                 <h2 id="level-description-title">Nivåbeskrivningar för Ullevi Tennisklubb</h2>
                 <p id="level-descriptions">
                     <strong>Grön nivå (1/5)</strong><br>
-                    Den gröna nivån passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära dig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.<br><br>
-                    
+                    <em>För nybörjare eller de som spelat mycket lite tidigare.</em><br>
+                    Fokus ligger på att lära sig tennisens grunder, såsom grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare erbjuds gratis lån av tennisracket under de första tillfällena.<br><br>
+
                     <strong>Gul nivå (2/5)</strong><br>
-                    På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång ett eget spel, delta i enklare matcher, och har grundläggande kunskap om taktik och rörelser på banan.<br><br>
+                    <em>För spelare med grundläggande förståelse för tennis.</em><br>
+                    Du kan hålla igång ett eget spel, delta i enklare matcher och har grundläggande kunskap om taktik och rörelser på banan.<br><br>
 
                     <strong>Blå nivå (3/5)</strong><br>
-                    Den blå nivån är för dig som behärskar hela spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen på olika ställen och använda olika typer av spinn i dina slag.<br><br>
+                    <em>För spelare som behärskar hela spelet.</em><br>
+                    Du kan röra dig effektivt över hela banan, kontrollera tempot och placera bollen på olika ställen. Du kan också använda olika typer av spinn i dina slag.<br><br>
 
                     <strong>Röd nivå (4/5)</strong><br>
-                    På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher med olika typer av motstånd. Du varierar både tempo och spinn, och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.<br><br>
+                    <em>För avancerade spelare med få misstag.</em><br>
+                    Du spelar på ett högt tempo och kan hantera olika typer av motstånd. Du varierar både tempo och spinn och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du en rekommendation från en tränare.<br><br>
 
                     <strong>Svart nivå (5/5)</strong><br>
-                    Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder, och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.<br><br>
+                    <em>För de mest avancerade spelarna.</em><br>
+                    Detta är ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder, och följer en liknande struktur som för klubbens tävlingsjuniorer. En rekommendation från en tränare krävs för att delta.<br><br>
 
                     Dessa nivåer säkerställer att alla spelare tränar med andra på liknande nivå för bästa utveckling och spelupplevelse. Varmt välkommen till Ullevi Tennisklubb!
                 </p>
@@ -339,7 +336,6 @@
     </main>
 
     <footer>
-        <!-- Språkväxlare -->
         <div class="language-switch">
             <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
             <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
@@ -350,7 +346,6 @@
         let currentLanguage = 'sv';
         let translations = {};
 
-        // Hämta översättningarna från JSON-fil
         fetch('translations.json')
           .then(response => response.json())
           .then(data => {
@@ -410,7 +405,6 @@
             document.getElementById('blackActivity4').textContent = translations.currentLanguage.blackActivity4;
             document.getElementById('blackActivity5').textContent = translations.currentLanguage.blackActivity5;
 
-            // Uppdatera huvudmeny färgnamn
             document.getElementById('menu-green').textContent = translations[currentLanguage].menuGreen;
             document.getElementById('menu-yellow').textContent = translations[currentLanguage].menuYellow;
             document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
