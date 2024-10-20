@@ -4,7 +4,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/apple-touch-icon',
+  '/apple-touch-icon.png',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
   '/service-worker.js',
@@ -14,7 +14,6 @@ const urlsToCache = [
   '/ullevitk_logo.png'
 ];
 
-// Installera Service Worker och lagra alla resurser i cache
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -22,48 +21,36 @@ self.addEventListener('install', (event) => {
         console.log('Öppnar cache och lagrar fördefinierade resurser');
         return cache.addAll(urlsToCache);
       })
-      .catch((error) => {
-        console.error('Fel vid caching av resurser:', error);
-      })
   );
 });
 
-// Hämta resurser
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
+        // Returnera cache om det finns
         if (response) {
-          return response; // Returnera cache om det finns
+          return response;
         }
 
-        // Om ingen cache finns, hämta från nätverket och lägg till i cachen
+        // Hämta från nätverket och lägg till i cachen
         return fetch(event.request)
           .then((networkResponse) => {
-            // Kontrollera om vi fick ett giltigt svar innan cache
-            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            if (!networkResponse || networkResponse.status !== 200) {
               return networkResponse;
             }
-
-            // Klona svaret för att både returnera till användaren och lägga till i cache
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME)
+            return caches.open(CACHE_NAME)
               .then((cache) => {
-                cache.put(event.request, responseToCache);
+                cache.put(event.request, networkResponse.clone());
+                return networkResponse;
               });
-
-            return networkResponse;
-          })
-          .catch((error) => {
-            console.error('Nätverksförfrågan misslyckades:', error);
-            // Eventuell fallback-hantering kan läggas till här
-            return caches.match('/index.html'); // Fallback till index.html vid fel
           });
+      }).catch(() => {
+        return caches.match('/index.html'); // Fall-back om nätverk inte finns
       })
   );
 });
 
-// Aktivera och rensa gammal cache
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
@@ -71,7 +58,6 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (!cacheWhitelist.includes(cacheName)) {
-            console.log('Rensar gammal cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
