@@ -334,20 +334,21 @@
             <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
         </div>
     </footer>
-('serviceWorker' in navigator) {
+
+    <script>
+        if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
                     .then((registration) => {
                         console.log('Service Worker registrerad med scope:', registration.scope);
                     })
                     .catch((error) => {
-                        console.log('Service Worker registrering misslyckades:', error);
+                        console.error('Service Worker registrering misslyckades:', error);
                     });
             });
         }
     </script>
-</body>
-</html>
+
     <script>
         let currentLanguage = 'sv';
         let translations = {};
