@@ -4,10 +4,14 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/styles.css',
-  '/scripts.js',
-  '/images/icon-192x192.png',
-  '/images/icon-512x512.png'
+  '/apple-touch-icon',
+  '/android-chrome-192x192.png',
+  '/android-chrome-512x512.png',
+  '/service-worker.js',
+  '/translations.json',
+  '/svenska-flag.png',
+  '/english-flag.png',
+  '/ullevitk_logo.png'
 ];
 
 self.addEventListener('install', (event) => {
