@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             background-color: var(--secondary-color);
-            color: var(--secondary-color);
+            color: #000;
         }
 
         nav {
@@ -96,20 +96,21 @@
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             max-width: 800px;
-            color: #ffffff;
+            color: #000;
             border: 3px solid #e0e0e0;
         }
 
         .level h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
-        .green { background-color: #4CAF50; }
-        .yellow { background-color: #FFCA28; color: #000000; }
-        .blue { background-color: #42A5F5; }
-        .red { background-color: #EF5350; }
-        .black { background-color: #212121; }
+        .green { background-color: #e8f5e9; }
+        .yellow { background-color: #fff9c4; }
+        .blue { background-color: #e3f2fd; }
+        .red { background-color: #ffebee; }
+        .black { background-color: #eeeeee; }
 
         ul {
             list-style-type: none;
@@ -202,7 +203,14 @@
 
         .overlay-content h2 {
             margin-top: 0;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .overlay-content h3 {
             font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
             color: var(--primary-color);
         }
 
@@ -219,21 +227,6 @@
             display: inline-block;
             margin-top: 20px;
             font-size: 1rem;
-        }
-
-        /* New styling for level descriptions */
-        .level-description {
-            margin-bottom: 30px;
-        }
-
-        .level-description h3 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .level-description p {
-            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -264,7 +257,32 @@
         <div id="level-overlay" class="overlay">
             <div class="overlay-content">
                 <h2 id="level-description-title">Nivåbeskrivningar för Ullevi Tennisklubb</h2>
-                <div id="level-descriptions"></div>
+
+                <div class="level-description">
+                    <h3>Grön nivå (1/5)</h3>
+                    <p>Den gröna nivån passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära dig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.</p>
+                </div>
+
+                <div class="level-description">
+                    <h3>Gul nivå (2/5)</h3>
+                    <p>På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång ett eget spel, delta i enklare matcher, och har grundläggande kunskap om taktik och rörelser på banan.</p>
+                </div>
+
+                <div class="level-description">
+                    <h3>Blå nivå (3/5)</h3>
+                    <p>Den blå nivån är för dig som behärskar hela spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen på olika ställen och använda olika typer av spinn i dina slag.</p>
+                </div>
+
+                <div class="level-description">
+                    <h3>Röd nivå (4/5)</h3>
+                    <p>På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher med olika typer av motstånd. Du varierar både tempo och spinn, och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.</p>
+                </div>
+
+                <div class="level-description">
+                    <h3>Svart nivå (5/5)</h3>
+                    <p>Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder, och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.</p>
+                </div>
+
                 <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
             </div>
         </div>
@@ -363,46 +381,17 @@
             document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
             document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
             document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
-            document.getElementById('level-descriptions').innerHTML = formatLevelDescriptions(translations[currentLanguage].levelDescriptions);
-
-            document.getElementById('green-level').textContent = translations[currentLanguage].greenLevel;
-            document.getElementById('yellow-level').textContent = translations[currentLanguage].yellowLevel;
-            document.getElementById('blue-level').textContent = translations[currentLanguage].blueLevel;
-            document.getElementById('red-level').textContent = translations[currentLanguage].redLevel;
-            document.getElementById('black-level').textContent = translations[currentLanguage].blackLevel;
-
-            document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
-            document.getElementById('greenActivity2').textContent = translations[currentLanguage].greenActivity2;
-            document.getElementById('yellowActivity1').textContent = translations[currentLanguage].yellowActivity1;
-            document.getElementById('yellowActivity2').textContent = translations[currentLanguage].yellowActivity2;
-            document.getElementById('yellowActivity3').textContent = translations[currentLanguage].yellowActivity3;
-            document.getElementById('yellowActivity4').textContent = translations[currentLanguage].yellowActivity4;
-            document.getElementById('yellowActivity5').textContent = translations[currentLanguage].yellowActivity5;
-
-            document.getElementById('blueActivity1').textContent = translations[currentLanguage].blueActivity1;
-            document.getElementById('blueActivity2').textContent = translations[currentLanguage].blueActivity2;
-            document.getElementById('blueActivity3').textContent = translations[currentLanguage].blueActivity3;
-            document.getElementById('blueActivity4').textContent = translations[currentLanguage].blueActivity4;
-            document.getElementById('blueActivity5').textContent = translations[currentLanguage].blueActivity5;
-            document.getElementById('blueActivity6').textContent = translations[currentLanguage].blueActivity6;
-
-            document.getElementById('redActivity1').textContent = translations[currentLanguage].redActivity1;
-            document.getElementById('redActivity2').textContent = translations[currentLanguage].redActivity2;
-            document.getElementById('redActivity3').textContent = translations[currentLanguage].redActivity3;
-            document.getElementById('redActivity4').textContent = translations[currentLanguage].redActivity4;
-            document.getElementById('redActivity5').textContent = translations[currentLanguage].redActivity5;
-
-            document.getElementById('blackActivity1').textContent = translations[currentLanguage].blackActivity1;
-            document.getElementById('blackActivity2').textContent = translations[currentLanguage].blackActivity2;
-            document.getElementById('blackActivity3').textContent = translations[currentLanguage].blackActivity3;
-            document.getElementById('blackActivity4').textContent = translations[currentLanguage].blackActivity4;
-            document.getElementById('blackActivity5').textContent = translations[currentLanguage].blackActivity5;
 
             document.getElementById('menu-green').textContent = translations[currentLanguage].menuGreen;
             document.getElementById('menu-yellow').textContent = translations[currentLanguage].menuYellow;
             document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
             document.getElementById('menu-red').textContent = translations[currentLanguage].menuRed;
             document.getElementById('menu-black').textContent = translations[currentLanguage].menuBlack;
+
+            document.querySelectorAll('.level-description').forEach((desc, index) => {
+                desc.querySelector('h3').textContent = translations[currentLanguage][`level${index + 1}Title`];
+                desc.querySelector('p').textContent = translations[currentLanguage][`level${index + 1}Desc`];
+            });
         }
 
         function formatLevelDescriptions(levelDescriptions) {
