@@ -1,426 +1,48 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Aktivitetsmeny</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#1a237e">
-    <style>
-        :root {
-            --primary-color: #0d47a1;
-            --secondary-color: #ffffff;
-            --hover-color: #002171;
+// Service Worker för Ullevi Tennisklubb Aktivitetsmeny
+const CACHE_NAME = 'ullevitk-cache-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/styles.css',
+  '/scripts.js',
+  '/images/icon-192x192.png',
+  '/images/icon-512x512.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('Öppnar cache och lagrar fördefinierade resurser');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        if (response) {
+          return response; // Returnera cache om det finns
         }
+        return fetch(event.request); // Annars, hämta från nätverket
+      })
+  );
+});
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary-color);
-            color: var(--secondary-color);
-        }
-
-        nav {
-            background-color: var(--primary-color);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            line-height: 1.2;
-            word-wrap: break-word;
-        }
-
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media screen and (max-width: 400px) {
-            nav a {
-                font-size: 1rem;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
-            .level h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        .news-banner {
-            background-color: #ffeb3b;
-            color: black;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .level {
-            margin: 20px auto;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            color: #ffffff;
-            border: 3px solid #e0e0e0;
-        }
-
-        .level h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .green { background-color: #4CAF50; }
-        .yellow { background-color: #FFCA28; color: #000000; }
-        .blue { background-color: #42A5F5; }
-        .red { background-color: #EF5350; }
-        .black { background-color: #212121; }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin: 10px 0;
-        }
-
-        ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background-color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        ul li a:hover {
-            background-color: var(--hover-color);
-        }
-
-        img {
-            width: 150px;
-            height: auto;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin-top: 40px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--hover-color);
-        }
-
-        .language-switch {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch img {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1001;
-        }
-
-        .overlay-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffffff;
-            padding: 20px;
-            width: 80%;
-            text-align: left;
-            border-radius: 10px;
-            color: #000;
-            max-height: 80%;
-            overflow-y: auto;
-            line-height: 1.6;
-        }
-
-        .overlay-content h2 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .overlay-content p {
-            margin-bottom: 15px;
-        }
-
-        .overlay-close {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-
-        /* New styling for level descriptions */
-        .level-description {
-            margin-bottom: 30px;
-        }
-
-        .level-description h3 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .level-description p {
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <nav role="navigation" aria-label="Primär navigation">
-            <a href="#green" id="menu-green">Grön</a>
-            <a href="#yellow" id="menu-yellow">Gul</a>
-            <a href="#blue" id="menu-blue">Blå</a>
-            <a href="#red" id="menu-red">Röd</a>
-            <a href="#black" id="menu-black">Svart</a>
-        </nav>
-    </header>
-
-    <main>
-        <div class="news-banner" id="news-banner">
-            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - <a href="https://share.matchi.com/activities/115001" target="_blank" style="text-decoration: underline; color: black;">Anmäl dig nu!</a>
-        </div>
-
-        <div class="container">
-            <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy">
-            <h1 id="page-title">Aktivitetsmeny</h1>
-            <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken spelnivå är jag?</a>
-            <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
-        </div>
-
-        <div id="level-overlay" class="overlay">
-            <div class="overlay-content">
-                <h2 id="level-description-title">Nivåbeskrivningar för Ullevi Tennisklubb</h2>
-                <div id="level-descriptions"></div>
-                <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
-            </div>
-        </div>
-
-        <!-- Grön Nivå -->
-        <div id="green" class="level green">
-            <h2 id="green-level">Grön (1/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1397" target="_blank" id="greenActivity1">Tennispasset Grön</a></li>
-                <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" id="greenActivity2">Nybörjarkurs</a></li>
-            </ul>
-        </div>
-
-        <!-- Gul Nivå -->
-        <div id="yellow" class="level yellow">
-            <h2 id="yellow-level">Gul (2/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1451" target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
-                <li><a href="https://share.matchi.com/activities/93468" target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
-                <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
-            </ul>
-        </div>
-
-        <!-- Blå Nivå -->
-        <div id="blue" class="level blue">
-            <h2 id="blue-level">Blå (3/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1447" target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/91431" target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-                <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-            </ul>
-        </div>
-
-        <!-- Röd Nivå -->
-        <div id="red" class="level red">
-            <h2 id="red-level">Röd (4/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1448" target="_blank" id="redActivity1">Tennispasset Röd</a></li>
-                <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            </ul>
-        </div>
-
-        <!-- Svart Nivå -->
-        <div id="black" class="level black">
-            <h2 id="black-level">Svart (5/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1450" target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/89916" target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/89172" target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            </ul>
-        </div>
-    </main>
-
-    <footer>
-        <div class="language-switch">
-            <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-            <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
-        </div>
-    </footer>
-
-    <script>
-        let currentLanguage = 'sv';
-        let translations = {};
-
-        fetch('translations.json')
-          .then(response => response.json())
-          .then(data => {
-            translations = data;
-            updateTextContent();
-          })
-          .catch(error => {
-            console.error('Error loading translations:', error);
-            alert('Kunde inte ladda översättningarna. Försök igen senare.');
-          });
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
-        }
-
-        function updateTextContent() {
-            document.title = translations[currentLanguage].pageTitle;
-            document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
-            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
-            document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
-            document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
-            document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
-            document.getElementById('level-descriptions').innerHTML = formatLevelDescriptions(translations[currentLanguage].levelDescriptions);
-
-            document.getElementById('green-level').textContent = translations[currentLanguage].greenLevel;
-            document.getElementById('yellow-level').textContent = translations[currentLanguage].yellowLevel;
-            document.getElementById('blue-level').textContent = translations[currentLanguage].blueLevel;
-            document.getElementById('red-level').textContent = translations[currentLanguage].redLevel;
-            document.getElementById('black-level').textContent = translations[currentLanguage].blackLevel;
-
-            document.getElementById('greenActivity1').textContent = translations[currentLanguage].greenActivity1;
-            document.getElementById('greenActivity2').textContent = translations[currentLanguage].greenActivity2;
-            document.getElementById('yellowActivity1').textContent = translations[currentLanguage].yellowActivity1;
-            document.getElementById('yellowActivity2').textContent = translations[currentLanguage].yellowActivity2;
-            document.getElementById('yellowActivity3').textContent = translations[currentLanguage].yellowActivity3;
-            document.getElementById('yellowActivity4').textContent = translations[currentLanguage].yellowActivity4;
-            document.getElementById('yellowActivity5').textContent = translations[currentLanguage].yellowActivity5;
-
-            document.getElementById('blueActivity1').textContent = translations[currentLanguage].blueActivity1;
-            document.getElementById('blueActivity2').textContent = translations[currentLanguage].blueActivity2;
-            document.getElementById('blueActivity3').textContent = translations[currentLanguage].blueActivity3;
-            document.getElementById('blueActivity4').textContent = translations[currentLanguage].blueActivity4;
-            document.getElementById('blueActivity5').textContent = translations[currentLanguage].blueActivity5;
-            document.getElementById('blueActivity6').textContent = translations[currentLanguage].blueActivity6;
-
-            document.getElementById('redActivity1').textContent = translations[currentLanguage].redActivity1;
-            document.getElementById('redActivity2').textContent = translations[currentLanguage].redActivity2;
-            document.getElementById('redActivity3').textContent = translations[currentLanguage].redActivity3;
-            document.getElementById('redActivity4').textContent = translations[currentLanguage].redActivity4;
-            document.getElementById('redActivity5').textContent = translations[currentLanguage].redActivity5;
-
-            document.getElementById('blackActivity1').textContent = translations[currentLanguage].blackActivity1;
-            document.getElementById('blackActivity2').textContent = translations[currentLanguage].blackActivity2;
-            document.getElementById('blackActivity3').textContent = translations[currentLanguage].blackActivity3;
-            document.getElementById('blackActivity4').textContent = translations[currentLanguage].blackActivity4;
-            document.getElementById('blackActivity5').textContent = translations[currentLanguage].blackActivity5;
-
-            document.getElementById('menu-green').textContent = translations[currentLanguage].menuGreen;
-            document.getElementById('menu-yellow').textContent = translations[currentLanguage].menuYellow;
-            document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
-            document.getElementById('menu-red').textContent = translations[currentLanguage].menuRed;
-            document.getElementById('menu-black').textContent = translations[currentLanguage].menuBlack;
-        }
-
-        function formatLevelDescriptions(levelDescriptions) {
-            const descriptions = levelDescriptions.split('\n\n');
-            let formattedText = '';
-            descriptions.forEach(description => {
-                formattedText += `<p>${description}</p>`;
-            });
-            return formattedText;
-        }
-
-        function showLevelDescriptions() {
-            document.getElementById('level-overlay').style.display = 'block';
-        }
-
-        function hideOverlay() {
-            document.getElementById('level-overlay').style.display = 'none';
-        }
-    </script>
-</body>
-</html>
+self.addEventListener('activate', (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!cacheWhitelist.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
