@@ -259,6 +259,17 @@
     </style>
 </head>
 <body>
+    <!-- Lägg till installationsprompt här -->
+    <div id="install-prompt">
+        <div class="message">
+            <span id="install-message">Lägg till på hemskärmen för snabbare åtkomst!</span>
+        </div>
+        <div class="buttons">
+            <button class="install-button" onclick="installPWA()" id="install-button">Installera</button>
+            <button class="later-button" onclick="closeInstallPrompt()" id="later-button">Senare</button>
+        </div>
+    </div>
+
     <header>
         <nav role="navigation" aria-label="Primär navigation">
             <a href="#green" id="menu-green">Grön</a>
@@ -496,6 +507,53 @@
             } catch (error) {
                 console.error('Fel vid laddning av manifest:', error);
             }
+        });
+    </script>
+
+    <!-- Lägg till detta script före </body> -->
+    <script>
+        // PWA Installation Handler
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const installPrompt = document.getElementById('install-prompt');
+            
+            if (!localStorage.getItem('installPromptDismissed')) {
+                installPrompt.style.display = 'block';
+            }
+        });
+
+        async function installPWA() {
+            const installPrompt = document.getElementById('install-prompt');
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                installPrompt.style.display = 'none';
+            }
+        }
+
+        function closeInstallPrompt() {
+            const installPrompt = document.getElementById('install-prompt');
+            installPrompt.style.display = 'none';
+            localStorage.setItem('installPromptDismissed', 'true');
+        }
+
+        // iOS-specifik instruktion
+        if (navigator.standalone === false && navigator.userAgent.match(/iPhone|iPad|iPod/)) {
+            const installPrompt = document.getElementById('install-prompt');
+            const installMessage = document.getElementById('install-message');
+            installMessage.textContent = translations[currentLanguage].iosInstallPrompt;
+            installPrompt.style.display = 'block';
+            document.querySelector('#install-prompt .install-button').style.display = 'none';
+        }
+
+        window.addEventListener('appinstalled', (evt) => {
+            const installPrompt = document.getElementById('install-prompt');
+            installPrompt.style.display = 'none';
+            localStorage.setItem('installPromptDismissed', 'true');
         });
     </script>
 </body>
