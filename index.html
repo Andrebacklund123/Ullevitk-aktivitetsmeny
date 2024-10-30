@@ -212,127 +212,53 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #ffffff;
-            padding: 30px;
+            padding: 20px;
             width: 80%;
-            max-width: 800px;
             text-align: left;
-            border-radius: 15px;
-            color: #333;
-            max-height: 80vh;
+            border-radius: 10px;
+            color: #000;
+            max-height: 80%;
             overflow-y: auto;
             line-height: 1.6;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .overlay-content h2 {
             margin-top: 0;
-            font-size: 2rem;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-        }
-
-        .level-description {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f5f5f5;
-            border-left: 5px solid;
-        }
-
-        .level-description:last-child {
-            margin-bottom: 20px;
-        }
-
-        .level-description.green { border-left-color: #4CAF50; }
-        .level-description.yellow { border-left-color: #FFCA28; }
-        .level-description.blue { border-left-color: #42A5F5; }
-        .level-description.red { border-left-color: #EF5350; }
-        .level-description.black { border-left-color: #212121; }
-
-        .level-description h3 {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
             color: var(--primary-color);
-            display: flex;
-            align-items: center;
         }
 
-        .level-description h3::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .level-description.green h3::before { background-color: #4CAF50; }
-        .level-description.yellow h3::before { background-color: #FFCA28; }
-        .level-description.blue h3::before { background-color: #42A5F5; }
-        .level-description.red h3::before { background-color: #EF5350; }
-        .level-description.black h3::before { background-color: #212121; }
-
-        .level-description p {
+        .overlay-content p {
             margin-bottom: 15px;
-            font-size: 1.1rem;
-            line-height: 1.6;
         }
 
         .overlay-close {
             background-color: var(--primary-color);
             color: white;
-            padding: 12px 25px;
+            padding: 10px;
             cursor: pointer;
             border-radius: 5px;
             display: inline-block;
             margin-top: 20px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            width: 100%;
+            font-size: 1rem;
         }
 
-        .overlay-close:hover {
-            background-color: var(--hover-color);
+        .level-description {
+            margin-bottom: 30px;
         }
 
-        /* Responsiv design för mindre skärmar */
-        @media screen and (max-width: 600px) {
-            .overlay-content {
-                width: 90%;
-                padding: 20px;
-            }
+        .level-description h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-            .overlay-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .level-description h3 {
-                font-size: 1.3rem;
-            }
-
-            .level-description p {
-                font-size: 1rem;
-            }
+        .level-description p {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <!-- Lägg till installationsprompt här -->
-    <div id="install-prompt">
-        <div class="message">
-            <span id="install-message">Lägg till på hemskärmen för snabbare åtkomst!</span>
-        </div>
-        <div class="buttons">
-            <button class="install-button" onclick="installPWA()" id="install-button">Installera</button>
-            <button class="later-button" onclick="closeInstallPrompt()" id="later-button">Senare</button>
-        </div>
-    </div>
-
     <header>
         <nav role="navigation" aria-label="Primär navigation">
             <a href="#green" id="menu-green">Grön</a>
@@ -344,8 +270,8 @@
     </header>
 
     <main>
-        <div class="news-banner" id="news-banner" onclick="window.open('https://share.matchi.com/activities/115001', '_blank')">
-            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
+        <div class="news-banner" id="news-banner">
+            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - <a href="https://share.matchi.com/activities/115001" target="_blank" style="text-decoration: underline; color: black;">Anmäl dig nu!</a>
         </div>
 
         <div class="container">
@@ -362,8 +288,6 @@
                 <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
             </div>
         </div>
-
-        
 
         <!-- Grön Nivå -->
         <div id="green" class="level green">
@@ -538,27 +462,14 @@
             document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
             document.getElementById('menu-red').textContent = translations[currentLanguage].menuRed;
             document.getElementById('menu-black').textContent = translations[currentLanguage].menuBlack;
-
-            document.getElementById('install-message').textContent = translations[currentLanguage].installPrompt;
-            document.getElementById('install-button').textContent = translations[currentLanguage].installButton;
-            document.getElementById('later-button').textContent = translations[currentLanguage].laterButton;
         }
 
         function formatLevelDescriptions(levelDescriptions) {
             const descriptions = levelDescriptions.split('\n\n');
-            const levels = ['green', 'yellow', 'blue', 'red', 'black'];
             let formattedText = '';
-            
-            descriptions.forEach((description, index) => {
-                const [title, ...content] = description.split('\n');
-                formattedText += `
-                    <div class="level-description ${levels[index]}">
-                        <h3>${title}</h3>
-                        ${content.map(para => `<p>${para}</p>`).join('')}
-                    </div>
-                `;
+            descriptions.forEach(description => {
+                formattedText += `<p>${description}</p>`;
             });
-            
             return formattedText;
         }
 
@@ -585,53 +496,6 @@
             } catch (error) {
                 console.error('Fel vid laddning av manifest:', error);
             }
-        });
-    </script>
-
-    <!-- Lägg till detta script före </body> -->
-    <script>
-        // PWA Installation Handler
-        let deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            const installPrompt = document.getElementById('install-prompt');
-            
-            if (!localStorage.getItem('installPromptDismissed')) {
-                installPrompt.style.display = 'block';
-            }
-        });
-
-        async function installPWA() {
-            const installPrompt = document.getElementById('install-prompt');
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-                installPrompt.style.display = 'none';
-            }
-        }
-
-        function closeInstallPrompt() {
-            const installPrompt = document.getElementById('install-prompt');
-            installPrompt.style.display = 'none';
-            localStorage.setItem('installPromptDismissed', 'true');
-        }
-
-        // iOS-specifik instruktion
-        if (navigator.standalone === false && navigator.userAgent.match(/iPhone|iPad|iPod/)) {
-            const installPrompt = document.getElementById('install-prompt');
-            const installMessage = document.getElementById('install-message');
-            installMessage.textContent = translations[currentLanguage].iosInstallPrompt;
-            installPrompt.style.display = 'block';
-            document.querySelector('#install-prompt .install-button').style.display = 'none';
-        }
-
-        window.addEventListener('appinstalled', (evt) => {
-            const installPrompt = document.getElementById('install-prompt');
-            installPrompt.style.display = 'none';
-            localStorage.setItem('installPromptDismissed', 'true');
         });
     </script>
 </body>
