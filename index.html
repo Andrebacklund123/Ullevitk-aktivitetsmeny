@@ -212,49 +212,112 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #ffffff;
-            padding: 20px;
+            padding: 30px;
             width: 80%;
+            max-width: 800px;
             text-align: left;
-            border-radius: 10px;
-            color: #000;
-            max-height: 80%;
+            border-radius: 15px;
+            color: #333;
+            max-height: 80vh;
             overflow-y: auto;
             line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .overlay-content h2 {
             margin-top: 0;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
         }
 
-        .overlay-content p {
+        .level-description {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            border-left: 5px solid;
+        }
+
+        .level-description:last-child {
+            margin-bottom: 20px;
+        }
+
+        .level-description.green { border-left-color: #4CAF50; }
+        .level-description.yellow { border-left-color: #FFCA28; }
+        .level-description.blue { border-left-color: #42A5F5; }
+        .level-description.red { border-left-color: #EF5350; }
+        .level-description.black { border-left-color: #212121; }
+
+        .level-description h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
             margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .level-description h3::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .level-description.green h3::before { background-color: #4CAF50; }
+        .level-description.yellow h3::before { background-color: #FFCA28; }
+        .level-description.blue h3::before { background-color: #42A5F5; }
+        .level-description.red h3::before { background-color: #EF5350; }
+        .level-description.black h3::before { background-color: #212121; }
+
+        .level-description p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         .overlay-close {
             background-color: var(--primary-color);
             color: white;
-            padding: 10px;
+            padding: 12px 25px;
             cursor: pointer;
             border-radius: 5px;
             display: inline-block;
             margin-top: 20px;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            width: 100%;
         }
 
-        .level-description {
-            margin-bottom: 30px;
+        .overlay-close:hover {
+            background-color: var(--hover-color);
         }
 
-        .level-description h3 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+        /* Responsiv design för mindre skärmar */
+        @media screen and (max-width: 600px) {
+            .overlay-content {
+                width: 90%;
+                padding: 20px;
+            }
 
-        .level-description p {
-            margin-bottom: 15px;
+            .overlay-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .level-description h3 {
+                font-size: 1.3rem;
+            }
+
+            .level-description p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -299,6 +362,8 @@
                 <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
             </div>
         </div>
+
+        
 
         <!-- Grön Nivå -->
         <div id="green" class="level green">
@@ -481,10 +546,19 @@
 
         function formatLevelDescriptions(levelDescriptions) {
             const descriptions = levelDescriptions.split('\n\n');
+            const levels = ['green', 'yellow', 'blue', 'red', 'black'];
             let formattedText = '';
-            descriptions.forEach(description => {
-                formattedText += `<p>${description}</p>`;
+            
+            descriptions.forEach((description, index) => {
+                const [title, ...content] = description.split('\n');
+                formattedText += `
+                    <div class="level-description ${levels[index]}">
+                        <h3>${title}</h3>
+                        ${content.map(para => `<p>${para}</p>`).join('')}
+                    </div>
+                `;
             });
+            
             return formattedText;
         }
 
