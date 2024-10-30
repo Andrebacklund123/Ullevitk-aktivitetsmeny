@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Aktivitetsmeny</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ullevi TK">
+    
+    <!-- Ikoner för iOS -->
+    <link rel="apple-touch-icon" href="apple-touch.icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch.icon.png">
+    
+    <!-- Ikoner för Android -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    
+    <!-- Manifest och Theme -->
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch.icon.png" href="apple-touch.icon.png">
-    <meta name="theme-color" content="#1a237e">
+    <meta name="theme-color" content="#0d47a1">
+    
+    <!-- Fallback ikon -->
+    <link rel="icon" type="image/png" href="apple-touch.icon.png">
+
     <style>
+        /* Din befintliga CSS-kod fortsätter här */
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #ffffff;
+            --hover-color: #002171;
+        }
+        /* ... resten av din CSS ... */
+    </style>
+</head>
         :root {
             --primary-color: #0d47a1;
             --secondary-color: #ffffff;
