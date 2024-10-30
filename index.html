@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Aktivitetsmeny</title>
     
-    <!-- PWA Meta Tags -->
+    <!-- Uppdaterade PWA Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Ullevi TK">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Ullevi TK">
+    <meta name="msapplication-navbutton-color" content="#0d47a1">
+    <meta name="msapplication-starturl" content="./index.html">
     
-    <!-- Ikoner för iOS -->
+    <!-- Uppdaterade ikoner för iOS -->
     <link rel="apple-touch-icon" href="apple-touch.icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch.icon.png">
     
@@ -26,15 +30,6 @@
     <link rel="icon" type="image/png" href="apple-touch.icon.png">
 
     <style>
-        /* Din befintliga CSS-kod fortsätter här */
-        :root {
-            --primary-color: #0d47a1;
-            --secondary-color: #ffffff;
-            --hover-color: #002171;
-        }
-        /* ... resten av din CSS ... */
-    </style>
-</head>
         :root {
             --primary-color: #0d47a1;
             --secondary-color: #ffffff;
@@ -248,7 +243,6 @@
             font-size: 1rem;
         }
 
-        /* New styling for level descriptions */
         .level-description {
             margin-bottom: 30px;
         }
@@ -265,7 +259,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <nav role="navigation" aria-label="Primär navigation">
             <a href="#green" id="menu-green">Grön</a>
@@ -362,20 +355,45 @@
         </div>
     </footer>
 
+    <!-- Uppdaterad Service Worker registrering -->
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registrerad med scope:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.error('Service Worker registrering misslyckades:', error);
-                    });
+            window.addEventListener('load', async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('./service-worker.js');
+                    console.log('Service Worker registrerad:', registration.scope);
+                    checkIcons();
+                } catch (error) {
+                    console.error('Service Worker registrering misslyckades:', error);
+                    try {
+                        const registration = await navigator.serviceWorker.register('/service-worker.js');
+                        console.log('Service Worker registrerad med alternativ sökväg:', registration.scope);
+                    } catch (secondError) {
+                        console.error('Andra försöket misslyckades:', secondError);
+                    }
+                }
+            });
+        }
+
+        function checkIcons() {
+            const icons = [
+                './apple-touch.icon.png',
+                './android-chrome-192x192.png',
+                './android-chrome-512x512.png'
+            ];
+
+            icons.forEach(async (iconPath) => {
+                try {
+                    const response = await fetch(iconPath);
+                    console.log(`${iconPath} status:`, response.ok ? 'Hittades' : 'Hittades inte');
+                } catch (error) {
+                    console.error(`Fel vid kontroll av ${iconPath}:`, error);
+                }
             });
         }
     </script>
 
+    <!-- Språkhantering och övrig funktionalitet -->
     <script>
         let currentLanguage = 'sv';
         let translations = {};
@@ -400,7 +418,7 @@
         function updateTextContent() {
             document.title = translations[currentLanguage].pageTitle;
             document.getElementById('page-title').textContent = translations[currentLanguage].pageTitle;
-            document.getElementById('news-banner').textContent = translations[currentLanguage].newsBanner;
+            document.getElementById('news-banner').innerHTML = translations[currentLanguage].newsBanner;
             document.getElementById('whichLevelBtn').textContent = translations[currentLanguage].whichLevel;
             document.getElementById('exploreActivitiesBtn').textContent = translations[currentLanguage].exploreActivities;
             document.getElementById('level-description-title').textContent = translations[currentLanguage].levelDescriptionsTitle;
@@ -462,6 +480,23 @@
         function hideOverlay() {
             document.getElementById('level-overlay').style.display = 'none';
         }
+    </script>
+
+    <!-- Manifest diagnostik -->
+    <script>
+        window.addEventListener('load', async () => {
+            try {
+                const manifestResponse = await fetch('./manifest.json');
+                if (manifestResponse.ok) {
+                    const manifest = await manifestResponse.json();
+                    console.log('Manifest laddad:', manifest);
+                } else {
+                    console.error('Kunde inte ladda manifest');
+                }
+            } catch (error) {
+                console.error('Fel vid laddning av manifest:', error);
+            }
+        });
     </script>
 </body>
 </html>
