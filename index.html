@@ -281,8 +281,8 @@
     </header>
 
     <main>
-        <div class="news-banner" id="news-banner">
-            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - <a href="https://share.matchi.com/activities/115001" target="_blank" style="text-decoration: underline; color: black;">Anmäl dig nu!</a>
+        <div class="news-banner" id="news-banner" onclick="window.open('https://share.matchi.com/activities/115001', '_blank')">
+            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd - Anmäl dig nu!
         </div>
 
         <div class="container">
@@ -473,6 +473,10 @@
             document.getElementById('menu-blue').textContent = translations[currentLanguage].menuBlue;
             document.getElementById('menu-red').textContent = translations[currentLanguage].menuRed;
             document.getElementById('menu-black').textContent = translations[currentLanguage].menuBlack;
+
+            document.getElementById('install-message').textContent = translations[currentLanguage].installPrompt;
+            document.getElementById('install-button').textContent = translations[currentLanguage].installButton;
+            document.getElementById('later-button').textContent = translations[currentLanguage].laterButton;
         }
 
         function formatLevelDescriptions(levelDescriptions) {
