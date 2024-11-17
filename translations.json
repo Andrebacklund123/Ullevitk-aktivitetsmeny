@@ -39,10 +39,7 @@
     "menuBlue": "Blå",
     "menuRed": "Röd",
     "menuBlack": "Svart",
-    "installPrompt": "Lägg till på hemskärmen för snabbare åtkomst!",
-    "installButton": "Installera",
-    "laterButton": "Senare",
-    "iosInstallPrompt": "För att installera: Tryck på \"Dela\" och välj \"Lägg till på hemskärmen\""
+
   },
   "en": {
     "pageTitle": "Activity Menu",
@@ -84,10 +81,6 @@
     "menuBlue": "Blue",
     "menuRed": "Red",
     "menuBlack": "Black",
-     "installPrompt": "Add to home screen for quicker access!",
-    "installButton": "Install",
-    "laterButton": "Later",
-    "iosInstallPrompt": "To install: Tap \"Share\" and select \"Add to Home Screen\""
   }
 }
   
