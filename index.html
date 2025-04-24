@@ -72,6 +72,20 @@
             text-align: center;
         }
 
+        /* Ny CSS för bildrad */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        .image-row img {
+            width: 150px;
+            height: auto;
+            margin-top: 0;
+        }
+
         h1 {
             font-size: 2.5rem;
             color: var(--primary-color);
@@ -156,12 +170,6 @@
 
         ul li a:hover {
             background-color: var(--hover-color);
-        }
-
-        img {
-            width: 150px;
-            height: auto;
-            margin-top: 30px;
         }
 
         .btn {
@@ -338,7 +346,12 @@
         </div>
 
         <div class="container">
-            <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy">
+            <!-- Bildrad med logotyp och QR-kod -->
+            <div class="image-row">
+                <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy">
+                <img src="QRkodapp.png.png" alt="QR-kod" loading="lazy">
+            </div>
+
             <h1 id="page-title">Aktivitetsmeny</h1>
             <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken spelnivå är jag?</a>
             <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
@@ -351,8 +364,6 @@
                 <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
             </div>
         </div>
-
-        
 
         <!-- Grön Nivå -->
         <div id="green" class="level green">
@@ -536,12 +547,11 @@
             
             descriptions.forEach((description, index) => {
                 const [title, ...content] = description.split('\n');
-                formattedText += `
-                    <div class="level-description ${levels[index]}">
+                formattedText += 
+                    `<div class="level-description ${levels[index]}">
                         <h3>${title}</h3>
                         ${content.map(para => `<p>${para}</p>`).join('')}
-                    </div>
-                `;
+                    </div>`;
             });
             
             return formattedText;
