@@ -5,7 +5,7 @@
     "whichLevel": "Vilken spelnivå är jag?",
     "exploreActivities": "Utforska aktiviteter",
     "levelDescriptionsTitle": "Nivåbeskrivningar för Ullevi Tennisklubb",
-    "levelDescriptions": "Grön nivå (1/5): Den gröna nivån passar dig som är nybörjare eller har spelat väldigt lite tidigare. Fokus ligger på att lära dig tennisens grunder, som grepp, svingar, fotarbete och bollkontroll. Målet är att du ska kunna spela med en annan spelare. För nybörjare finns möjlighet att låna tennisracket gratis under de första tillfällena.\n\nGul nivå (2/5): På gul nivå förväntas du ha en grundläggande förståelse för tennis. Du kan hålla igång ett eget spel, delta i enklare matcher, och har grundläggande kunskap om taktik och rörelser på banan.\n\nBlå nivå (3/5): Den blå nivån är för dig som behärskar hela spelet och kan röra dig effektivt över hela banan. Du kan kontrollera tempot, placera bollen på olika ställen och använda olika typer av spinn i dina slag.\n\nRöd nivå (4/5): På röd nivå spelar du på ett högt tempo med få misstag och kan hantera matcher med olika typer av motstånd. Du varierar både tempo och spinn, och har den fysiska förmågan att täcka hela banan. För att spela på röd nivå behöver du rekommenderas av en tränare.\n\nSvart nivå (5/5): Svart nivå är för de mest avancerade spelarna, ofta tidigare tävlingsspelare eller personer med lång erfarenhet av tennis. Träningen fokuserar på detaljer snarare än grunder, och följer en liknande struktur som för klubbens tävlingsjuniorer. Även här krävs en rekommendation från en av klubbens tränare för att delta.\n\nDessa nivåer säkerställer att alla spelare tränar med andra på liknande nivå för bästa utveckling och spelupplevelse. Varmt välkommen till Ullevi Tennisklubb!",
+    "levelDescriptions": "Grön nivå (1/5): ... Varmt välkommen till Ullevi Tennisklubb!",
     "greenLevel": "Grön (1/5)",
     "yellowLevel": "Gul (2/5)",
     "blueLevel": "Blå (3/5)",
@@ -41,7 +41,11 @@
     "menuYellow": "Gul",
     "menuBlue": "Blå",
     "menuRed": "Röd",
-    "menuBlack": "Svart"
+    "menuBlack": "Svart",
+    "privateLevel": "Privatlektioner",
+    "privateActivity1": "Boka privatlektion med Mikael Pihl",
+    "privateActivity2": "Boka privatlektion med Carl-Philip Olander",
+    "privateActivity3": "Boka privatlektion med Fredrik Shasteen"
   },
   "en": {
     "pageTitle": "Activity Menu",
@@ -49,7 +53,7 @@
     "whichLevel": "What playing level am I?",
     "exploreActivities": "Explore activities",
     "levelDescriptionsTitle": "Level Descriptions for Ullevi Tennis Club",
-    "levelDescriptions": "Green Level (1/5): The green level is suitable for beginners or those who have played very little before. The focus is on learning the basics of tennis, such as grip, swings, footwork, and ball control. The goal is to enable you to play with another player. For beginners, we offer free tennis racket rentals during the first sessions.\n\nYellow Level (2/5): At the yellow level, you are expected to have a basic understanding of tennis. You can keep the game going, participate in simple matches, and have a fundamental knowledge of tactics and movement on the court.\n\nBlue Level (3/5): The blue level is for those who master the full game and can move efficiently across the entire court. You can control the pace, place the ball in different areas, and use different types of spin in your shots.\n\nRed Level (4/5): At the red level, you play at a high pace with few mistakes and can handle matches against various types of opponents. You vary both the pace and spin, and you have the physical ability to cover the whole court. To play at the red level, you need a recommendation from a coach.\n\nBlack Level (5/5): The black level is for the most advanced players, often former competitive players or those with long experience in tennis. Training focuses on details rather than basics, following a similar structure to the club’s competitive juniors. A coach’s recommendation is required to participate at this level.\n\nThese levels ensure that all players train with others of similar skill levels for optimal development and playing experience. A warm welcome to Ullevi Tennis Club!",
+    "levelDescriptions": "Green Level (1/5): ... A warm welcome to Ullevi Tennis Club!",
     "greenLevel": "Green (1/5)",
     "yellowLevel": "Yellow (2/5)",
     "blueLevel": "Blue (3/5)",
@@ -85,6 +89,10 @@
     "menuYellow": "Yellow",
     "menuBlue": "Blue",
     "menuRed": "Red",
-    "menuBlack": "Black"
+    "menuBlack": "Black",
+    "privateLevel": "Private Lessons",
+    "privateActivity1": "Book private lesson with Mikael Pihl",
+    "privateActivity2": "Book private lesson with Carl-Philip Olander",
+    "privateActivity3": "Book private lesson with Fredrik Shasteen"
   }
 }
