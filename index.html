@@ -383,6 +383,8 @@
                 <li><a href="https://share.matchi.com/activities/89922" target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
                 <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
                 <li><a href="https://share.matchi.com/activities/91433" target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
+                <!-- Vinnarbana Gul -->
+                <li><a href="https://share.matchi.com/activities/126361" target="_blank" id="yellowActivity6">Vinnarbana gul</a></li>
             </ul>
         </div>
 
@@ -396,6 +398,8 @@
                 <li><a href="https://share.matchi.com/activities/90207" target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
                 <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
                 <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
+                <!-- Vinnarbana Blå -->
+                <li><a href="https://share.matchi.com/activities/124375" target="_blank" id="blueActivity7">Vinnarbana blå</a></li>
             </ul>
         </div>
 
@@ -408,6 +412,8 @@
                 <li><a href="https://share.matchi.com/activities/89918" target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
                 <li><a href="https://share.matchi.com/activities/90208" target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
                 <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+                <!-- Vinnarbana Röd -->
+                <li><a href="https://share.matchi.com/activities/124376" target="_blank" id="redActivity6">Vinnarbana röd</a></li>
             </ul>
         </div>
 
@@ -513,6 +519,7 @@
             document.getElementById('yellowActivity3').textContent = translations[currentLanguage].yellowActivity3;
             document.getElementById('yellowActivity4').textContent = translations[currentLanguage].yellowActivity4;
             document.getElementById('yellowActivity5').textContent = translations[currentLanguage].yellowActivity5;
+            document.getElementById('yellowActivity6').textContent = translations[currentLanguage].yellowActivity6;
 
             document.getElementById('blueActivity1').textContent = translations[currentLanguage].blueActivity1;
             document.getElementById('blueActivity2').textContent = translations[currentLanguage].blueActivity2;
@@ -520,12 +527,14 @@
             document.getElementById('blueActivity4').textContent = translations[currentLanguage].blueActivity4;
             document.getElementById('blueActivity5').textContent = translations[currentLanguage].blueActivity5;
             document.getElementById('blueActivity6').textContent = translations[currentLanguage].blueActivity6;
+            document.getElementById('blueActivity7').textContent = translations[currentLanguage].blueActivity7;
 
             document.getElementById('redActivity1').textContent = translations[currentLanguage].redActivity1;
             document.getElementById('redActivity2').textContent = translations[currentLanguage].redActivity2;
             document.getElementById('redActivity3').textContent = translations[currentLanguage].redActivity3;
             document.getElementById('redActivity4').textContent = translations[currentLanguage].redActivity4;
             document.getElementById('redActivity5').textContent = translations[currentLanguage].redActivity5;
+            document.getElementById('redActivity6').textContent = translations[currentLanguage].redActivity6;
 
             document.getElementById('blackActivity1').textContent = translations[currentLanguage].blackActivity1;
             document.getElementById('blackActivity2').textContent = translations[currentLanguage].blackActivity2;
@@ -550,7 +559,7 @@
                 formattedText += 
                     `<div class="level-description ${levels[index]}">
                         <h3>${title}</h3>
-                        ${content.map(para => `<p>${para}</p>`).join('')}
+                        ${content.map(para => `<p>${para}</p>`).join('')})
                     </div>`;
             });
             
