@@ -1,399 +1,502 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Aktivitetsmeny</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktivitetsmeny</title>
 
-    <!-- PWA Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Ullevi TK">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Ullevi TK">
-    <meta name="msapplication-navbutton-color" content="#0d47a1">
-    <meta name="msapplication-starturl" content="./index.html">
+  <!-- PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ullevi TK" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Ullevi TK" />
+  <meta name="msapplication-navbutton-color" content="#0d47a1" />
+  <meta name="msapplication-starturl" content="./index.html" />
+  <meta name="theme-color" content="#0d47a1" />
 
-    <!-- Ikoner -->
-    <link rel="apple-touch-icon" href="apple-touch.icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch.icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0d47a1">
-    <link rel="icon" type="image/png" href="apple-touch.icon.png">
+  <!-- Ikoner -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
+  <link rel="icon" type="image/png" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
 
-    <style>
-        :root {
-            --primary-color: #0d47a1;
-            --secondary-color: #ffffff;
-            --hover-color: #002171;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary-color);
-            color: var(--secondary-color);
-        }
-        nav {
-            background-color: var(--primary-color);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        nav a:hover { text-decoration: underline; }
-        .container {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .image-row {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 20px;
-        }
-        .image-row img {
-            width: 150px;
-            height: auto;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        @media (max-width:600px) {
-            h1 { font-size:1.8rem; }
-        }
-        @media (max-width:400px) {
-            nav a { font-size:1rem; }
-            .btn { padding:10px 20px; font-size:1rem; }
-            h1 { font-size:1.5rem; }
-            .level h2 { font-size:1.5rem; }
-        }
-        .news-banner {
-            background-color: #ffeb3b;
-            color: #000;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .level {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            color: #fff;
-            border: 3px solid #e0e0e0;
-        }
-        .level h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        .green   { background-color: #4CAF50; }
-        .yellow  { background-color: #FFCA28; color: #000; }
-        .blue    { background-color: #42A5F5; }
-        .red     { background-color: #EF5350; }
-        .black   { background-color: #212121; }
-        .private { background-color: #6e6e6e; }
+  <style>
+    :root { --primary:#0d47a1; --hover:#002171; }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#111;background:#fff}
+    nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:16px;padding:14px;background:var(--primary);box-shadow:0 4px 8px rgba(0,0,0,.1)}
+    nav a{color:#fff;text-decoration:none;font-weight:700}
+    nav a:hover,nav a:focus{text-decoration:underline}
+    .container{text-align:center;padding:28px 16px}
+    .image-row{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:6px 0 14px}
+    .image-row img{width:130px;height:auto}
+    h1{margin:8px 0 14px;color:var(--primary);font-size:2rem}
+    .btn{display:inline-block;padding:12px 18px;margin:8px;background:var(--primary);color:#fff;text-decoration:none;border-radius:8px;font-weight:700}
+    .btn:hover,.btn:focus{background:var(--hover)}
+    .ghost{background:#eef3ff;color:#0d47a1}
+    .news-banner{background:#ffeb3b;color:#000;padding:12px;margin:0 12px 16px;border-radius:8px;text-align:center;font-weight:700}
+    .news-banner a{color:#000;text-decoration:none}
+    .news-banner a:hover{text-decoration:underline}
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 10px 0;
-        }
-        ul li a {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            min-width: 180px;
-            text-align: center;
-        }
-        ul li a:hover {
-            background-color: var(--hover-color);
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin-top: 40px;
-            background-color: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: background-color 0.3s ease;
-        }
-        .btn:hover { background-color: var(--hover-color); }
-        .language-switch {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch img {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 1001;
-        }
-        .overlay-content {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%,-50%);
-            background-color: #fff;
-            padding: 30px;
-            width: 80%; max-width: 800px;
-            border-radius: 15px;
-            color: #333;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            line-height: 1.6;
-        }
-        .overlay-content h2 {
-            margin-top: 0;
-            font-size: 2rem;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-        }
-        .overlay-close {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            padding: 12px 25px;
-            margin-top: 20px;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-        }
-        .overlay-close:hover { background-color: var(--hover-color); }
-    </style>
+    .level{max-width:900px;margin:18px auto;padding:24px;border-radius:12px;box-shadow:0 6px 12px rgba(0,0,0,.12);border:3px solid #e0e0e0}
+    .level h2{margin:0 0 12px;color:#fff}
+    .green{background:#4CAF50}.yellow{background:#FFCA28;color:#111}.blue{background:#42A5F5}.red{background:#EF5350}.black{background:#212121}.private{background:#6e6e6e}
+
+    ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    ul li a{display:block;padding:10px 12px;background:rgba(0,0,0,.15);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;text-align:center}
+    .yellow ul li a{color:#111;background:rgba(0,0,0,.08)}
+
+    /* Overlay (nivå-guide) */
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1001}
+    .dialog{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;width:min(92vw,880px);max-height:85vh;overflow:auto;border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .dialog h2{margin:0 0 8px;color:var(--primary)}
+    .sub{margin:0 0 18px;color:#444}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
+    .chip{padding:10px 14px;border:2px solid #ddd;border-radius:999px;cursor:pointer;font-weight:700;background:#fafafa}
+    .chip[aria-pressed="true"]{border-color:var(--primary);background:#eaf1ff}
+    .q{margin:10px 0 4px;font-weight:700}
+    .row{display:flex;flex-wrap:wrap;gap:8px}
+    .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+    .note{font-size:.9rem;color:#666;margin-top:6px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef3ff;color:#0d47a1;font-weight:700;margin-left:8px}
+
+    .language-switch{position:fixed;right:16px;bottom:16px;display:flex;gap:10px}
+    .language-switch img{width:40px;height:40px;cursor:pointer}
+
+    /* Barn (ROG) styling */
+    .kids{background:#f3f7ff;color:#0d47a1;border-color:#d9e3ff}
+    .kids h2{color:#0d47a1}
+    .kids .wrap{display:grid;gap:14px}
+    .kids .card{background:#fff;border:2px solid #d9e3ff;border-radius:12px;padding:16px}
+    .kids .card h3{margin:0 0 6px}
+    .kids .seg{margin-top:8px}
+    .kids .item{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed #e5ecff}
+    .kids .item:last-child{border-bottom:0}
+    .kids .when{font-weight:600}
+    .kids .cta{display:flex;gap:8px}
+    .kids .cta a{background:#0d47a1;color:#fff;border-radius:8px;padding:8px 12px;text-decoration:none}
+    .kids .cta a:hover{background:#002171}
+    .badge{display:inline-block;background:#eaf1ff;color:#0d47a1;padding:2px 8px;border-radius:999px;font-weight:700;margin-left:6px}
+  </style>
 </head>
 <body>
-    <header>
-        <nav role="navigation" aria-label="Primär navigation">
-            <a href="#green" id="menu-green">Grön</a>
-            <a href="#yellow" id="menu-yellow">Gul</a>
-            <a href="#blue" id="menu-blue">Blå</a>
-            <a href="#red" id="menu-red">Röd</a>
-            <a href="#black" id="menu-black">Svart</a>
-        </nav>
-    </header>
+  <header>
+    <nav role="navigation" aria-label="Primär navigation">
+      <a href="#green" id="menu-green">Grön</a>
+      <a href="#yellow" id="menu-yellow">Gul</a>
+      <a href="#blue" id="menu-blue">Blå</a>
+      <a href="#red" id="menu-red">Röd</a>
+      <a href="#black" id="menu-black">Svart</a>
+    </nav>
+  </header>
 
-    <main>
-        <div class="news-banner" id="news-banner"
-             onclick="window.open('https://share.matchi.com/activities/115001','_blank')">
-            Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd – Anmäl dig nu!
+  <main>
+    <div class="news-banner" id="news-banner">
+      <a href="https://share.matchi.com/activities/115001" target="_blank" rel="noopener noreferrer">
+        Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd – Anmäl dig nu!
+      </a>
+    </div>
+
+    <div class="container">
+      <div class="image-row">
+        <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy" />
+        <img src="QRkodapp.png.png" alt="QR-kod för aktivitetsmenyn" loading="lazy" />
+      </div>
+
+      <h1 id="page-heading">Aktivitetsmeny</h1>
+
+      <!-- Nivå-guide-knapp -->
+      <a href="#" class="btn" id="guideBtn" role="button">Hitta rätt nivå</a>
+      <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
+      <div class="note">Vuxna 18+ använder nivåerna Grön–Svart. Barn har ROG-systemet (Röd/Orange/Grön).</div>
+    </div>
+
+    <!-- Overlay: Nivå-guide -->
+    <div id="guide" class="overlay" aria-hidden="true">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="g-title">
+        <h2 id="g-title">Hitta rätt nivå <span id="g-audience" class="pill">Välj målgrupp</span></h2>
+        <p class="sub">Välj vem du är och svara snabbt – vi skickar dig direkt till rätt sida.</p>
+
+        <!-- Steg 1: Målgrupp -->
+        <div>
+          <div class="q">1) Vem är du?</div>
+          <div class="chips" id="audience">
+            <button class="chip" data-val="barn" aria-pressed="false">Barn (ROG)</button>
+            <button class="chip" data-val="vuxen" aria-pressed="true">Vuxen 18+</button>
+            <button class="chip" data-val="senior" aria-pressed="false">Senior 65+</button>
+          </div>
         </div>
 
-        <div class="container">
-            <div class="image-row">
-                <img src="ullevitk_logo.png" alt="Ullevi Tennisklubb Logotyp" loading="lazy">
-                <img src="QRkodapp.png.png" alt="QR-kod" loading="lazy">
-            </div>
+        <!-- VUXEN/SENIOR (femnivåsystem) -->
+        <div id="adultBlock">
+          <div class="q">2) Erfarenhet</div>
+          <div class="chips" id="experience">
+            <button class="chip" data-val="ny">Helt ny</button>
+            <button class="chip" data-val="grund">Grundläggande</button>
+            <button class="chip" data-val="medel">Spelar regelbundet</button>
+            <button class="chip" data-val="avancerad">Avancerad</button>
+          </div>
 
-            <h1 id="page-title">Aktivitetsmeny</h1>
-            <a href="#green" class="btn" id="whichLevelBtn" onclick="showLevelDescriptions()">Vilken spelnivå är jag?</a>
-            <a href="#green" class="btn" id="exploreActivitiesBtn">Utforska aktiviteter</a>
+          <div class="q">3) Hur ser ditt spel ut?</div>
+          <div class="chips" id="play">
+            <button class="chip" data-val="kort">Rally upp till 3 slag</button>
+            <button class="chip" data-val="stabil">Rally 4–8 slag</button>
+            <button class="chip" data-val="tempo">Högt tempo & matchspel</button>
+          </div>
         </div>
 
-        <div id="level-overlay" class="overlay">
-            <div class="overlay-content">
-                <h2 id="level-description-title">Nivåbeskrivningar för Ullevi Tennisklubb</h2>
-                <div id="level-descriptions"></div>
-                <div class="overlay-close" onclick="hideOverlay()">Stäng</div>
-            </div>
+        <!-- BARN (ROG) -->
+        <div id="kidBlock" style="display:none;">
+          <div class="q">2) Ålder</div>
+          <div class="chips" id="kidAge">
+            <button class="chip" data-val="6-7">6–7 år (Röd)</button>
+            <button class="chip" data-val="8-9">8–9 år (Orange)</button>
+            <button class="chip" data-val="10-12">10–12 år (Grön)</button>
+          </div>
+          <div class="note">Rekommendationerna är vägledande – anpassas efter spelvana.</div>
         </div>
 
-        <!-- Grön nivå -->
-        <div id="green" class="level green">
-            <h2 id="green-level">Grön (1/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1397"    target="_blank" id="greenActivity1">Tennispasset Grön</a></li>
-                <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" id="greenActivity2">Nybörjarkurs</a></li>
-            </ul>
+        <div class="actions">
+          <button class="btn ghost" id="g-close" type="button">Stäng</button>
+          <button class="btn" id="g-recommend" type="button" disabled>Få rekommendation</button>
         </div>
 
-        <!-- Gul nivå -->
-        <div id="yellow" class="level yellow">
-            <h2 id="yellow-level">Gul (2/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1451"   target="_blank" id="yellowActivity1">Tennispasset Gul</a></li>
-                <li><a href="https://share.matchi.com/activities/93468"  target="_blank" id="yellowActivity2">Fortsättningskurs</a></li>
-                <li><a href="https://share.matchi.com/activities/89922"  target="_blank" id="yellowActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/90207"  target="_blank" id="yellowActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/91433"  target="_blank" id="yellowActivity5">Tennispasset Gul 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/126361" target="_blank" id="yellowActivity6">Vinnarbana gul</a></li>
-            </ul>
+        <div id="result" style="display:none; margin-top:14px;">
+          <div id="resultText" class="q"></div>
+          <div class="chips" id="resultActions"></div>
         </div>
+      </div>
+    </div>
 
-        <!-- Blå nivå -->
-        <div id="blue" class="level blue">
-            <h2 id="blue-level">Blå (3/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1447"   target="_blank" id="blueActivity1">Tennispasset Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/91431"  target="_blank" id="blueActivity2">Tennispasset Blå 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/89922"  target="_blank" id="blueActivity3">Tennispasset Fotarbete Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/90207"  target="_blank" id="blueActivity4">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
-                <li><a href="https://share.matchi.com/activities/115001" target="_blank" id="blueActivity5">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
-                <li><a href="https://share.matchi.com/activities/116992" target="_blank" id="blueActivity6">Tennispasset Blå (Fokus Dubbelspel)</a></li>
-                <li><a href="https://share.matchi.com/activities/124375" target="_blank" id="blueActivity7">Vinnarbana blå</a></li>
-            </ul>
-        </div>
+    <!-- Vuxna 18+ nivå-sektioner -->
+    <section id="green" class="level green">
+      <h2>Grön (1/5)</h2>
+      <ul>
+        <li><a href="https://share.matchi.com/activities/1397" target="_blank" rel="noopener noreferrer">Tennispasset Grön</a></li>
+        <li><a href="https://share.matchi.com/occasions/1440456" target="_blank" rel="noopener noreferrer">Nybörjarkurs</a></li>
+      </ul>
+    </section>
 
-        <!-- Röd nivå -->
-        <div id="red" class="level red">
-            <h2 id="red-level">Röd (4/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1448"   target="_blank" id="redActivity1">Tennispasset Röd</a></li>
-                <li><a href="https://share.matchi.com/activities/89172"  target="_blank" id="redActivity2">Tennispasset Fotarbete Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/89918"  target="_blank" id="redActivity3">Tennispasset Röd 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/90208"  target="_blank" id="redActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="redActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/124376" target="_blank" id="redActivity6">Vinnarbana röd</a></li>
-            </ul>
-        </div>
+    <section id="yellow" class="level yellow">
+      <h2>Gul (2/5)</h2>
+      <ul>
+        <li><a href="https://share.matchi.com/activities/1451" target="_blank" rel="noopener noreferrer">Tennispasset Gul</a></li>
+        <li><a href="https://share.matchi.com/activities/93468" target="_blank" rel="noopener noreferrer">Fortsättningskurs</a></li>
+        <li><a href="https://share.matchi.com/activities/89922" target="_blank" rel="noopener noreferrer">Tennispasset Fotarbete Gul/Blå</a></li>
+        <li><a href="https://share.matchi.com/activities/90207" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+        <li><a href="https://share.matchi.com/activities/91433" target="_blank" rel="noopener noreferrer">Tennispasset Gul 90 minuter</a></li>
+        <li><a href="https://share.matchi.com/activities/126361" target="_blank" rel="noopener noreferrer">Vinnarbana gul</a></li>
+      </ul>
+    </section>
 
-        <!-- Svart nivå -->
-        <div id="black" class="level black">
-            <h2 id="black-level">Svart (5/5)</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/1450"   target="_blank" id="blackActivity1">Tennispasset Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/89916"  target="_blank" id="blackActivity2">Tennispasset Svart 90 minuter</a></li>
-                <li><a href="https://share.matchi.com/activities/89172"  target="_blank" id="blackActivity3">Tennispasset Fotarbete Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/90208"  target="_blank" id="blackActivity4">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
-                <li><a href="https://share.matchi.com/activities/114995" target="_blank" id="blackActivity5">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
-            </ul>
-        </div>
+    <section id="blue" class="level blue">
+      <h2>Blå (3/5)</h2>
+      <ul>
+        <li><a href="https://share.matchi.com/activities/1447" target="_blank" rel="noopener noreferrer">Tennispasset Blå</a></li>
+        <li><a href="https://share.matchi.com/activities/91431" target="_blank" rel="noopener noreferrer">Tennispasset Blå 90 minuter</a></li>
+        <li><a href="https://share.matchi.com/activities/89922" target="_blank" rel="noopener noreferrer">Tennispasset Fotarbete Gul/Blå</a></li>
+        <li><a href="https://share.matchi.com/activities/90207" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Grundslag, Gul/Blå</a></li>
+        <li><a href="https://share.matchi.com/activities/115001" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Slice och Stoppboll, Blå/Röd</a></li>
+        <li><a href="https://share.matchi.com/activities/116992" target="_blank" rel="noopener noreferrer">Tennispasset Blå (Fokus Dubbelspel)</a></li>
+        <li><a href="https://share.matchi.com/activities/124375" target="_blank" rel="noopener noreferrer">Vinnarbana blå</a></li>
+      </ul>
+    </section>
 
-        <!-- Privatlektioner -->
-        <div id="private" class="level private">
-            <h2 id="private-level">Privatlektioner</h2>
-            <ul>
-                <li><a href="https://share.matchi.com/activities/96336" target="_blank" id="privateActivity1">Boka privatlektion med Mikael Pihl</a></li>
-                <li><a href="https://share.matchi.com/activities/96351" target="_blank" id="privateActivity2">Boka privatlektion med Carl-Philip Olander</a></li>
-                <li><a href="https://share.matchi.com/activities/96373" target="_blank" id="privateActivity3">Boka privatlektion med Fredrik Shasteen</a></li>
-            </ul>
-        </div>
+    <section id="red" class="level red">
+      <h2>Röd (4/5)</h2>
+      <ul>
+        <li><a href="https://share.matchi.com/activities/1448" target="_blank" rel="noopener noreferrer">Tennispasset Röd</a></li>
+        <li><a href="https://share.matchi.com/activities/89172" target="_blank" rel="noopener noreferrer">Tennispasset Fotarbete Röd/Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/89918" target="_blank" rel="noopener noreferrer">Tennispasset Röd 90 minuter</a></li>
+        <li><a href="https://share.matchi.com/activities/90208" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/114995" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/124376" target="_blank" rel="noopener noreferrer">Vinnarbana röd</a></li>
+      </ul>
+    </section>
 
-    </main>
+    <section id="black" class="level black">
+      <h2>Svart (5/5)</h2>
+      <ul>
+        <li><a href="https://share.matchi.com/activities/1450" target="_blank" rel="noopener noreferrer">Tennispasset Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/89916" target="_blank" rel="noopener noreferrer">Tennispasset Svart 90 minuter</a></li>
+        <li><a href="https://share.matchi.com/activities/89172" target="_blank" rel="noopener noreferrer">Tennispasset Fotarbete Röd/Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/90208" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Grundslag, Röd/Svart</a></li>
+        <li><a href="https://share.matchi.com/activities/114995" target="_blank" rel="noopener noreferrer">Tennispasset Teknik Volley och Attack, Röd/Svart</a></li>
+      </ul>
+    </section>
 
-    <footer>
-        <div class="language-switch">
-            <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')">
-            <img src="english-flag.png" alt="English" onclick="switchLanguage('en')">
-        </div>
-    </footer>
+    <!-- Barn (ROG) – alla länkar och datum från dig, inlagda nedan -->
+    <section id="kids" class="level kids">
+      <h2>Barn (ROG: Röd / Orange / Grön)</h2>
+      <div class="wrap" id="kidsWrap"><!-- renderas av JS --></div>
+      <div class="note">ROG är Svenska Tennisförbundets modell. Åldrarna är vägledande – vi anpassar efter spelvana.</div>
+    </section>
+  </main>
 
-    <script>
-        // Service Worker + ikon-kontroll
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', async () => {
-                try { await navigator.serviceWorker.register('./service-worker.js'); }
-                catch { try { await navigator.serviceWorker.register('/service-worker.js'); } catch {} }
-                ['apple-touch.icon.png','android-chrome-192x192.png','android-chrome-512x512.png']
-                .forEach(async p => console.log(p, (await fetch(p)).ok));
-            });
-        }
+  <footer>
+    <div class="language-switch" aria-label="Välj språk">
+      <img src="svenska-flag.png" alt="Svenska" onclick="switchLanguage('sv')" />
+      <img src="english-flag.png" alt="English" onclick="switchLanguage('en')" />
+    </div>
+  </footer>
 
-        // Språkhantering
-        let currentLanguage = 'sv';
-        let translations = {};
-        fetch('translations.json')
-            .then(r=>r.json())
-            .then(j=>{ translations = j; updateTextContent(); })
-            .catch(()=>console.warn('Kunde inte ladda översättningar'));
+  <script>
+    // Service worker (om fil finns)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try { await navigator.serviceWorker.register('./service-worker.js'); }
+        catch { try { await navigator.serviceWorker.register('/service-worker.js'); } catch {} }
+      });
+    }
 
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.documentElement.lang = lang;
-            updateTextContent();
-        }
+    // Språk
+    let currentLanguage = 'sv';
+    let translations = {};
+    fetch('translations.json').then(r=>r.json()).then(j=>{ translations=j; updateText(); }).catch(updateText);
+    function switchLanguage(lang){ currentLanguage=lang; document.documentElement.lang=lang; updateText(); }
+    function t(key, fallback){ return (translations[currentLanguage] && translations[currentLanguage][key]) || fallback; }
+    function updateText(){
+      document.title = t('pageTitle','Aktivitetsmeny');
+      document.getElementById('page-heading').textContent = t('pageTitle','Aktivitetsmeny');
+      const nb = document.getElementById('news-banner'); nb.innerHTML='';
+      const a=document.createElement('a'); a.href=t('newsBannerLink','https://share.matchi.com/activities/115001');
+      a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=t('newsBanner','Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd – Anmäl dig nu!');
+      nb.appendChild(a);
+      document.getElementById('guideBtn').textContent = t('guideBtn','Hitta rätt nivå');
+      document.getElementById('exploreActivitiesBtn').textContent = t('exploreActivities','Utforska aktiviteter');
+    }
 
-        function updateTextContent() {
-            const t = translations[currentLanguage] || {};
-            document.title = t.pageTitle || 'Aktivitetsmeny';
-            document.getElementById('page-title').textContent = t.pageTitle || 'Aktivitetsmeny';
-            document.getElementById('news-banner').innerHTML = t.newsBanner || 
-                'Nyhet: Tennispasset Teknik Slice och Stoppboll, Blå/Röd – Anmäl dig nu!';
-            document.getElementById('whichLevelBtn').textContent = t.whichLevel || 'Vilken spelnivå är jag?';
-            document.getElementById('exploreActivitiesBtn').textContent = t.exploreActivities || 'Utforska aktiviteter';
+    // -------- Nivå-guide (Vuxen/Senior + Barn ROG) --------
+    const guideEl = document.getElementById('guide');
+    const guideBtn = document.getElementById('guideBtn');
+    const gClose  = document.getElementById('g-close');
+    const gRecommend = document.getElementById('g-recommend');
+    const resultWrap = document.getElementById('result');
+    const resultText = document.getElementById('resultText');
+    const resultActions = document.getElementById('resultActions');
+    const audienceChips = document.getElementById('audience');
+    const expChips = document.getElementById('experience');
+    const playChips = document.getElementById('play');
+    const kidAgeChips = document.getElementById('kidAge');
+    const audiencePill = document.getElementById('g-audience');
+    const adultBlock = document.getElementById('adultBlock');
+    const kidBlock = document.getElementById('kidBlock');
 
-            ['menu-green','menu-yellow','menu-blue','menu-red','menu-black'].forEach((id,i) => {
-                const keys = ['menuGreen','menuYellow','menuBlue','menuRed','menuBlack'];
-                if (t[keys[i]]) document.getElementById(id).textContent = t[keys[i]];
-            });
+    const state = { audience:'vuxen', exp:null, play:null, kidAge:null };
 
-            const levelKeys = ['greenLevel','yellowLevel','blueLevel','redLevel','blackLevel','privateLevel'];
-            ['green-level','yellow-level','blue-level','red-level','black-level','private-level'].forEach((el,i) => {
-                if (t[levelKeys[i]]) document.getElementById(el).textContent = t[levelKeys[i]];
-            });
+    function wireChips(container, key){
+      container.querySelectorAll('.chip').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          container.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          state[key] = btn.dataset.val;
+          if(key==='audience'){
+            audiencePill.textContent = btn.textContent.trim();
+            const isKid = (state.audience==='barn');
+            adultBlock.style.display = isKid ? 'none' : '';
+            kidBlock.style.display = isKid ? '' : 'none';
+            state.exp = state.play = state.kidAge = null;
+            expChips?.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+            playChips?.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+            kidAgeChips?.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+          }
+          checkReady();
+        });
+      });
+    }
+    wireChips(audienceChips,'audience');
+    wireChips(expChips,'exp');
+    wireChips(playChips,'play');
+    wireChips(kidAgeChips,'kidAge');
 
-            ['greenActivity1','greenActivity2',
-             'yellowActivity1','yellowActivity2','yellowActivity3','yellowActivity4','yellowActivity5','yellowActivity6',
-             'blueActivity1','blueActivity2','blueActivity3','blueActivity4','blueActivity5','blueActivity6','blueActivity7',
-             'redActivity1','redActivity2','redActivity3','redActivity4','redActivity5','redActivity6',
-             'blackActivity1','blackActivity2','blackActivity3','blackActivity4','blackActivity5',
-             'privateActivity1','privateActivity2','privateActivity3'
-            ].forEach(id => {
-                if (t[id]) document.getElementById(id).textContent = t[id];
-            });
-        }
+    function checkReady(){
+      const okAdult = (state.audience!=='barn' && state.exp && state.play);
+      const okKid   = (state.audience==='barn' && state.kidAge);
+      gRecommend.disabled = !(okAdult || okKid);
+    }
 
-        function formatLevelDescriptions(str) {
-            const levels = ['green','yellow','blue','red','black'];
-            return (str||'').split('\n\n').map((blk,i)=>{
-                const [h,...ps] = blk.split('\n');
-                return `<div class="level-description ${levels[i]}"><h3>${h}</h3>`
-                     + ps.map(p=>`<p>${p}</p>`).join('')
-                     + `</div>`;
-            }).join('');
-        }
+    function openGuide(){
+      guideEl.style.display='block';
+      guideEl.setAttribute('aria-hidden','false');
+      gRecommend.focus();
+      resultWrap.style.display='none';
+    }
+    function closeGuide(){
+      guideEl.style.display='none';
+      guideEl.setAttribute('aria-hidden','true');
+    }
 
-        function showLevelDescriptions() {
-            document.getElementById('level-overlay').style.display = 'block';
-        }
-        function hideOverlay() {
-            document.getElementById('level-overlay').style.display = 'none';
-        }
-    </script>
+    guideBtn.addEventListener('click', e=>{ e.preventDefault(); openGuide(); });
+    gClose.addEventListener('click', closeGuide);
+    guideEl.addEventListener('click', e=>{ if(e.target.id==='guide') closeGuide(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeGuide(); });
+
+    function recommendAdult(exp, play){
+      if (exp==='ny') return (play==='kort') ? 'green' : 'yellow';
+      if (exp==='grund') return (play==='tempo') ? 'blue' : 'yellow';
+      if (exp==='medel') return (play==='tempo') ? 'red' : 'blue';
+      if (exp==='avancerad') return (play==='tempo') ? 'black' : 'red';
+      return 'green';
+    }
+
+    function recommendKid(age){
+      if (age==='6-7') return 'kid-red';
+      if (age==='8-9') return 'kid-orange';
+      if (age==='10-12') return 'kid-green';
+      return 'kid-red';
+    }
+
+    function levelLabel(id){
+      return {green:'Grön', yellow:'Gul', blue:'Blå', red:'Röd', black:'Svart',
+              'kid-red':'Röd (barn)','kid-orange':'Orange (barn)','kid-green':'Grön (barn)'}[id] || 'Grön';
+    }
+
+    function showResult(levelId){
+      const label = levelLabel(levelId);
+      resultText.textContent = `Rekommenderad nivå: ${label}`;
+      let goHash = levelId.startsWith('kid-') ? '#kids' : '#'+levelId;
+      resultActions.innerHTML = `
+        <a class="btn" href="${goHash}" data-go="${goHash}">Gå till ${label.includes('(barn)')?'Barn (ROG)':label}</a>
+        <a class="btn ghost" href="#" id="seeAll">Visa alla nivåer</a>
+      `;
+      resultWrap.style.display='block';
+
+      resultActions.querySelector('[data-go]').addEventListener('click', (e)=>{
+        e.preventDefault();
+        const hash = e.currentTarget.getAttribute('data-go');
+        localStorage.setItem('lastLevel', hash);
+        document.querySelector(hash)?.scrollIntoView({behavior:'smooth', block:'start'});
+        closeGuide();
+      });
+      resultActions.querySelector('#seeAll').addEventListener('click', (e)=>{
+        e.preventDefault();
+        document.getElementById('guide').scrollTop = 0;
+        resultWrap.style.display='none';
+      });
+    }
+
+    document.getElementById('g-recommend').addEventListener('click', ()=>{
+      const lvl = (state.audience==='barn') ? recommendKid(state.kidAge) : recommendAdult(state.exp, state.play);
+      showResult(lvl);
+    });
+
+    // Spara/återta senaste nivå + ?level=...
+    function getParamLevel(){
+      const u=new URL(window.location.href);
+      const v=(u.searchParams.get('level')||'').toLowerCase();
+      if (['green','yellow','blue','red','black'].includes(v)) return `#${v}`;
+      if (['kid','kids','child','children','rod','röd','orange','gron','grön'].includes(v)) return '#kids';
+      return null;
+    }
+    function initialScroll(){
+      const target = getParamLevel() || localStorage.getItem('lastLevel');
+      if(target) document.querySelector(target)?.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    window.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('nav a').forEach(a=>{
+        a.addEventListener('click', ()=>localStorage.setItem('lastLevel', a.getAttribute('href')));
+      });
+      document.querySelectorAll('.level h2').forEach(h=>{
+        h.addEventListener('click', ()=>{
+          const sec='#'+h.parentElement.id; localStorage.setItem('lastLevel', sec);
+        });
+      });
+      initialScroll();
+    });
+
+    // ----------- BARN (ROG) DATA & RENDER -----------
+    // ALL DATA FRÅN DIG – exakt som du skickade (datum i ISO eller text)
+    const kidsData = [
+      {
+        color:'Röd', age:'6–7 år', key:'kid-red',
+        fourWeeks: [
+          { title:'4 veckor – Torsdag 15:00–16:00 (1)', date:'2025-08-21', link:'https://share.matchi.com/occasions/1752993' },
+          { title:'4 veckor – Fredag 15:00–16:00 (1)',  date:'2025-08-22', link:'https://share.matchi.com/occasions/1753329' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (2)', date:'2025-09-18', link:'https://share.matchi.com/occasions/1755186' },
+          { title:'4 veckor – Fredag 15:00–16:00 (2)',  date:'2025-09-19', link:'https://share.matchi.com/occasions/1755193' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (3)', date:'2025-10-23', link:'https://share.matchi.com/occasions/1755189' },
+          { title:'4 veckor – Fredag 15:00–16:00 (3)',  date:'2025-10-24', link:'https://share.matchi.com/occasions/1755194' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (4)', date:'2025-11-27', link:'https://share.matchi.com/occasions/1755191' },
+          { title:'4 veckor – Fredag 15:00–16:00 (4)',  date:'2025-11-28', link:'https://share.matchi.com/occasions/1755195' },
+        ],
+        season: [
+          { title:'Säsong – 6–7 år', date:'2025-08-19', link:'https://share.matchi.com/occasions/1752970' },
+        ]
+      },
+      {
+        color:'Orange', age:'8–9 år', key:'kid-orange',
+        fourWeeks: [
+          { title:'4 veckor – Torsdag 15:00–16:00 (1)', date:'2025-08-21', link:'https://share.matchi.com/occasions/1752994' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (2)', date:'2025-09-18 15:00–16:00', link:'https://share.matchi.com/occasions/1755185' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (3)', date:'2025-10-23', link:'https://share.matchi.com/occasions/1755188' },
+          { title:'4 veckor – Torsdag 15:00–16:00 (4)', date:'2025-11-27', link:'https://share.matchi.com/occasions/1755190' },
+        ],
+        season: [
+          { title:'Säsong – 8–9 år (A)', date:'2025-08-19', link:'https://share.matchi.com/occasions/1752976' },
+          { title:'Säsong – 8–9 år (B)', date:'2025-08-20', link:'https://share.matchi.com/occasions/1752978' },
+        ]
+      },
+      {
+        color:'Grön', age:'10–12 år', key:'kid-green',
+        fourWeeks: [
+          // Om ni senare vill ha 9–11/10–12 4-veckors, lägg in här.
+        ],
+        season: [
+          { title:'Säsong – 10–12 år', date:'2025-08-20', link:'https://share.matchi.com/occasions/1752981' },
+        ]
+      }
+    ];
+
+    function fmtDate(d){
+      // Om datumsträngen redan innehåller tid (t.ex. "2025-09-18 15:00–16:00"), returnera som den är
+      if(/\d{2}:\d{2}/.test(d)) return d.replaceAll('-', '–');
+      // Annars visa ISO YYYY-MM-DD som svensk datum
+      const [y,m,day] = d.split('-').map(x=>parseInt(x,10));
+      if(!y||!m||!day) return d;
+      return `${day.toString().padStart(2,'0')}-${m.toString().padStart(2,'0')}-${y}`;
+    }
+
+    function renderKids(){
+      const wrap = document.getElementById('kidsWrap');
+      wrap.innerHTML = '';
+      kidsData.forEach(group=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${group.color} <span class="badge">${group.age}</span></h3>
+
+          <div class="seg">
+            <strong>Fyra veckors nybörjarkurs</strong>
+            ${group.fourWeeks.length ? group.fourWeeks.map(it=>`
+              <div class="item">
+                <div class="when">${it.title}</div>
+                <div>${fmtDate(it.date)}</div>
+                <div class="cta">
+                  <a href="${it.link}" target="_blank" rel="noopener noreferrer">Boka</a>
+                </div>
+              </div>
+            `).join('') : `<div class="item"><div>Just nu inga 4-veckors på denna nivå.</div></div>`}
+          </div>
+
+          <div class="seg">
+            <strong>Säsongskurs</strong>
+            ${group.season.length ? group.season.map(it=>`
+              <div class="item">
+                <div class="when">${it.title}</div>
+                <div>${fmtDate(it.date)}</div>
+                <div class="cta">
+                  <a href="${it.link}" target="_blank" rel="noopener noreferrer">Boka</a>
+                </div>
+              </div>
+            `).join('') : `<div class="item"><div>Ingen säsongskurs upplagd ännu.</div></div>`}
+          </div>
+        `;
+        wrap.appendChild(card);
+      });
+    }
+    renderKids();
+  </script>
 </body>
 </html>
